@@ -1,0 +1,7 @@
+{
+  "name": "IndiaTourCabs",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
