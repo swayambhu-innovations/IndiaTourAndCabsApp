@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-img src="assets/login.svg"></ion-img>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title
+        class="ion-text-center"
+        style="font-weight: 600"
+        color="secondary"
+        >Login</ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content class="ion-margin-top">
+      <ion-input type="email" placeholder="Email"></ion-input>
+      <ion-input type="password" placeholder="Password"></ion-input>
+      <ion-text class="ion-text-start">Forget Password?</ion-text>
+      <ion-button expand="block" (click)="login()">Login</ion-button>
+      <ion-item >
+        <p class="ion-text-center" >
+          Dont have an Account?
+          <b color="primary" style="color: #dc9c40" routerLink="../signup"> Sign up </b>
+        </p>
+      </ion-item>
+      <p class="ion-text-center">Or use your Google account</p>
+      <button class="google" >
+        <ion-icon name="logo-google"></ion-icon>
+  
+      </button>
+
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

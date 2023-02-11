@@ -1,0 +1,14 @@
+<ion-header style="position: absolute;">
+  <ion-card class="ion-text-end"  *ngIf="currentPanel !=='homepage'" >
+    <ion-icon name="chevron-back"  routerLink="../homepage"></ion-icon>
+  </ion-card>
+  <ion-img src="assets/itcMain.png" *ngIf="currentPanel ==='homepage'" ></ion-img>
+<ion-text class="ion-margin-center" style="position: relative;top: .2rem;left:1.7rem;right: 0; color:#212638 ;font-weight: 800;" *ngIf="currentPanel !=='homepage'" >{{currentPanel}}</ion-text>
+  <div style="display: flex; gap: 1rem">
+    <ion-card class="ion-text-end">
+      <ion-icon name="language"></ion-icon> </ion-card
+    ><ion-card>
+      <ion-icon name="notifications"></ion-icon>
+    </ion-card>
+  </div>
+</ion-header>

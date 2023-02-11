@@ -1,0 +1,41 @@
+<app-header></app-header>
+<ion-content class="homepage" fullscreen class="ion-padding" scroll-y="false">
+  <ion-slides [options]="slideOptsOne" pager>
+    <ion-slide>
+      <ion-img src="assets/carousel.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide> <ion-img src="assets/carousel.jpg"></ion-img> </ion-slide>
+    <ion-slide> <ion-img src="assets/carousel.jpg"></ion-img> </ion-slide>
+    <ion-slide> <ion-img src="assets/carousel.jpg"></ion-img> </ion-slide>
+  </ion-slides>
+  <ion-card>
+    <ion-grid>
+      <ion-row class="ion-justify-content-between ion-align-items-center">
+        <ion-col size="3">
+          <ion-text>$788</ion-text>
+        </ion-col>
+        <ion-col size="4.5">
+          <div class="indicator">
+            <ion-text>Outstatons</ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-between ion-align-items-center">
+        <ion-col size="3" >
+          <ion-img src="assets/car.png"></ion-img>
+          <!-- <ion-text color="secondary" class="ion-text-margin">#899b</ion-text> <br> -->
+
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="arrow-forward"></ion-icon>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text color="secondary" >Brahma Temple, Rajshthan</ion-text> <br>
+          <ion-text color="secondary" >Robin Restaurant, Delhi</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

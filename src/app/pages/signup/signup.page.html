@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-img src="assets/login.svg"></ion-img>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title
+        class="ion-text-center"
+        style="font-weight: 600"
+        color="secondary"
+        >Sign Up</ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content class="ion-margin-top">
+      <ion-input type="text" placeholder="Full Name"></ion-input>
+
+      <ion-input type="email" placeholder="Email"></ion-input>
+      <ion-input type="password" placeholder="Password"></ion-input>
+      <ion-input type="password" placeholder="Confirm Password"></ion-input>
+
+      <ion-text class="ion-text-start" style="text-decoration: none;" >Already have an Account? 
+        <b color="primary" style="text-decoration: underline;color:#DC9C40 ;" routerLink="../login">Login</b>
+      </ion-text>
+      <ion-button expand="block" (click)="login()">Sign Up</ion-button>
+      
+      <p class="ion-text-center">Or  Signup With Google account</p>
+      <button class="google" >
+        <ion-icon name="logo-google"></ion-icon>
+  
+      </button>
+
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
