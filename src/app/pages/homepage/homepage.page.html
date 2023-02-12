@@ -1,5 +1,5 @@
-<app-header></app-header>
-<ion-content class="homepage" fullscreen class="ion-padding" scroll-y="false">
+<ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
+  <app-header></app-header>
   <ion-slides [options]="slideOptsOne" pager>
     <ion-slide>
       <ion-img src="assets/carousel.jpg"></ion-img>
@@ -9,33 +9,116 @@
     <ion-slide> <ion-img src="assets/carousel.jpg"></ion-img> </ion-slide>
     <ion-slide> <ion-img src="assets/carousel.jpg"></ion-img> </ion-slide>
   </ion-slides>
-  <ion-card>
-    <ion-grid>
-      <ion-row class="ion-justify-content-between ion-align-items-center">
-        <ion-col size="3">
-          <ion-text>$788</ion-text>
-        </ion-col>
-        <ion-col size="4.5">
-          <div class="indicator">
-            <ion-text>Outstatons</ion-text>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row class="ion-justify-content-between ion-align-items-center">
-        <ion-col size="3" >
-          <ion-img src="assets/car.png"></ion-img>
-          <!-- <ion-text color="secondary" class="ion-text-margin">#899b</ion-text> <br> -->
 
-        </ion-col>
-        <ion-col size="1">
-          <ion-icon name="arrow-forward"></ion-icon>
-          <ion-icon name="arrow-forward"></ion-icon>
-        </ion-col>
-        <ion-col size="8">
-          <ion-text color="secondary" >Brahma Temple, Rajshthan</ion-text> <br>
-          <ion-text color="secondary" >Robin Restaurant, Delhi</ion-text>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <app-order-card></app-order-card>
+
+  <ion-text color="secondary" style="font-weight: 600; font-size: 1.2rem"
+    >Explore Place Around You</ion-text
+  >
+  <ion-card
+    style="
+      padding: 0;
+      width: 100%;
+      margin: 1rem 0;
+      height: 10rem;
+      position: relative;
+      border-radius: 0.6rem;
+    "
+  >
+    <ion-img
+      src="assets/map.png"
+      style="height: 100%; width: 100%; object-fit: cover"
+    ></ion-img>
+    <ion-button
+      fill="outline"
+      style="
+        width: 90%;
+        position: absolute;
+        font-size: .75rem;
+        bottom: 1rem;
+        left: 5%;
+        right: 5%;
+      "
+    >
+      Book A Guide to Explore the Place
+      <ion-icon
+        name="search-outline"
+        style="margin: 0 0.4rem; font-size: var(--ion-text)"
+      ></ion-icon>
+    </ion-button>
   </ion-card>
+  <p style="font-size: var(--ion-text); color: rgb(58, 58, 58)">
+    You Have Four Great Sport For Visit Around
+  </p>
+  <ion-row
+    class="ion-justify-content-between ion-align-items-center ion-margin-top"
+    style="width: 100%; height: var(--ion-height); margin: 1rem 0"
+  >
+    <ion-button class="bluebuttonClass" >
+      <ion-img
+        src="assets/icon/taxi1.png"
+        style="height: 2rem; width: 2rem; margin: 0 0.5rem"
+      ></ion-img>
+      <ion-text style="font-weight: 600; font-size: var(--ion-text)"
+        >Book A Cab</ion-text
+      >
+    </ion-button>
+    <ion-button class="bluebuttonClass" >
+      <ion-img
+        src="assets/icon/taxi2.png "
+        style="height: 2rem; width: 2rem; margin: 0 0.5rem"
+      ></ion-img>
+
+      <ion-text style="font-weight: 600; font-size: var(--ion-text)"
+        >Rent A Cab</ion-text
+      >
+    </ion-button>
+  </ion-row>
+  <ion-text
+    color="secondary"
+    style="font-weight: 600; font-size: 1.2rem; margin: 1rem 0"
+    >Spots</ion-text
+  >
+  <app-spots></app-spots>
+ <ion-button class="bluebuttonClass"  style="width: 100%;margin: 1rem 0;" >
+  <ion-row>
+
+    <ion-col size="10" class="ion-text-start" >
+      <ion-text style="font-weight: 400; font-size: var(--ion-text)"
+        >Book A Guide To Explore Spot</ion-text
+      >
+      <p style="font-weight: 400; font-size: .6rem"
+      >Book A Guide To Explore Spot</p
+    >
+    </ion-col>
+    <ion-col size="2">
+      <ion-img
+        src="assets/icon/icon3.png"
+        style="height: 2rem; width: 2rem; margin: 0 .5rem"
+      ></ion-img>
+    </ion-col>
+  </ion-row>
+  
+ </ion-button>
+ <app-out-stations></app-out-stations>
+ <ion-button class="bluebuttonClass"  style="width: 100%;margin: 1rem 0;" >
+  <ion-row>
+
+    <ion-col size="10" class="ion-text-start" >
+      <ion-text style="font-weight: 400; font-size: var(--ion-text)"
+        >Book An Outstation Cab</ion-text
+      >
+      <p style="font-weight: 400; font-size: .6rem"
+      >Get to experience local culture and cuisine</p
+    >
+    </ion-col>
+    <ion-col size="2">
+      <ion-img
+        src="assets/icon/icon4.png"
+        style="height: 2rem; width: 2rem; margin: 0 .5rem"
+      ></ion-img>
+    </ion-col>
+  </ion-row>
+  
+ </ion-button>
 </ion-content>

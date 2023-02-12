@@ -1,0 +1,58 @@
+
+  <swiper [slidesPerView]="2" [loop]="true" effect="fade" >
+    <ng-template swiperSlide *ngFor="let tour of Tours">
+      <ion-card class="tourCard">
+        <ion-img [src]='tour.image'></ion-img>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="6">
+            <div
+              style="
+                background-color: rgba(0, 0, 0, 0.392);
+                height: 1.5rem;
+               width:3.7rem;
+                border-radius: 0.4rem;
+                color: white;
+                display: flex;
+                font-size: var(--ion-text);
+                align-items: center;
+                justify-content: center;
+                gap: 0.4rem;
+              "
+            >
+              <ion-text>{{tour.type}}</ion-text>
+              <ion-icon name="train-outline"></ion-icon>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div
+              style="
+                background-color: rgba(0, 0, 0, 0.392);
+                height: 1.5rem;
+               width:3.7rem;
+                border-radius: 0.3rem;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.4rem;
+                font-size: var(--ion-text);
+              "
+            >
+              <ion-text>{{tour.ratings}}</ion-text>
+              <ion-icon name="star" style="color: yellow"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 60%">
+          <ion-col size="12" style="padding: 0" class="ion-text-start">
+            <ion-text style="color: white">{{tour.name}}</ion-text>
+          </ion-col>
+          <ion-col size="12" style="padding: 0" class="ion-text-start">
+            <ion-icon name="location-outline" color="dark"></ion-icon>
+            <ion-text style="color: white">{{tour.location}}</ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ng-template>
+   
+  </swiper>
