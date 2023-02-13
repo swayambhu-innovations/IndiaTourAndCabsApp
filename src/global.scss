@@ -27,6 +27,22 @@
 
 @import 'swiper/scss';
 @import '@ionic/angular/css/ionic-swiper';
+@import 'swiper/scss/autoplay';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+
+
 .header-md::after{
     background: transparent;
 }
+.shadow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.138) 0%, rgba(0, 0, 0, 0.54) 100%);
+    
+    z-index: 1;
+  }

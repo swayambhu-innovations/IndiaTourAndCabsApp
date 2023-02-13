@@ -9,13 +9,7 @@ export class HomepagePage implements OnInit {
 
   constructor() { }
   windowsWidth = window.innerWidth;
-  slideOptsOne = {
-    initialSlide: 0,
-    slidesPerView: 1,
-    autoplay:true,
-    speed:300,
-    pagination: true
-   };
+ 
   ngOnInit() {
   }
 

@@ -2,15 +2,17 @@
   <swiper [slidesPerView]="2" [loop]="true" effect="fade" >
     <ng-template swiperSlide *ngFor="let tour of Tours">
       <ion-card class="tourCard">
+       
         <ion-img [src]='tour.image'></ion-img>
         <ion-row class="ion-justify-content-between">
           <ion-col size="6">
+
             <div
               style="
                 background-color: rgba(0, 0, 0, 0.392);
                 height: 1.5rem;
                width:3.7rem;
-                border-radius: 0.4rem;
+                border-radius: 0.3rem;
                 color: white;
                 display: flex;
                 font-size: var(--ion-text);
@@ -19,11 +21,11 @@
                 gap: 0.4rem;
               "
             >
-              <ion-text>{{tour.type}}</ion-text>
-              <ion-icon name="train-outline"></ion-icon>
+              <ion-text style="font-size: .8rem;" >{{tour.type}}</ion-text>
+              <ion-icon style="font-size: .8rem;" name="train-outline"></ion-icon>
             </div>
           </ion-col>
-          <ion-col size="6">
+          <ion-col size="5.5">
             <div
               style="
                 background-color: rgba(0, 0, 0, 0.392);
@@ -38,8 +40,8 @@
                 font-size: var(--ion-text);
               "
             >
-              <ion-text>{{tour.ratings}}</ion-text>
-              <ion-icon name="star" style="color: yellow"></ion-icon>
+              <ion-text style="font-size: .8rem;" >{{tour.ratings}}</ion-text>
+              <ion-icon name="star" style="color: yellow;font-size:.9rem"></ion-icon>
             </div>
           </ion-col>
         </ion-row>
@@ -52,6 +54,7 @@
             <ion-text style="color: white">{{tour.location}}</ion-text>
           </ion-col>
         </ion-row>
+        <!-- <div class="shadow"></div> -->
       </ion-card>
     </ng-template>
    

@@ -1,0 +1,20 @@
+ion-accordion-group{
+    margin: 1rem .2rem;
+    height: fit-content;
+    
+border: none;
+    --background: linear-gradient(138.32deg, rgba(0, 0, 0, 0.5) 8.26%, rgba(255, 255, 255, 0.5) 91.02%), #EAECF0;
+}
+ion-accordion{
+    margin: 1rem 0;
+    height: fit-content;
+    background: linear-gradient(138.32deg, rgba(0, 0, 0, 0.5) 8.26%, rgba(255, 255, 255, 0.5) 91.02%), #EAECF0;
+background-blend-mode: soft-light, normal;
+/* n-stroke */
+
+border: 1px solid rgba(255, 255, 255, 0.4);
+/* n-8-8-13-out */
+color: black;
+box-shadow: -9px -8px 13px #F2F4F8, 8px 8px 13px rgba(174, 174, 192, 0.5);
+border-radius: 13px;
+}

@@ -1,0 +1,14 @@
+<!-- <swiper (swiper)="setSwiperInstance($event)"  [slidesPerView]="1" >
+  <ng-template swiperSlide *ngFor="let img of images">
+    <ion-card class="caraousel" >
+      <ion-img [src]="img.image"></ion-img>
+    </ion-card>
+  </ng-template>
+</swiper> -->
+<ion-slides [options]="slideOptsOne" >
+  <ion-slide *ngFor="let img of images">
+    <ion-img [src]="img.image"></ion-img>
+  </ion-slide>
+
+  
+</ion-slides>

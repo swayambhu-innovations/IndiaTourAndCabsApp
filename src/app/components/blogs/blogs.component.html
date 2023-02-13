@@ -1,0 +1,34 @@
+<swiper [slidesPerView]="1.6" [loop]="true" effect="fade" pager="true">
+  <ng-template swiperSlide *ngFor="let blog of Blogs">
+    <ion-card class="blogCard">
+      <ion-img [src]="blog.blogImage"></ion-img>
+      <ion-grid class="content ion-text-start">
+        <ion-row>
+          <ion-col>
+            <ion-text style="font-size: 1rem; font-weight: 400; color: white"
+              >{{ blog.title }}
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text
+              style="font-size: .8rem; font-weight: 200; color: #dbdbdb"
+            >
+            {{ blog.description }}...
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+
+      <div class="shadow"></div>
+    </ion-card>
+  </ng-template>
+</swiper>
+
+  <ion-button color="tertiary" style="width: 80%;margin: 1rem 10%; --border-radius: 0.6rem;text-transform: capitalize;">
+    <ion-text style="font-weight: 500; font-size: var(--ion-text)"
+    >Read More blogs</ion-text
+    >
+  </ion-button>

@@ -1,0 +1,25 @@
+.blogCard   {
+    height: 15rem;
+    width: 12rem;
+    border-radius: .6rem;
+    padding: .5rem .4rem;
+    position: relative;
+    ion-img{
+        position: absolute;
+        top:0;
+        left:0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.content{
+    position: absolute;
+    top: 60%;
+    left:0;
+    right:0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 999;
+}

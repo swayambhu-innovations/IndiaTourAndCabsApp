@@ -1,15 +1,7 @@
 <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
   <app-header></app-header>
-  <ion-slides [options]="slideOptsOne" pager>
-    <ion-slide>
-      <ion-img src="assets/carousel.jpg"></ion-img>
-    </ion-slide>
-
-    <ion-slide> <ion-img src="assets/carousel.jpg"></ion-img> </ion-slide>
-    <ion-slide> <ion-img src="assets/carousel.jpg"></ion-img> </ion-slide>
-    <ion-slide> <ion-img src="assets/carousel.jpg"></ion-img> </ion-slide>
-  </ion-slides>
-
+  
+<app-carousel></app-carousel>
   <app-order-card></app-order-card>
 
   <ion-text color="secondary" style="font-weight: 600; font-size: 1.2rem"
@@ -34,7 +26,7 @@
       style="
         width: 90%;
         position: absolute;
-        font-size: .75rem;
+        font-size: var(--ion-text2);
         bottom: 1rem;
         left: 5%;
         right: 5%;
@@ -54,7 +46,7 @@
     class="ion-justify-content-between ion-align-items-center ion-margin-top"
     style="width: 100%; height: var(--ion-height); margin: 1rem 0"
   >
-    <ion-button class="bluebuttonClass" >
+    <ion-button class="bluebuttonClass">
       <ion-img
         src="assets/icon/taxi1.png"
         style="height: 2rem; width: 2rem; margin: 0 0.5rem"
@@ -63,7 +55,7 @@
         >Book A Cab</ion-text
       >
     </ion-button>
-    <ion-button class="bluebuttonClass" >
+    <ion-button class="bluebuttonClass">
       <ion-img
         src="assets/icon/taxi2.png "
         style="height: 2rem; width: 2rem; margin: 0 0.5rem"
@@ -80,45 +72,45 @@
     >Spots</ion-text
   >
   <app-spots></app-spots>
- <ion-button class="bluebuttonClass"  style="width: 100%;margin: 1rem 0;" >
-  <ion-row>
-
-    <ion-col size="10" class="ion-text-start" >
-      <ion-text style="font-weight: 400; font-size: var(--ion-text)"
-        >Book A Guide To Explore Spot</ion-text
-      >
-      <p style="font-weight: 400; font-size: .6rem"
-      >Book A Guide To Explore Spot</p
-    >
-    </ion-col>
-    <ion-col size="2">
-      <ion-img
-        src="assets/icon/icon3.png"
-        style="height: 2rem; width: 2rem; margin: 0 .5rem"
-      ></ion-img>
-    </ion-col>
-  </ion-row>
-  
- </ion-button>
- <app-out-stations></app-out-stations>
- <ion-button class="bluebuttonClass"  style="width: 100%;margin: 1rem 0;" >
-  <ion-row>
-
-    <ion-col size="10" class="ion-text-start" >
-      <ion-text style="font-weight: 400; font-size: var(--ion-text)"
-        >Book An Outstation Cab</ion-text
-      >
-      <p style="font-weight: 400; font-size: .6rem"
-      >Get to experience local culture and cuisine</p
-    >
-    </ion-col>
-    <ion-col size="2">
-      <ion-img
-        src="assets/icon/icon4.png"
-        style="height: 2rem; width: 2rem; margin: 0 .5rem"
-      ></ion-img>
-    </ion-col>
-  </ion-row>
-  
- </ion-button>
+  <ion-button class="bluebuttonClass" style="width: 100%; margin: 1rem 0">
+    <ion-row>
+      <ion-col size="10" class="ion-text-start">
+        <ion-text style="font-weight: 400; font-size: var(--ion-text)"
+          >Book A Guide To Explore Spot</ion-text
+        >
+        <p style="font-weight: 400; font-size: 0.6rem">
+          Book A Guide To Explore Spot
+        </p>
+      </ion-col>
+      <ion-col size="2">
+        <ion-img
+          src="assets/icon/icon3.png"
+          style="height: 2rem; width: 2rem; margin: 0 0.5rem"
+        ></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-button>
+  <app-out-stations></app-out-stations>
+  <ion-button class="bluebuttonClass" style="width: 100%; margin: 1rem 0">
+    <ion-row>
+      <ion-col size="10" class="ion-text-start">
+        <ion-text style="font-weight: 400; font-size: var(--ion-text)"
+          >Book An Outstation Cab</ion-text
+        >
+        <p style="font-weight: 400; font-size: 0.6rem">
+          Get to experience local culture and cuisine
+        </p>
+      </ion-col>
+      <ion-col size="2">
+        <ion-img
+          src="assets/icon/icon4.png"
+          style="height: 2rem; width: 2rem; margin: 0 0.5rem"
+        ></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-button>
+  <app-travel-tour></app-travel-tour>
+  <app-blogs style="margin-bottom: 2rem"></app-blogs>
+  <app-questions></app-questions>
+  <app-contact></app-contact>
 </ion-content>

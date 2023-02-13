@@ -7,13 +7,23 @@ import { OrderCardComponent } from './order-card/order-card.component';
 import { SpotsComponent } from './spots/spots.component';
 import { SwiperModule } from 'swiper/angular';
 import { OutStationsComponent } from './out-stations/out-stations.component';
+import { TravelTourComponent } from './travel-tour/travel-tour.component';
+import { BlogsComponent } from './blogs/blogs.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { ContactComponent } from './contact/contact.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     OrderCardComponent,
     SpotsComponent,
-    OutStationsComponent
+    OutStationsComponent,
+    TravelTourComponent,
+    BlogsComponent,
+    QuestionsComponent,
+    ContactComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +36,12 @@ import { OutStationsComponent } from './out-stations/out-stations.component';
     HeaderComponent,
     OrderCardComponent,
     SpotsComponent,
-    OutStationsComponent
+    OutStationsComponent,
+    TravelTourComponent,
+    BlogsComponent,
+    QuestionsComponent,
+    ContactComponent,
+    CarouselComponent
   ]
 })
 export class ComponentsModule { }

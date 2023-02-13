@@ -1,0 +1,11 @@
+<ion-text color="secondary" style="font-weight: 600; font-size: 1.2rem;margin: 2rem 0;"
+  >Frequently Asked Questions</ion-text
+>
+<ion-accordion-group expand="inset">
+  <ion-accordion *ngFor="let question of Questions" >
+    <ion-item slot="header"  style="color: black;" >
+      <ion-label style="color: black;" >{{ question.qn }}</ion-label>
+    </ion-item>
+    <div style="color:black;font-size: .8;" class="ion-padding" slot="content">{{ question.ans }}}</div>
+  </ion-accordion>
+</ion-accordion-group>
