@@ -38,6 +38,12 @@ const routes: Routes = [
         path:'',
         redirectTo:'homepage',
         pathMatch:'full'
+      },{
+        path:'notifications',
+        loadChildren: () =>
+          import('../pages/notification/notification.module').then(
+            (m) => m.NotificationPageModule
+          ),
       }
     ],
   },

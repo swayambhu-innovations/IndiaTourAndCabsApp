@@ -12,6 +12,8 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { ContactComponent } from './contact/contact.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { LanguageComponent } from './language/language.component';
+import { BookingCardComponent } from './booking-card/booking-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CarouselComponent } from './carousel/carousel.component';
     BlogsComponent,
     QuestionsComponent,
     ContactComponent,
-    CarouselComponent
+    CarouselComponent,
+    LanguageComponent,
+    BookingCardComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +45,9 @@ import { CarouselComponent } from './carousel/carousel.component';
     BlogsComponent,
     QuestionsComponent,
     ContactComponent,
-    CarouselComponent
+    CarouselComponent,
+    LanguageComponent,
+    BookingCardComponent
   ]
 })
 export class ComponentsModule { }

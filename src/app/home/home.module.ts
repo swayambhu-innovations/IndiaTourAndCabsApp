@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { HomePage } from './home.page';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [HomePage]
 })

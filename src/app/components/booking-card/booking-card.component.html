@@ -1,0 +1,108 @@
+<ion-card *ngIf="bookingType === 'taxi'">
+  <ion-grid>
+    <ion-row
+      class="ion-justify-content-between ion-align-items-start ion-margin-vertical"
+    >
+      <ion-col size="3.5">
+        <ion-img src="assets/car.png"></ion-img>
+      </ion-col>
+      <ion-col size="5">
+        <p style="margin: 0; margin-bottom: 0.4rem ;font-size:.8rem;">
+          12:00 PM
+          <br />
+          1st June 2022
+        </p>
+        <ion-text style="font-size: 0.9rem; font-weight: 500" color="grey"
+          >Amount: <b style="color: black">$5566</b>
+        </ion-text>
+      </ion-col>
+      <ion-col size="3.5">
+        <div class="indicator">
+          <ion-text class="ion-text-center">Outstatons</ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row
+      class="ion-justify-content-between ion-align-items-start ion-border"
+    >
+      <ion-col size="1">
+        <ion-icon
+          name="ellipse"
+          class="ion-margin-bottom"
+          color="primary"
+        ></ion-icon>
+        <ion-icon name="ellipse" color="secondary"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <p
+          color="secondary"
+          style="margin: 0; color: #212638; font-size: 0.8rem"
+        >
+          Brahma Temple, Rajshthan
+        </p>
+        <br />
+        <p
+          color="secondary"
+          style="margin: 0; color: #212638; font-size: 0.8rem"
+        >
+          Robin Restaurant, Delhi
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="2" >
+        <ion-avatar style="height: 2rem; width: 2rem">
+          <ion-img src="assets/avatar.jpg"></ion-img>
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="8" >
+        Driver:
+        <ion-text
+          style="font-weight: 400; color: black; font-size: var(--ion-text)"
+        >
+          Jake Sully</ion-text
+        >
+      </ion-col>
+      <ion-col size="2" class=" ion-align-self-end">
+        <button class="commonbutton">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>
+<ion-card  *ngIf="bookingType === 'guid'">
+  <ion-grid>
+    <ion-row
+      class="ion-justify-content-between ion-align-items-start "
+    >
+      <ion-col size="3" style="margin: auto 0;">
+        <ion-avatar style="height: 3.5rem; width: 3.5rem">
+          <ion-img src="assets/avatar.jpg"></ion-img>
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="5">
+        <p style="margin: 0; margin-bottom: 0.4rem ;font-size:.8rem;">
+          12:00 PM
+          <br />
+          1st June 2022
+        </p>
+        <ion-text style="font-size: 0.9rem; font-weight: 600" color="grey"
+          >Amount: <b style="color: black">$5566</b>
+        </ion-text>
+      <p style="margin:.5rem 0;">
+        Guid: <b style="color: black">Jake Sully</b>
+
+      </p>
+      </ion-col>
+      <ion-col size="4" >
+        <div class="indicator">
+          <ion-text class="ion-text-center">Guid Booking</ion-text>
+        </div>
+       
+      </ion-col>
+    </ion-row>
+   
+   
+  </ion-grid>
+</ion-card>

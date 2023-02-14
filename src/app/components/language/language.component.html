@@ -1,0 +1,27 @@
+<ion-modal
+  #modal
+  trigger="language-modal"
+  [initialBreakpoint]="0.5"
+  [breakpoints]="[0.25, 0.5, 0.75]"
+>
+  <ng-template>
+    <ion-content class="modal ion-padding-top"  >
+      <ion-grid>
+        <ion-row class="ion-text-center ion-margin" color="secondary">
+          <ion-col style="color: black"> Change Language </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col color="secondary" style="color: black"  >
+            <ion-list>
+
+              <ion-item style="border: none; margin: 0" *ngFor="let language of Languages">
+                <ion-label color="secondary"  >{{language.name}}</ion-label>
+                <ion-radio color="secondary" value='language.code' slot="end" value="en"></ion-radio>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>

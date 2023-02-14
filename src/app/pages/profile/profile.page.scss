@@ -1,0 +1,22 @@
+.profile {
+  width: 100%;
+  margin:1rem 0;
+  min-height: 3.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+
+}
+
+.ProfileImage{
+  height: 5.5rem;
+  width: 5.5rem;
+  border-radius: 50%;
+  border: 5px solid rgba(156, 156, 156, 0.4);
+  ion-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+}
+
