@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  currentPanel: string = window.location.pathname.split('/')[2];
+  @Input() currentPanel: string = window.location.pathname.split('/')[2];
   constructor() { }
 
   ngOnInit() {}

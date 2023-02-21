@@ -30,30 +30,28 @@
 @import 'swiper/scss/autoplay';
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
-// @import url('./assets/scss/neumorphism.css.map');
+@import url('./assets/scss/Fonts.scss');
+@import url('./assets/scss/Text.scss');
 
 
 
-.header-md::after{
+.header-md::after {
     background: transparent;
 }
-.shadow{
+
+.shadow {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.138) 0%, rgba(0, 0, 0, 0.54) 100%);
-    
     z-index: 1;
-  }
-.box{
+}
+
+.box {
     background: #EAECF0;
-/* n-stroke */
-
-border: 1px solid rgba(255, 255, 255, 0.4);
-/* n-5-5-10-out */
-
-box-shadow: -5px -5px 8px #F2F4F8, 5px 5px 7px rgba(174, 174, 192, 0.5);
-border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: -5px -5px 8px #F2F4F8, 5px 5px 7px rgba(174, 174, 192, 0.5);
+    border-radius: 10px;
 }

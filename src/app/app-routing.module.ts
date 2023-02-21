@@ -22,6 +22,19 @@ const routes: Routes = [
     path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
+  {
+    path: 'outstation',
+    loadChildren: () => import('./pages/outstation/outstation/outstation.module').then( m => m.OutstationPageModule)
+  },
+  {
+    path: 'vehicle',
+    loadChildren: () => import('./pages/outstation/vehicle/vehicle.module').then( m => m.VehiclePageModule)
+  },
+  {
+    path: 'billing',
+    loadChildren: () => import('./pages/outstation/billing/billing.module').then( m => m.BillingPageModule)
+  },
+
  
  
 ];
