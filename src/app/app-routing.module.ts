@@ -50,6 +50,34 @@ const routes: Routes = [
     path: 'book-a-guide',
     loadChildren: () => import('./pages/book-a-guide/book-a-guide.module').then( m => m.BookAGuidePageModule)
   },
+  {
+    path: 'blog',
+    loadChildren: () => import('./pages/blog/blog/blog.module').then( m => m.BlogPageModule)
+  },
+  {
+    path: 'blog-detail',
+    loadChildren: () => import('./pages/blog/blog-detail/blog-detail.module').then( m => m.BlogDetailPageModule)
+  },
+  {
+    path: 'notification',
+    loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
+  },
+  {
+    path: 'waiting',
+    loadChildren: () => import('./pages/waiting-pages/waiting/waiting.module').then( m => m.WaitingPageModule)
+  },
+  {
+    path: 'confirm-booking',
+    loadChildren: () => import('./pages/waiting-pages/confirm-booking/confirm-booking.module').then( m => m.ConfirmBookingPageModule)
+  },
+  
+  {
+    path: 'cancell-booking',
+    loadChildren: () => import('./pages/waiting-pages/cancell-booking/cancell-booking.module').then( m => m.CancellBookingPageModule)
+  },
+
+
+ 
   
  
 
