@@ -4,21 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { OutstationPageRoutingModule } from './outstation-routing.module';
+import { BookAGuidePageRoutingModule } from './book-a-guide-routing.module';
 
-import { OutstationPage } from './outstation.page';
+import { BookAGuidePage } from './book-a-guide.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OutstationPageRoutingModule,
-    ComponentsModule,
-    
+    BookAGuidePageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [OutstationPage]
+  declarations: [BookAGuidePage]
 })
-export class OutstationPageModule {}
+export class BookAGuidePageModule {}

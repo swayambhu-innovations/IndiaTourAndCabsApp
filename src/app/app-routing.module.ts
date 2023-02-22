@@ -34,6 +34,26 @@ const routes: Routes = [
     path: 'billing',
     loadChildren: () => import('./pages/outstation/billing/billing.module').then( m => m.BillingPageModule)
   },
+  {
+    path: 'renting',
+    loadChildren: () => import('./pages/renting/renting/renting.module').then( m => m.RentingPageModule)
+  },
+  {
+    path: 'renting-vehicle',
+    loadChildren: () => import('./pages/renting/renting-vehicle/renting-vehicle.module').then( m => m.RentingVehiclePageModule)
+  },
+  {
+    path: 'payment-method',
+    loadChildren: () => import('./pages/renting/payment-method/payment-method.module').then( m => m.PaymentMethodPageModule)
+  },
+  {
+    path: 'book-a-guide',
+    loadChildren: () => import('./pages/book-a-guide/book-a-guide.module').then( m => m.BookAGuidePageModule)
+  },
+  
+ 
+
+
 
  
  

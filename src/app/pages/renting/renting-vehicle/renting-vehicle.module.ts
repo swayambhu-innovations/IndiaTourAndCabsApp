@@ -4,21 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { OutstationPageRoutingModule } from './outstation-routing.module';
+import { RentingVehiclePageRoutingModule } from './renting-vehicle-routing.module';
 
-import { OutstationPage } from './outstation.page';
+import { RentingVehiclePage } from './renting-vehicle.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OutstationPageRoutingModule,
-    ComponentsModule,
-    
+    RentingVehiclePageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [OutstationPage]
+  declarations: [RentingVehiclePage]
 })
-export class OutstationPageModule {}
+export class RentingVehiclePageModule {}

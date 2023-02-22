@@ -4,21 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { OutstationPageRoutingModule } from './outstation-routing.module';
+import { PaymentMethodPageRoutingModule } from './payment-method-routing.module';
 
-import { OutstationPage } from './outstation.page';
+import { PaymentMethodPage } from './payment-method.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OutstationPageRoutingModule,
-    ComponentsModule,
-    
+    PaymentMethodPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [OutstationPage]
+  declarations: [PaymentMethodPage]
 })
-export class OutstationPageModule {}
+export class PaymentMethodPageModule {}
