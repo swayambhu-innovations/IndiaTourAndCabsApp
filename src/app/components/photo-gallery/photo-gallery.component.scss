@@ -1,0 +1,15 @@
+.tourCard{
+    height: 11rem;
+    width: 10rem;
+    border-radius: .8rem;
+    padding: .5rem .2rem;
+    position: relative;
+    ion-img{
+        position: absolute;
+        top:0;
+        left:0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}

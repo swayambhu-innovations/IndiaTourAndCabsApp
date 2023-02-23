@@ -1,0 +1,28 @@
+<div class="ion-page" id="main-content">
+
+  <ion-header class="ion-padding">
+    <app-header Method="Review"></app-header>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/ce/8e/78/the-red-fort-is-a-historic.jpg"
+      class="card-img-top rounded" alt="Designer desk">
+    <div class="d-flex justify-content-between align-items-center my-3">
+      <div class="t-blue Lato600 fs-18">Delhi to Agra Tour </div>
+      <div class="t-green Lato600 fs-18">₹ 20,000 </div>
+    </div>
+    <div>
+      <div class="d-flex">
+        <button class="btn btn-primary text-dark mr-2 mb-2 my-1 Lato400 fs-14" type="button">Overview</button>
+        <button class="btn btn-primary text-dark mr-2 mb-2 my-1 Lato400 fs-14" type="button">Itinerary</button>
+        <button class="btn btn-primary text-dark mr-2 mb-2 my-1 Lato400 fs-14 ms-3" type="button">Review and
+          Ratings</button>
+      </div>
+      <div>
+        <app-photo-gallery></app-photo-gallery>
+        <app-spot-review-card></app-spot-review-card>
+      </div>
+      <button class="btn btn-primary text-dark w-100 mb-5 mt-3" type="button">Book This Tour</button>
+    </div>
+  </ion-content>
+  <app-footer></app-footer>
+</div>

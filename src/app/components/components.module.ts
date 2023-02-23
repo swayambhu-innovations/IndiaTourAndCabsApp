@@ -19,6 +19,9 @@ import { FooterComponent } from './footer/footer.component';
 import { BlogCardComponent } from './blog-card/blog-card.component';
 import { NotificationCardComponent } from './notification-card/notification-card.component';
 import { TourCardComponent } from './tour-card/tour-card.component';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { SpotReviewCardComponent } from './spot-review-card/spot-review-card.component';
+import { BookingDetailsCardComponent } from './booking-details-card/booking-details-card.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { TourCardComponent } from './tour-card/tour-card.component';
     FooterComponent,
     BlogCardComponent,
     NotificationCardComponent,
-    TourCardComponent
+    TourCardComponent,
+    PhotoGalleryComponent,
+    SpotReviewCardComponent,
+    BookingDetailsCardComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +69,10 @@ import { TourCardComponent } from './tour-card/tour-card.component';
     FooterComponent,
     BlogCardComponent,
     NotificationCardComponent,
-    TourCardComponent
+    TourCardComponent,
+    PhotoGalleryComponent,
+    SpotReviewCardComponent,
+    BookingDetailsCardComponent
   ]
 })
 export class ComponentsModule { }

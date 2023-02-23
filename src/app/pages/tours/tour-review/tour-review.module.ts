@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TourBillingPageRoutingModule } from './tour-billing-routing.module';
+import { TourReviewPageRoutingModule } from './tour-review-routing.module';
 
-import { TourBillingPage } from './tour-billing.page';
+import { TourReviewPage } from './tour-review.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    TourBillingPageRoutingModule,
+    TourReviewPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [TourBillingPage]
+  declarations: [TourReviewPage]
 })
-export class TourBillingPageModule {}
+export class TourReviewPageModule {}

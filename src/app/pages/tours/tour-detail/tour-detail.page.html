@@ -1,13 +1,39 @@
 <div class="ion-page" id="main-content">
 
   <ion-header class="ion-padding">
-    <app-header currentPanel="Tours"></app-header>
+    <app-header Method="Tours"></app-header>
   </ion-header>
   <ion-content class="ion-padding">
-    <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/ce/8e/78/the-red-fort-is-a-historic.jpg" class="card-img-top rounded" alt="Designer desk">
-    <div class="d-flex justify-content-between align-items-center">
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/ce/8e/78/the-red-fort-is-a-historic.jpg"
+      class="card-img-top rounded" alt="Designer desk">
+    <div class="d-flex justify-content-between align-items-center my-3">
       <div class="t-blue Lato600 fs-18">Delhi to Agra Tour </div>
       <div class="t-green Lato600 fs-18">₹ 20,000 </div>
+    </div>
+    <div>
+      <div class="d-flex">
+        <button class="btn btn-primary text-dark mr-2 mb-2 my-1 Lato400 fs-14" type="button">Overview</button>
+        <button class="btn btn-primary text-dark mr-2 mb-2 my-1 Lato400 fs-14" type="button">Itinerary</button>
+        <button class="btn btn-primary text-dark mr-2 mb-2 my-1 Lato400 fs-14 ms-3" type="button">Review and
+          Ratings</button>
+      </div>
+      <div>
+        <app-spots></app-spots>
+        <div>
+          <div class="Lato600 fs-16 mt-2">Brief about the trip</div>
+          <div>A seasonal garden with flowers and fountains, Raja's Seat is believed to be the spot where the kings of Kodagu spent their evenings enjoying panoramic views.</div>
+          <div class="Lato600 fs-16 mt-2">inclusions</div>
+          <ul class="Lato400 fs-14">
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, voluptate.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet consectetur.</li>
+          </ul>
+          <div class="Lato600 fs-16 mt-2">Description</div>
+          <div class="Lato400 fs-14">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aliquid voluptatibus, sit excepturi quidem animi libero perferendis ratione minima optio eum temporibus ipsum. Dolore tempore quidem velit nostrum tenetur minima autem nisi voluptatem commodi ea suscipit consequuntur ullam, distinctio, saepe facilis accusantium quos qui ad voluptate! Corrupti molestiae porro est.
+          </div>
+        </div>
+      </div>
     </div>
   </ion-content>
   <app-footer></app-footer>

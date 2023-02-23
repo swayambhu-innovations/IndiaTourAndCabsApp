@@ -87,6 +87,33 @@ const routes: Routes = [
     path: 'tours-billing',
     loadChildren: () => import('./pages/tours/tour-billing/tour-billing.module').then( m => m.TourBillingPageModule) 
   },
+  {
+    path: 'spot-detail',
+    loadChildren: () => import('./pages/spots/spot-detail/spot-detail.module').then( m => m.SpotDetailPageModule)
+  },
+  {
+    path: 'spot-review',
+    loadChildren: () => import('./pages/spots/spot-review/spot-review.module').then( m => m.SpotReviewPageModule)
+  },
+  {
+    path: 'itenary',
+    loadChildren: () => import('./pages/tours/itenary/itenary.module').then( m => m.ItenaryPageModule)
+  },
+  {
+    path: 'tour-review',
+    loadChildren: () => import('./pages/tours/tour-review/tour-review.module').then( m => m.TourReviewPageModule)
+  },
+  {
+    path: 'booking-details',
+    loadChildren: () => import('./pages/booking-details/booking-details/booking-details.module').then( m => m.BookingDetailsPageModule)
+  },
+  {
+    path: 'booking-extented',
+    loadChildren: () => import('./pages/booking-details/booking-extented/booking-extented.module').then( m => m.BookingExtentedPageModule)
+  },
+
+
+
 
 
 
