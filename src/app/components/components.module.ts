@@ -18,6 +18,7 @@ import { VehicleCardComponent } from './vehicle-card/vehicle-card.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogCardComponent } from './blog-card/blog-card.component';
 import { NotificationCardComponent } from './notification-card/notification-card.component';
+import { TourCardComponent } from './tour-card/tour-card.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NotificationCardComponent } from './notification-card/notification-card
     VehicleCardComponent,
     FooterComponent,
     BlogCardComponent,
-    NotificationCardComponent
+    NotificationCardComponent,
+    TourCardComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +62,8 @@ import { NotificationCardComponent } from './notification-card/notification-card
     VehicleCardComponent,
     FooterComponent,
     BlogCardComponent,
-    NotificationCardComponent
+    NotificationCardComponent,
+    TourCardComponent
   ]
 })
 export class ComponentsModule { }

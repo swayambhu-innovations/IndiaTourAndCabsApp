@@ -75,6 +75,19 @@ const routes: Routes = [
     path: 'cancell-booking',
     loadChildren: () => import('./pages/waiting-pages/cancell-booking/cancell-booking.module').then( m => m.CancellBookingPageModule)
   },
+  {
+    path: 'tours',
+    loadChildren: () => import('./pages/tours/tours/tours.module').then( m => m.ToursPageModule)
+  },
+  {
+    path: 'tours-details',
+    loadChildren: () => import('./pages/tours/tour-detail/tour-detail.module').then( m => m.TourDetailPageModule) 
+  },
+  {
+    path: 'tours-billing',
+    loadChildren: () => import('./pages/tours/tour-billing/tour-billing.module').then( m => m.TourBillingPageModule) 
+  },
+
 
 
  
