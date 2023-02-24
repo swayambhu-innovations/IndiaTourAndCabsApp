@@ -1,11 +1,6 @@
-
-<ion-header class="ion-padding">
-  <app-header></app-header>
-</ion-header>
+<app-header></app-header>
 <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
- 
-  
-<app-carousel></app-carousel>
+  <app-carousel></app-carousel>
   <app-order-card></app-order-card>
 
   <ion-text color="secondary" style="font-weight: 600; font-size: 1.2rem"
@@ -27,6 +22,7 @@
     ></ion-img>
     <ion-button
       fill="outline"
+      routerLink="../book-a-guide"
       style="
         width: 90%;
         position: absolute;
@@ -50,7 +46,7 @@
     class="ion-justify-content-between ion-align-items-center ion-margin-top"
     style="width: 100%; height: var(--ion-height); margin: 1rem 0"
   >
-    <ion-button class="bluebuttonClass">
+    <ion-button routerLink="../renting" class="bluebuttonClass">
       <ion-img
         src="assets/icon/taxi1.png"
         style="height: 2rem; width: 2rem; margin: 0 0.5rem"

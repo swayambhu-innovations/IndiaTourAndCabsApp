@@ -1,0 +1,20 @@
+<i
+  class="fa-solid fa-star"
+  (click)="this.selected.emit(i + 1);
+  this.selectedStars = i + 1"
+  *ngFor="
+    let item of genArray(selectedStarsArray, selectedStars);
+    let i = index
+  "
+></i>
+<i
+  class="fa-regular fa-star"
+  (click)="
+    this.selected.emit(i + 1 + this.selectedStars);
+    this.selectedStars = i + 1 + this.selectedStars
+  "
+  *ngFor="
+    let item of genArray(selectedStarsArray, maxStars - selectedStars);
+    let i = index
+  "
+></i>

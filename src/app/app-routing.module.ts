@@ -15,10 +15,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/start-screen/start-screen.module').then( m => m.StartScreenPageModule),
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
@@ -111,20 +107,44 @@ const routes: Routes = [
     path: 'booking-extented',
     loadChildren: () => import('./pages/booking-details/booking-extented/booking-extented.module').then( m => m.BookingExtentedPageModule)
   },
-
-
-
-
-
-
- 
-  
- 
-
-
-
- 
- 
+  {
+    path: 'rating',
+    loadChildren: () => import('./pages/rating/rating.module').then( m => m.RatingPageModule)
+  },{
+    path:'homepage',
+    loadChildren: () => import('./pages/homepage/homepage.module').then(m => m.HomepagePageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then(
+        (m) => m.ProfilePageModule
+      ),
+  },
+  {
+    path: 'orders',
+    loadChildren: () =>
+      import('./pages/orders/orders.module').then(
+        (m) => m.OrdersPageModule
+      ),
+  },
+  {
+    path: 'wallet',
+    loadChildren: () =>
+      import('./pages/wallet/wallet.module').then(
+        (m) => m.WalletPageModule
+      ),
+  },{
+    path:'',
+    redirectTo:'homepage',
+    pathMatch:'full'
+  },{
+    path:'notifications',
+    loadChildren: () =>
+      import('./pages/notification/notification.module').then(
+        (m) => m.NotificationPageModule
+      ),
+  }
 ];
 @NgModule({
   imports: [

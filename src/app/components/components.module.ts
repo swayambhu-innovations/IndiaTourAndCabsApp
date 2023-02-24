@@ -22,6 +22,7 @@ import { TourCardComponent } from './tour-card/tour-card.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { SpotReviewCardComponent } from './spot-review-card/spot-review-card.component';
 import { BookingDetailsCardComponent } from './booking-details-card/booking-details-card.component';
+import { StarsComponent } from './stars/stars.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { BookingDetailsCardComponent } from './booking-details-card/booking-deta
     TourCardComponent,
     PhotoGalleryComponent,
     SpotReviewCardComponent,
-    BookingDetailsCardComponent
+    BookingDetailsCardComponent,
+    StarsComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +74,8 @@ import { BookingDetailsCardComponent } from './booking-details-card/booking-deta
     TourCardComponent,
     PhotoGalleryComponent,
     SpotReviewCardComponent,
-    BookingDetailsCardComponent
+    BookingDetailsCardComponent,
+    StarsComponent
   ]
 })
 export class ComponentsModule { }

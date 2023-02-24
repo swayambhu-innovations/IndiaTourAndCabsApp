@@ -1,0 +1,11 @@
+<app-header></app-header>
+<ion-content>
+  <h1>Rate Our Guide</h1>
+  <ion-card *ngFor="let question of questions">
+    <h2>{{question.title}}</h2>
+    <p>{{question.description}}</p>
+    <ng-container *ngIf="question.answerType=='stars' && question.stars">
+      <app-stars [maxStars]="question.stars.totalStars" (selected)="log($event)"></app-stars>
+    </ng-container>
+  </ion-card>
+</ion-content>
