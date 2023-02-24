@@ -64,3 +64,14 @@
 ion-content{
     overflow: auto;
 }
+
+.btn-info{
+    background: #FF9114;
+    color: white !important;
+    font-weight: 600;
+    &:hover{
+        background: #dc7806;
+        color: white;
+        font-weight: 600 !important;
+    }
+}

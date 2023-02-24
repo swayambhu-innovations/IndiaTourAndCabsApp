@@ -142,7 +142,7 @@ const routes: Routes = [
   },
   {
     path: 'book-ride',
-    loadChildren: () => import('./book-ride/book-ride.module').then( m => m.BookRidePageModule)
+    loadChildren: () => import('./pages/book-ride/book-ride.module').then( m => m.BookRidePageModule)
   }
 ];
 @NgModule({

@@ -6,11 +6,16 @@
       class="card-img-top rounded" alt="Designer desk">
     <div class="d-flex justify-content-between align-items-center my-4">
       <div class="Lasto600 fs-20">Vanarasi Tailor</div>
-      <div>stars</div>
+      <div class="d-flex align-items-center">
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </div>
     </div>
     <div class="d-flex">
-      <button class="btn btn-primary text-dark mr-2 mb-2 my-1 Lato400 fs-14" type="button" routerLink="/spot-detail">Overview</button>
-      <button class="btn btn-primary text-dark mr-2 mb-2 my-1 Lato400 fs-14 ms-3" type="button" routerLink="/spot-review">Review and
+      <button class="btn btn-primary text-dark mr-2 mb-2 my-1 py-1 Lato400 fs-14" type="button" routerLink="/spot-detail">Overview</button>
+      <button class="btn btn-primary text-dark mr-2 mb-2 my-1 py-1 Lato400 fs-14 ms-3" type="button" routerLink="/spot-review">Review and
         Ratings</button>
     </div>
 
@@ -18,9 +23,9 @@
     <div class="Lato600 fs-18 mt-3">Gallery</div>
     <app-photo-gallery></app-photo-gallery>
     <app-spot-review-card></app-spot-review-card>
-    <div class="d-flex align-items-center mb-4 mt-3">
-      <button class="btn btn-primary text-dark  mb-2 w-100" type="button">Book A Cab</button>
-      <button class="btn btn-primary text-dark  mb-2 w-100" type="button">Book A Guide</button>
+    <div class="d-flex align-items-center position-fixed bottom-0 w-90">
+      <button class="btn btn-info text-dark  mb-2 w-100" type="button">Book A Cab</button>
+      <button class="btn btn-info text-dark  mb-2 w-100 ml-1" type="button">Book A Guide</button>
     </div>
   </ion-content>
 

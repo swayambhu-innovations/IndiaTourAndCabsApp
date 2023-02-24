@@ -6,12 +6,12 @@
   </ion-header>
   <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
     <app-vehicle-card></app-vehicle-card>
-    <div class="form-group mb-3">
-      <label for="email" class="Lato500 fs-16">Coupon</label>
-      <input type="email" class="form-control" placeholder="Eg  Taxi2022" id="email" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div class="form-group my-3">
+      <label for="email" class="my-2  Lato600 fs-16">Coupon</label>
+      <input type="email" class="form-control w-100 Lato400 fs-14" placeholder="Eg  Taxi2022" id="email" aria-describedby="emailHelp">
+
     </div>
-    <div class="card bg-primary shadow-soft border-light">
+    <div class="card bg-primary shadow-soft border-light mt-3">
       <div class="Lato400 fs-18 px-3 py-2">Billing Summary</div>
       <div class="d-flex justify-content-between align-items-center px-3 py-1">
         <div class="Lato400 fs-14">Taxi Fare</div>
@@ -41,10 +41,10 @@
         <div class="Lato400 fs-16">Total Amount</div>
         <div class="Lato400 fs-16">₹1200</div>
       </div>
-      <div class="text-success Lato400 fs-15 px-3 pb-3">Yay! Your Total discount is ₹350</div>
+      <div class="t-green Lato400 fs-15 px-3 pb-3">Yay! Your Total discount is ₹350</div>
     </div>
     <div class="t-orange px-3 py-3 w-100">See Tax details</div>
-    <button class="btn btn-primary text-dark mr-2 mb-5 w-100 mt-3" routerLink="/waiting" type="button">Pay Now</button>
+    <button class="btn btn-info text-dark mr-2 mb-5 w-100 mt-3" routerLink="/waiting" type="button">Pay Now</button>
   </ion-content>
   
 </div>

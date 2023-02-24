@@ -2970,38 +2970,38 @@ fieldset:disabled a.btn {
     pointer-events: none;
 }
 
-.btn-primary {
+.btn-info {
     color: #31344b;
     background-color: #e6e7ee;
     border-color: #e6e7ee;
     box-shadow: inset 0 1px 0 rgba(236, 240, 243, 0.15), 0 1px 1px rgba(38, 40, 51, 0.075);
 }
 
-.btn-primary:hover {
+.btn-info:hover {
     color: #31344b;
     background-color: #cfd1df;
     border-color: #c8cad9;
 }
 
-.btn-primary:focus, .btn-primary.focus {
+.btn-info:focus, .btn-info.focus {
     box-shadow: inset 0 1px 0 rgba(236, 240, 243, 0.15), 0 1px 1px rgba(38, 40, 51, 0.075), 0 0 0 0.0625rem rgba(203, 204, 214, 0.5);
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
+.btn-info.disabled, .btn-info:disabled {
     color: #31344b;
     background-color: #e6e7ee;
     border-color: #e6e7ee;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-  .show > .btn-primary.dropdown-toggle {
+.btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,
+  .show > .btn-info.dropdown-toggle {
     color: #31344b;
     background-color: #c8cad9;
     border-color: #c0c3d4;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-primary.dropdown-toggle:focus {
+.btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus,
+    .show > .btn-info.dropdown-toggle:focus {
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF, 0 0 0 0.0625rem rgba(203, 204, 214, 0.5);
 }
 
@@ -16599,11 +16599,11 @@ a.text-secondary:hover, a.text-secondary:focus {
     color: #1f348a !important;
 }
 
-.text-success {
+.t-green {
     color: #18634B !important;
 }
 
-a.text-success:hover, a.text-success:focus {
+a.t-green:hover, a.t-green:focus {
     color: #09251c !important;
 }
 
@@ -26638,37 +26638,37 @@ a.badge-slack:hover, a.badge-slack:focus {
     z-index: 0;
 }
 
-.btn-primary {
+.btn-info {
     color: #31344b;
     background-color: #e6e7ee;
 }
 
-.btn-primary:hover {
+.btn-info:hover {
     color: #31344b;
     background-color: #e6e7ee;
     border-color: #e6e7ee;
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
+.btn-info.disabled, .btn-info:disabled {
     color: #31344b;
     background-color: #e6e7ee;
     border-color: #e6e7ee;
 }
 
-.btn-primary:focus, .btn-primary.focus {
+.btn-info:focus, .btn-info.focus {
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-  .show > .btn-primary.dropdown-toggle {
+.btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,
+  .show > .btn-info.dropdown-toggle {
     color: #31344b;
     background-color: #e6e7ee;
     border-color: #e6e7ee;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-primary.dropdown-toggle:focus {
+.btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus,
+    .show > .btn-info.dropdown-toggle:focus {
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
 }
 
@@ -31926,15 +31926,15 @@ article a:hover {
     color: rgba(45, 76, 200, 0.7) !important;
 }
 
-.text-success, .text-success:hover {
+.t-green, .t-green:hover {
     color: #18634B !important;
 }
 
-.text-success a:not(.btn), .text-success h1, .text-success h2, .text-success h3, .text-success h4, .text-success h5, .text-success h6, .text-success .h1, .text-success .h2, .text-success .h3, .text-success .h4, .text-success .h5, .text-success .h6, .text-success .display-1, .text-success .display-2, .text-success .display-3, .text-success .display-4 {
+.t-green a:not(.btn), .t-green h1, .t-green h2, .t-green h3, .t-green h4, .t-green h5, .t-green h6, .t-green .h1, .t-green .h2, .t-green .h3, .t-green .h4, .t-green .h5, .t-green .h6, .t-green .display-1, .t-green .display-2, .t-green .display-3, .t-green .display-4 {
     color: #18634B;
 }
 
-.text-success .text-muted {
+.t-green .text-muted {
     color: rgba(24, 99, 75, 0.7) !important;
 }
 
@@ -32254,4 +32254,7 @@ article a:hover {
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
 }
 
+.w-90{
+    width: 90%;
+}
 /*# sourceMappingURL=neumorphism.css.map */
