@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">IndiaTourCabs</string>
+    <string name="title_activity_main">IndiaTourCabs</string>
+    <string name="package_name">com.shreeva.indiatourscabs</string>
+    <string name="custom_url_scheme">com.shreeva.indiatourscabs</string>
+</resources>

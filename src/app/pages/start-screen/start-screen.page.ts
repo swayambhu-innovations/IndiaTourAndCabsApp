@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartScreenPage implements OnInit {
 
-
   items = [
     {
       img: 'assets/images/img1.png',
@@ -35,6 +34,7 @@ export class StartScreenPage implements OnInit {
     initialSlide: 0,
     slidesPerView: 1,
     autoplay:true,
+    loop:true,
     speed:300
    };
   ngOnInit() {

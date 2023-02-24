@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   path:string = window.location.pathname;
   noTabPages:string[] = ['/start-screen','/login','/signup']
-  constructor(private router:Router) {
-    router.events.subscribe(()=>{
-      this.path = window.location.pathname;
-    })
+  constructor(private route:ActivatedRoute) {
   }
-  page: string = window.location.pathname.split('/')[2];
+
+  ngOnInit(){
+    console.log("this.route",this.route);
+  }
 }

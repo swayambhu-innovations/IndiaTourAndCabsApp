@@ -3,11 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'start-screen',
-    pathMatch: 'full'
-  },
-  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },{
@@ -144,15 +139,15 @@ const routes: Routes = [
       import('./pages/notification/notification.module').then(
         (m) => m.NotificationPageModule
       ),
-  },  {
+  },
+  {
     path: 'book-ride',
     loadChildren: () => import('./book-ride/book-ride.module').then( m => m.BookRidePageModule)
   }
-
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, enableTracing:true },)
   ],
   exports: [RouterModule]
 })
