@@ -3,7 +3,7 @@
     <ion-card class="tourCard">
       <ion-img [src]="tour.tourImage"></ion-img>
       <ion-grid class="content ion-text-start">
-        <ion-row>
+        <ion-row routerLink="/tours-details">
           <ion-col>
             <ion-text style="font-size: 1.3rem; font-weight: 600; color: white"
               >{{ tour.tourName }}

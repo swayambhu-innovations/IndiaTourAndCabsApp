@@ -46,7 +46,7 @@
     class="ion-justify-content-between ion-align-items-center ion-margin-top"
     style="width: 100%; height: var(--ion-height); margin: 1rem 0"
   >
-    <ion-button routerLink="../renting" class="bluebuttonClass">
+    <ion-button routerLink="/book-ride" class="bluebuttonClass">
       <ion-img
         src="assets/icon/taxi1.png"
         style="height: 2rem; width: 2rem; margin: 0 0.5rem"
@@ -55,7 +55,7 @@
         >Book A Cab</ion-text
       >
     </ion-button>
-    <ion-button class="bluebuttonClass">
+    <ion-button class="bluebuttonClass" routerLink="/renting">
       <ion-img
         src="assets/icon/taxi2.png "
         style="height: 2rem; width: 2rem; margin: 0 0.5rem"
@@ -71,7 +71,7 @@
     style="font-weight: 600; font-size: 1.2rem; margin: 1rem 0"
     >Spots</ion-text
   >
-  <app-spots></app-spots>
+  <app-spots routerLink="/spot-detail"></app-spots>
   <ion-button class="bluebuttonClass" style="width: 100%; margin: 1rem 0">
     <ion-row>
       <ion-col size="10" class="ion-text-start">
@@ -90,7 +90,7 @@
       </ion-col>
     </ion-row>
   </ion-button>
-  <app-out-stations></app-out-stations>
+  <app-out-stations routerLink="/outstation"></app-out-stations>
   <ion-button class="bluebuttonClass" style="width: 100%; margin: 1rem 0">
     <ion-row>
       <ion-col size="10" class="ion-text-start">
@@ -109,8 +109,8 @@
       </ion-col>
     </ion-row>
   </ion-button>
-  <app-travel-tour></app-travel-tour>
-  <app-blogs style="margin-bottom: 2rem"></app-blogs>
+  <app-travel-tour routerLink="/tours"></app-travel-tour>
+  <app-blogs style="margin-bottom: 2rem" routerLink="/blog"></app-blogs>
   <app-questions></app-questions>
   <app-contact></app-contact>
 </ion-content>

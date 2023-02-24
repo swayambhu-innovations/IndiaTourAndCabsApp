@@ -144,7 +144,11 @@ const routes: Routes = [
       import('./pages/notification/notification.module').then(
         (m) => m.NotificationPageModule
       ),
+  },  {
+    path: 'book-ride',
+    loadChildren: () => import('./book-ride/book-ride.module').then( m => m.BookRidePageModule)
   }
+
 ];
 @NgModule({
   imports: [
