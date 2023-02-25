@@ -1,37 +1,5 @@
 <!-- <ion-router-outlet></ion-router-outlet> -->
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
-  <!-- <p>{{this.router.routerState.snapshot.url}}</p> -->
-  <ng-container *ngIf="!noTabPages.includes('jhj')">
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button
-          tab="homepage"
-          routerLinkActive="tab-selected"
-        >
-          <ion-icon name="home"></ion-icon>
-        </ion-tab-button>
-  
-        <ion-tab-button
-          tab="orders"
-          routerLinkActive="tab-selected"
-        >
-          <ion-icon name="calendar-outline"></ion-icon>
-        </ion-tab-button>
-  
-        <ion-tab-button
-          tab="wallet"
-          routerLinkActive="tab-selected"
-        >
-          <ion-icon name="wallet-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button
-          tab="profile"
-          routerLinkActive="tab-selected"
-        >
-          <ion-icon name="person-outline"></ion-icon>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </ng-container>
+
 </ion-app>

@@ -14,6 +14,6 @@ export class LoginPage implements OnInit {
   }
   login(){
     console.log("login");
-    this.router.navigate(['/homepage']);
+    this.router.navigate(['../../root/homepage']);
   }
 }
