@@ -1,9 +1,72 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>booking-details</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="ion-page" id="main-content">
 
-<ion-content>
+  <app-header currentPanel="Booking Details"></app-header>
 
-</ion-content>
+  <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
+    <button class="btn btn-primary t-red Lato600 fs-16 mb-2 w-100" type="button">SOS</button>
+
+    <div class=" my-3 d-flex justify-content-between align-items-center">
+      <div class="Lato500 fs-16 ">Package Details</div>
+      <div><button class="btn btn-primary btn-sm text-dark py-1" type="button">Rental</button>
+      </div>
+    </div>
+    <app-booking-details-card></app-booking-details-card>
+    <div class="Lato500 fs-16 my-3">Driver Info</div>
+    <div class="card bg-primary border-light shadow-soft d-flex flex-row w-100 justify-content-between align-items-center p-3">
+      <div class="d-flex">
+        <div class="profile-outer">
+          <img src="https://themesberg.com/docs/neumorphism-ui/assets/img/team/profile-picture-4.jpg" alt="">
+        </div>
+        <div class="pl-2">
+          <div class="Lato600 fs-16 ">Aditya Satpathi</div>
+          <div class="Lato400 fs-14 ">Example@gmail.com</div>
+          <div class="Lato400 fs-14 ">9995566633</div>
+        </div>
+      </div>
+
+      <div
+        class="icon icon-shape icon-shape-xs icon-behance icon-shape-primary shadow-soft border border-light rounded-circle mb-2">
+        <ion-icon name="call-outline"></ion-icon>
+      </div>
+
+    </div>
+    <div class="card bg-primary shadow-soft border-light mt-3">
+      <div class="Lato400 fs-18 px-3 py-2">Billing Summary</div>
+      <div class="d-flex justify-content-between align-items-center px-3 py-1">
+        <div class="Lato400 fs-14">Taxi Fare</div>
+        <div>$20</div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center px-3 py-1">
+        <div class="Lato400 fs-14">Taxi Fare</div>
+        <div class="Lato400 fs-14">$20</div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center px-3 py-1">
+        <div class="Lato400 fs-14">Night Stay Charge</div>
+        <div class="Lato400 fs-14">$20</div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center px-3 py-1">
+        <div class="Lato400 fs-14">Distance</div>
+        <div class="Lato400 fs-14">$20</div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center px-3 py-1">
+        <div class="Lato400 fs-14">Coupon Discount</div>
+        <div class="Lato400 fs-14">$20</div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center px-3 py-1">
+        <div class="Lato400 fs-14"> Fare</div>
+        <div class="Lato400 fs-14">$20</div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center px-3 py-3">
+        <div class="Lato400 fs-16">Total Amount</div>
+        <div class="Lato400 fs-16">₹1200</div>
+      </div>
+      <div class="t-green Lato400 fs-15 px-3 pb-3">Yay! Your Total discount is ₹350</div>
+    </div>
+    <div class="t-orange px-3 py-3 w-100">See Tax details</div>
+    <div class="position-fixed bottom-0 w-90 d-flex">
+      <button class="btn btn-info text-dark mr-2 mb-2 w-100 mt-3" type="button" routerLink="/">Extent</button>
+      <button class="btn btn-info text-dark mr-2 mb-2 ml-2 w-100 mt-3" type="button" routerLink="/cancell-booking">Cancel Booking</button>
+    </div>
+  </ion-content>
+
+</div>

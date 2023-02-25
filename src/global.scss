@@ -56,22 +56,28 @@
     border-radius: 10px;
 }
 
-.no-padding{
+.no-padding {
     margin: 0 !important;
     padding: 0 !important;
 }
 
-ion-content{
+ion-content {
     overflow: auto;
 }
 
-.btn-info{
+.btn-info {
     background: #FF9114;
     color: white !important;
     font-weight: 600;
-    &:hover{
+
+    &:hover {
         background: #dc7806;
         color: white;
         font-weight: 600 !important;
     }
+}
+
+.border {
+
+    border-top: 1px solid #D7D7D7 !important;
 }
