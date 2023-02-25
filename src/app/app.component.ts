@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   path:string = window.location.pathname;
-  noTabPages:string[] = ['/start-screen','/login','/signup']
-  constructor(private route:ActivatedRoute) {
+  isUrlValid:boolean = true;
+  constructor(public route:Router) {}
+  
+  ngOnInit(){
   }
 
-  ngOnInit(){
-    console.log("this.route",this.route);
-  }
 }
