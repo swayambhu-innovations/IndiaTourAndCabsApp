@@ -1,8 +1,6 @@
-<ion-card *ngIf="bookingType === 'taxi'">
+<div *ngIf="bookingType === 'taxi'" class="rounded my-3 bg-primary border-light shadow-soft ">
   <ion-grid>
-    <ion-row
-      class="ion-justify-content-between ion-align-items-start ion-margin-vertical"
-    >
+    <ion-row class="ion-justify-content-between ion-align-items-start ion-margin-vertical">
       <ion-col size="3.5">
         <ion-img src="assets/car.png"></ion-img>
       </ion-col>
@@ -12,8 +10,7 @@
           <br />
           1st June 2022
         </p>
-        <ion-text style="font-size: 0.9rem; font-weight: 500" color="grey"
-          >Amount: <b style="color: black">$5566</b>
+        <ion-text style="font-size: 0.9rem; font-weight: 500" color="grey">Amount: <b style="color: black">$5566</b>
         </ion-text>
       </ion-col>
       <ion-col size="3.5">
@@ -22,46 +19,32 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-row
-      class="ion-justify-content-between ion-align-items-start ion-border"
-    >
+    <ion-row class="ion-justify-content-between ion-align-items-start ion-border">
       <ion-col size="1">
-        <ion-icon
-          name="ellipse"
-          class="ion-margin-bottom"
-          color="primary"
-        ></ion-icon>
+        <ion-icon name="ellipse" class="ion-margin-bottom" color="primary"></ion-icon>
         <ion-icon name="ellipse" color="secondary"></ion-icon>
       </ion-col>
       <ion-col size="11">
-        <p
-          color="secondary"
-          style="margin: 0; color: #212638; font-size: 0.8rem"
-        >
+        <p color="secondary" style="margin: 0; color: #212638; font-size: 0.8rem">
           Brahma Temple, Rajshthan
         </p>
         <br />
-        <p
-          color="secondary"
-          style="margin: 0; color: #212638; font-size: 0.8rem"
-        >
+        <p color="secondary" style="margin: 0; color: #212638; font-size: 0.8rem">
           Robin Restaurant, Delhi
         </p>
       </ion-col>
     </ion-row>
+    <div class="border py-2"></div>
     <ion-row class="ion-justify-content-between ion-align-items-center">
-      <ion-col size="2" >
+      <ion-col size="2">
         <ion-avatar style="height: 2rem; width: 2rem">
           <ion-img src="assets/avatar.jpg"></ion-img>
         </ion-avatar>
       </ion-col>
-      <ion-col size="8" >
+      <ion-col size="8">
         Driver:
-        <ion-text
-          style="font-weight: 400; color: black; font-size: var(--ion-text)"
-        >
-          Jake Sully</ion-text
-        >
+        <ion-text style="font-weight: 400; color: black; font-size: var(--ion-text)">
+          Jake Sully</ion-text>
       </ion-col>
       <ion-col size="2" class=" ion-align-self-end">
         <button class="commonbutton">
@@ -70,39 +53,36 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-card>
-<ion-card  *ngIf="bookingType === 'guid'">
-  <ion-grid>
-    <ion-row
-      class="ion-justify-content-between ion-align-items-start "
-    >
-      <ion-col size="3" style="margin: auto 0;">
-        <ion-avatar style="height: 3.5rem; width: 3.5rem">
-          <ion-img src="assets/avatar.jpg"></ion-img>
-        </ion-avatar>
-      </ion-col>
-      <ion-col size="5">
-        <p style="margin: 0; margin-bottom: 0.4rem ;font-size:.8rem;">
-          12:00 PM
-          <br />
-          1st June 2022
-        </p>
-        <ion-text style="font-size: 0.9rem; font-weight: 600" color="grey"
-          >Amount: <b style="color: black">$5566</b>
-        </ion-text>
-      <p style="margin:.5rem 0;">
-        Guid: <b style="color: black">Jake Sully</b>
-
-      </p>
-      </ion-col>
-      <ion-col size="4" >
-        <div class="indicator">
-          <ion-text class="ion-text-center">Guid Booking</ion-text>
+</div>
+<div *ngIf="bookingType === 'guid'" class="card bg-primary border-light shadow-soft p-3 d-flex align-items-center justify-content-between">
+  
+    <div class="d-flex align-items-center w-100">
+      <ion-avatar style="min-height: 3.5rem; min-width: 3.5rem">
+        <ion-img src="assets/avatar.jpg"></ion-img>
+      </ion-avatar>
+      <div class="w-100 pl-3">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div>
+            <div class="Lato400 fs-14 ">12:00 pm</div>
+            <div class="Lato400 fs-14 ">1-June-2022</div>
+          </div>
+          <button class="btn btn-primary text-dark fs-14 Lato400 py-1" type="button">Guide Booking</button>
         </div>
-       
-      </ion-col>
-    </ion-row>
-   
-   
-  </ion-grid>
-</ion-card>
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div>
+            <div class="Lato400 fs-18 mt-2">Price : <b class="t-green">₹ 2500</b></div>
+            <div class="Lato400 fs-14 ">Guide: Umesh Yadav</div>
+          </div>
+          <button class="btn btn-icon-only btn-primary mr-3" type="button" aria-label="love button" title="love button">
+            <i class="fa-solid fa-phone"></i>
+          </button>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+
+</div>
