@@ -3,90 +3,34 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card class="box ion-padding" style="width: 75%; margin: 1rem auto">
-    <ion-row class="ion-align-items-center ion-justify-content-between">
-      <ion-col size="8.5">
-        <ion-row>
-          <ion-text style="font-size: 1.1rem" color="secondary"
-            >Available Balance</ion-text
-          >
-        </ion-row>
-        <ion-row class="ion-margin-top">
-          <ion-text
-            style="font-size: 1.5rem; font-weight: 600"
-            color="secondary"
-            >$788</ion-text
-          >
-        </ion-row>
-      </ion-col>
-      <ion-col size="3.5">
-        <ion-card
-          class="box"
-          style="
-            margin: 0;
-            height: 4rem;
-            width: 3.5rem;
-            background-color: #ff9114;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            flex-direction: column;
-          "
-        >
-          <ion-icon name="wallet"></ion-icon>
-          <p style="font-size: 0.8rem; margin: 0.2rem 0">Top Up</p>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-  <ion-grid style="padding: 0;">
-    <p style="color: #383a69">Recent Transaction</p>
-    <ion-row>
-      <ion-col style="padding: 0;">
-        <ion-card class="ion-padding box" style="margin: 0">
-          <ion-row >
-            <ion-col size="2">
-              <ion-img src="assets/transaction.svg"></ion-img>
-            </ion-col>
-            <ion-col size="5.5">
-              <ion-row>
-                <ion-col style="padding: 0;"><ion-text
-                  color="secondary"
-                  style="font-size: var(--ion-text2); font-weight: 600"
-                  >Taxi Booking Refund</ion-text
-                ></ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col style="padding: .3rem 0;">
-                  <ion-text color="grey" style="font-size: .9rem"
-                    >Google Pay</ion-text
-                  >
-                </ion-col>
-              </ion-row>
-              
-            </ion-col>
-            <ion-col size="4.5"  class="ion-justify-content-between ion-align-items-stretch">
-              <b style="font-size: 0.9rem; color: green">+ ₹22,450</b>
+  <div class="d-flex align-items-center card bg-primary border-light shadow-soft flex-row p-3 ">
+    <div class="w-100">
+      <div class="Lato500 fs-14">Available Balance</div>
+      <div class="Lato600 fs-26">$788</div>
+    </div>
 
-            </ion-col>
-          </ion-row>
-          <ion-row  class="ion-align-items-center ion-justify-content-center" >
-            <ion-col size="2.2">
-            </ion-col>
-            <ion-col size="5.3" style="padding: 0;">
-              <ion-text color="grey" style="font-size: var(--ion-text)"
-              >8:45 PM</ion-text
-            >
-            </ion-col>
-            <ion-col size="4.5" style="padding: 0;">
-<ion-text color="grey" style="font-size: var(--ion-text)"
-              >Balance:  ₹22,450</ion-text>
-            </ion-col>
-          </ion-row>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <button class="btn btn-info text-dark d-flex align-items-center " type="button">
+      <i class="fa-solid fs-18 fa-wallet"></i>
+    </button>
+
+  </div>
+
+  <div class="Lato600 fs-18 mt-5 mb-2">Recent Transactions</div>
+  <div class="Lato400 fs-14 my-3 d-flex align-items-center justify-content-between">
+    <div>Today</div>
+    <div>₹22,450</div>
+  </div>
+  <div class="d-flex justify-content-between align-items-center card bg-primary border-light shadow-soft flex-row py-3 px-2 ">
+    <div class="d-flex align-items-center">
+      <img width="50px" src="assets/transaction.svg">
+      <div class="pl-2">
+        <div class="Lato500 fs-18">Taxi Booking Refund</div>
+        <div class="Lato400 fs-14">Google Pay</div>
+        <div class="Lato400 fs-14">08:32 pm</div>
+      </div>
+    </div>
+    <div>
+      <div class="Lato600 t-green fs-20">+ ₹22,450</div>
+    </div>
+  </div>
 </ion-content>

@@ -32,7 +32,7 @@
           class="ion-no-padding"
           fill="clear"
           color="secondary"
-          routerLink="../profile/edit"
+          routerLink="/root/user-profile"
         >
           <ion-icon name="create-outline"></ion-icon>
         </ion-button>
@@ -42,17 +42,18 @@
   <ion-card class="profile ion-padding box">
     <ion-text color="secondary" style="font-weight: 500"> About Us </ion-text>
   </ion-card>
-  <ion-card class="profile ion-padding box" id="language-modal">
+  <ion-card class="profile ion-padding box" id="language-modal" routerLink="">
     <ion-text color="secondary" style="font-weight: 500" >
       <ion-icon name="language-outline" style="margin-right: 0.6rem"></ion-icon>
       Change Language
     </ion-text>
   </ion-card>
-  <ion-card class="profile ion-padding box">
+  <ion-card class="profile ion-padding box" routerLink="/root/terms-condition"> 
     <ion-text color="secondary" style="font-weight: 500">
       <ion-icon
         name="document-lock-outline"
         style="margin-right: 0.6rem"
+        
       ></ion-icon>
       Terms And Condition
     </ion-text>

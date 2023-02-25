@@ -139,6 +139,14 @@ const routes: Routes = [
         path: 'book-ride',
         loadChildren: () => import('./book-ride/book-ride.module').then( m => m.BookRidePageModule)
       },
+      {
+        path: 'terms-condition',
+        loadChildren: () => import('./terms-condition/terms-condition.module').then( m => m.TermsConditionPageModule)
+      },
+      {
+        path: 'user-profile',
+        loadChildren: () => import('./user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+      }
     ]
   },
 ];
