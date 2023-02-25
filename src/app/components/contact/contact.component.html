@@ -10,38 +10,18 @@
 
   <ion-card-content>
     <ion-grid color="secondary">
-      <ion-row>
-        <ion-col size="12">
-          <ion-item color="dark">
-            <ion-label position="floating">Full Name </ion-label>
-            <ion-input placeholder="Enter text"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12">
-          <ion-item color="dark">
-            <ion-label position="floating"> Email</ion-label>
-            <ion-input placeholder="Enter text"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12">
-          <ion-item color="dark">
-            <ion-label position="floating"> Phone No</ion-label>
-            <ion-input placeholder="Enter Number"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12">
-          <ion-item color="dark">
-            <ion-label position="floating"> Write your message...</ion-label>
-            <ion-textarea placeholder="Type something here"></ion-textarea>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+      <div class="form-group mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Full Name" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Email" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Phone Number" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group mb-3">
+        <textarea class="form-control" id="exampleFormControlTextarea2" placeholder="Address" rows="3"></textarea>
+      </div> 
       <ion-row>
         <ion-col size="12">
           <ion-button class="sendButton" style="width: 100%;"  fill="solid">

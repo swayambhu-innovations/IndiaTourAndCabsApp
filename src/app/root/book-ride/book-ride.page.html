@@ -39,23 +39,34 @@
       <div>
         <div class="input-daterange datepicker row align-items-center">
           <div class="col">
-            <label class="my-2 mr-2 Lato600 fs-16" for="exampleInputDate2">Schedule pickup</label>
+            <label class="my-1 mr-2 Lato600 fs-16">Schedule  pickup</label>
             <div class="form-group">
               <div class="input-group input-group-border">
-                <div class="input-group-prepend"><span class="input-group-text"><span
+                <!-- <ion-datetime-button datetime="datetime" #dateTime></ion-datetime-button> -->
+                <ion-modal trigger="dateTimeStart" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'end')"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+                <div class="input-group-prepend" id="dateTimeStart"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control " id="exampleInputDate2" placeholder="Start date" type="text">
+                <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text">
               </div>
             </div>
           </div>
-          <span class="Lato500 fs-17">at</span>
+          <span class="Lato500 fs-16">at</span>
           <div class="col">
             <div class="form-group">
-              <label class="my-2 mr-2 Lato600 fs-16" for="exampleInputDate3"></label>
-              <div class="input-group input-group-border mt-1">
-                <div class="input-group-prepend"><span class="input-group-text"><span
+              <label class="h6" for="exampleInputDate3"></label>
+              <div class="input-group input-group-border">
+                <ion-modal trigger="dateTimeEnd" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'end')"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+                <div class="input-group-prepend" id="dateTimeEnd"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control " id="exampleInputDate3" placeholder="End date" type="text">
+                <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text">
               </div>
             </div>
           </div>

@@ -27,46 +27,54 @@
       <div class="my-4">
         <div class="my-2  Lato600 fs-16">Select Package</div>
         <div class="d-flex align-items-center justify-content-between ">
-          <div class=" bg-primary shadow-soft text-center border-light px-3 py-1">
+          <button class="btn btn-primary  bg-primary shadow-soft text-center border-light px-2 py-2">
             <div class="Lato600 fs-18">1 Hr</div>
             <div class="Lato400 fs-14">50 km</div>
-          </div>
-          <div class=" bg-primary shadow-soft text-center border-light px-3 py-1">
+          </button>
+          <button class="btn btn-primary bg-primary shadow-soft text-center border-light px-2 py-2">
             <div class="Lato600 fs-18">2 Hr</div>
             <div class="Lato400 fs-14">100 km</div>
-          </div>
-          <div class=" bg-primary shadow-soft text-center border-light px-3 py-1">
+          </button>
+          <button class="btn btn-primary bg-primary shadow-soft text-center border-light px-2 py-2">
             <div class="Lato600 fs-18">3 Hr</div>
             <div class="Lato400 fs-14">200 km</div>
-          </div>
-          <div class=" bg-primary shadow-soft text-center border-light px-3 py-1">
+          </button>
+          <button class="btn btn-primary bg-primary shadow-soft text-center border-light px-2 py-2">
             <div class="Lato600 fs-18">8 Hr</div>
             <div class="Lato400 fs-14">400 km</div>
-          </div>
+          </button>
         </div>
       </div>
       <div>
         <div class="input-daterange datepicker row align-items-center">
           <div class="col">
-            <label class="my-2  Lato600 fs-16">Schedule pickup</label>
+            <label class="my-1 mr-2 Lato600 fs-16">Schedule  pickup</label>
             <div class="form-group">
               <div class="input-group input-group-border">
-                <div class="input-group-prepend"><span class="input-group-text"><span
+                <ion-modal trigger="dateTimeStart" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'end')"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+                <div class="input-group-prepend" id="dateTimeStart"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control datepicker Lato400 fs-14" id="exampleInputDate2" placeholder="Start date" type="text">
+                <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text">
               </div>
             </div>
           </div>
-
-          <span class="Lato500 fs-17">at</span>
-
+          <span class="Lato500 fs-16">at</span>
           <div class="col">
             <div class="form-group">
               <label class="h6" for="exampleInputDate3"></label>
               <div class="input-group input-group-border">
-                <div class="input-group-prepend"><span class="input-group-text"><span
+                <ion-modal trigger="dateTimeEnd" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'end')"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+                <div class="input-group-prepend" id="dateTimeEnd"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control datepicker Lato400 fs-14" id="exampleInputDate3" placeholder="End date" type="text">
+                <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text">
               </div>
             </div>
           </div>

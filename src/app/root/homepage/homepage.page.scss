@@ -1,5 +1,4 @@
-
-.bluebuttonClass{
+.bluebuttonClass {
   width: 47%;
   height: var(--ion-height);
   display: flex;
@@ -8,14 +7,14 @@
   text-transform: capitalize;
   --border-radius: .8rem;
   /* fillz */
-color: white;
---background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgb(91, 92, 159)105.18%), rgb(56, 58, 105);
---background-blend-mode: soft-light, normal;
+  color: white;
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgb(91, 92, 159)105.18%), rgb(56, 58, 105);
+  --background-blend-mode: soft-light, normal;
 
 
---border: 1px solid rgba(255, 255, 255, 0.4);
+  --border: 1px solid rgba(255, 255, 255, 0.4);
 
 
---box-shadow: -9px -8px 13px #F2F4F8, 8px 8px 13px rgba(174, 174, 192, 0.5);
-border-radius: 13px;  
+  --box-shadow: -9px -8px 13px #F2F4F8, 8px 8px 13px rgba(174, 174, 192, 0.5);
+  border-radius: 13px;
 }
