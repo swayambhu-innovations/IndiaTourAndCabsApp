@@ -21,9 +21,16 @@
       dignissimos, sint accusantium. Ex animi iusto, architecto cumque ipsa impedit dolorum illum vitae dignissimos
       consequuntur dolore ab eaque.
     </div>
-    <div class="position-fixed bottom-0 w-90 d-flex">
-      <button class="btn btn-primary text-dark mr-2 mb-2 w-100 mt-3" type="button" routerLink="/">Decline</button>
-      <button class="btn btn-info text-dark mr-2 mb-2 ml-2 w-100 mt-3" type="button" routerLink="/homepage">Accept</button>
+    <div class="position-fixed bottom-0 w-90 d-flex flex-column bg-white">
+      <ion-item>
+        <ion-checkbox class="no-margin" slot="start" (click)="triggerCheckBox()"></ion-checkbox>
+        <ion-label class="ms-2">I agree with terms & Conditions</ion-label>
+      </ion-item>
+      <div class="d-flex bg-white">
+        <button class="btn btn-primary text-dark mr-2 mb-2 w-100 mt-3" type="button" routerLink="/">Decline</button>
+        <button class="btn btn-info text-dark mr-2 mb-2 ml-2 w-100 mt-3" type="button" [disabled]="checked"
+          (click)="signUp()">Accept</button>
+      </div>
     </div>
 
   </ion-content>

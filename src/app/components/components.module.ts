@@ -23,6 +23,7 @@ import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { SpotReviewCardComponent } from './spot-review-card/spot-review-card.component';
 import { BookingDetailsCardComponent } from './booking-details-card/booking-details-card.component';
 import { StarsComponent } from './stars/stars.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { StarsComponent } from './stars/stars.component';
     PhotoGalleryComponent,
     SpotReviewCardComponent,
     BookingDetailsCardComponent,
-    StarsComponent
+    StarsComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -75,7 +77,8 @@ import { StarsComponent } from './stars/stars.component';
     PhotoGalleryComponent,
     SpotReviewCardComponent,
     BookingDetailsCardComponent,
-    StarsComponent
+    StarsComponent,
+    LoadingComponent
   ]
 })
 export class ComponentsModule { }

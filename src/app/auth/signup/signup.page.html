@@ -10,22 +10,25 @@
       >
     </ion-card-header>
     <ion-card-content class="ion-margin-top">
-      <ion-input type="text" placeholder="Full Name"></ion-input>
+      <form action="" [formGroup]="signupForm" (ngSubmit)="signUpWithEmailAndPassword()">
+        <ion-input type="text" placeholder="Full Name" formControlName="username"></ion-input>
 
-      <ion-input type="email" placeholder="Email"></ion-input>
-      <ion-input type="password" placeholder="Password"></ion-input>
-      <ion-input type="password" placeholder="Confirm Password"></ion-input>
-
-      <ion-text class="ion-text-start" style="text-decoration: none;" >Already have an Account? 
-        <b color="primary" style="text-decoration: underline;color:#DC9C40 ;" routerLink="../login">Login</b>
-      </ion-text>
-      <ion-button expand="block" (click)="login()">Sign Up</ion-button>
-      
-      <p class="ion-text-center">Or  Signup With Google account</p>
-      <button class="google" >
-        <ion-icon name="logo-google"></ion-icon>
+        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        <ion-input type="password" placeholder="Confirm Password" formControlName="confirmPassword"></ion-input>
   
-      </button>
+        <ion-text class="ion-text-start" style="text-decoration: none;" >Already have an Account? 
+          <b color="primary" style="text-decoration: underline;color:#DC9C40 ;" >Login</b>
+        </ion-text>
+        <ion-button expand="block" type="submit">Sign Up</ion-button>
+        
+        <p class="ion-text-center" >Or  Signup With Google account</p>
+        <button class="google" (click)="auth.signUpWithGoogle()">
+          <ion-icon name="logo-google"></ion-icon>
+    
+        </button>
+      </form>
+      
 
 
     </ion-card-content>

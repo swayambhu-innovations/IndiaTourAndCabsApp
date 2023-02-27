@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepagePage implements OnInit {
 
-  constructor() { }
+  constructor(public dataProvider:DataProviderService) { }
   windowsWidth = window.innerWidth;
  
   ngOnInit() {

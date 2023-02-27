@@ -1,5 +1,6 @@
 <app-header></app-header>
 <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
+  <app-loading *ngIf="!dataProvider.user"></app-loading>
   <app-carousel></app-carousel>
   <app-order-card></app-order-card>
 
