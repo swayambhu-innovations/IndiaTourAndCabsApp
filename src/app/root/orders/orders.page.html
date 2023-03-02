@@ -4,7 +4,9 @@
 </ion-header>
 <ion-content class="ion-padding">
     
-    <app-booking-card bookingType="taxi"></app-booking-card>
-    <app-booking-card bookingType="guid"></app-booking-card>
-    <app-booking-card bookingType="taxi"></app-booking-card>
+    <app-booking-card bookingType="cabRide" [cabRides]="cabRides"></app-booking-card>
+    <app-booking-card bookingType="renting" [rentals]="userRenting"></app-booking-card>
+    <app-booking-card bookingType="guide" [guide]="userGuide"></app-booking-card>
+    <app-booking-card bookingType="outstations" [outstations]="userOutstation"></app-booking-card>
+
 </ion-content>

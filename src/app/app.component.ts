@@ -69,18 +69,18 @@ export class AppComponent {
         //   });
         docData(doc(this.fs, userUrl)).subscribe((res) => {
           this.dataProvider.user = res;
-          console.log(this.dataProvider.user);
-          // console.log(this.dataProvider.user?.phoneVerify)
-          if (!this.dataProvider.user) {
+          console.log(this.dataProvider?.user);
+          // console.log(this.dataProvider?.user?.phoneVerify)
+          if (!this.dataProvider?.user) {
             this.router.navigate(['/auth/login']);
           }
-          if (this.dataProvider.user != undefined && this.dataProvider.user?.termsCondition == undefined) {
+          if (this.dataProvider?.user != undefined && this.dataProvider?.user?.termsCondition == undefined) {
             this.router.navigate(['/root/terms-condition']);
           }
-          // if (this.dataProvider.user?.termsCondition == true && this.dataProvider.user?.currentAddress == "") {
+          // if (this.dataProvider?.user?.termsCondition == true && this.dataProvider?.user?.currentAddress == "") {
           //   this.router.navigate(['/pick-up-address']);
           // }
-          if (this.dataProvider.user?.termsCondition == true && this.dataProvider.LoggedInUser == true) {
+          if (this.dataProvider?.user?.termsCondition == true && this.dataProvider.LoggedInUser == true) {
             this.router.navigate(['/root/homepage']);
           }
           // let unReadNotifications: notificationStructure[] = [];

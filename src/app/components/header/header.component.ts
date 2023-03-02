@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,36 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() currentPanel: string = window.location.pathname.split('/')[2];
-  constructor() { }
+  constructor(private actionSheetCtrl: ActionSheetController) { }
 
   ngOnInit() {}
 
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Select Language',
+      buttons: [
+        {
+          text: 'English',
+          role: 'destructive',
+          data: {
+            action: 'delete',
+          },
+        },
+        {
+          text: 'Hindi',
+          data: {
+            action: 'share',
+          },
+        },
+        
+      ],
+    });
+
+    await actionSheet.present();
+
+    const result = await actionSheet.onDidDismiss();
+    console.log(result);
+  }
 }
+
+

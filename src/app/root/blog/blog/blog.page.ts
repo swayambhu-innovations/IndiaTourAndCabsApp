@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from 'src/services/database/database.service';
+import { blogs } from 'src/structures/blog.structure';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogPage implements OnInit {
 
-  constructor() { }
+  blogList:blogs[]=[];
+
+  constructor(private database:DatabaseService) { }
 
   ngOnInit() {
+    this.blogs();
   }
 
+  blogs(){
+    this.database.blogs().then((blogs)=>{
+      blogs.forEach((element: any) => {
+        this.blogList.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log(this.blogList)
+      });
+    })
+  }
+  
 }

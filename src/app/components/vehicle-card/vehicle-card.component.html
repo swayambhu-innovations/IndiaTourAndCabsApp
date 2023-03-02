@@ -1,41 +1,41 @@
-<div class="row">
+<div class="row" (click)="this.chooseDate = vehicle;  selectDate(vehicle)" [class]="vehicle.checked ? 'bg-info' : 'bg-primary'">
   <div class="col-12">
     <div class="card bg-primary shadow-soft border-light px-2 py-1 mb-3">
-      
-        <div class="row align-items-center justify-content-between">
-          <div class="col-5 ">
-            <img src="assets/vehicles/suv.png" alt="illustration">
+
+      <div class="row align-items-center justify-content-between">
+        <div class="col-5 ">
+          <img [src]="vehicle?.vehicleImage" alt="illustration">
+        </div>
+        <div class="col-7">
+          <h2 class="mb-2 Lato600">{{vehicle?.modelType}}</h2>
+          <div class="mb-1 Lato500 fs-14">
+            {{vehicle?.vehicleName}}
           </div>
-          <div class="col-7">
-            <h2 class="mb-2 Lato600">SUV</h2>
-            <div class="mb-1 Lato500 fs-14">
-              Scorpio-N, XUV 500, Bolero
-            </div>
-            <div class="align-items-center my-2 d-flex w-100">
-              <div class="t-green Lato600 fs-20">$400</div>
-              <div class="t-blue Lato600 fs-20 mx-4">$15/km</div>
-            </div>
-            
-          </div>
-          <div class="col-12 mt-3">
-            <div class="align-items-center justify-content-between d-flex px-3">
-              <div class="d-flex align-items-center">
-                <i class="fa-solid fa-seat-airline"></i>
-                <span class="ml-1">5</span>
-              </div>
-              <div class="d-flex align-items-center">
-                <i class="fa-solid fa-car-side"></i>
-                <span class="ml-1">8 Ltr</span>
-              </div>
-              <div class="d-flex align-items-center">
-                <i class="fa-regular fa-air-conditioner"></i>
-                <span class="ml-1">Air conditioning</span>
-              </div>
-            </div>
+          <div class="align-items-center my-2 d-flex w-100">
+            <div class="t-green Lato600 fs-20">$400</div>
+            <div class="t-blue Lato600 fs-20 mx-4">{{vehicle?.ratePerKm}} / km</div>
           </div>
 
         </div>
-     
+        <div class="col-12 mt-3">
+          <div class="align-items-center justify-content-between d-flex px-3">
+            <div class="d-flex align-items-center">
+              <i class="fa-solid fa-seat-airline"></i>
+              <span class="ml-1">{{vehicle?.noOfSeats}}</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fa-solid fa-car-side"></i>
+              <span class="ml-1">{{vehicle?.fuelTankCapacity}} Ltr</span>
+            </div>
+            <div class="d-flex align-items-center" *ngIf="vehicle?.airConditioner">
+              <i class="fa-regular fa-air-conditioner" ></i>
+              <span class="ml-1">Air conditioning</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </div>

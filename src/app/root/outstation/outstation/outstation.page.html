@@ -16,7 +16,7 @@
     </div>
 
     <div class="mt-4">
-      <form action="">
+      <form action="" [formGroup]="outstation" (ngSubmit)="guide()">
         <div class="form-group">
           <label class="my-2  Lato600 fs-16" for="inlineFormCustomSelectPref">Enter Pickup location</label>
           <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
@@ -38,23 +38,35 @@
         <div>
           <div class="input-daterange datepicker row align-items-center">
             <div class="col">
-              <label class="my-2  Lato600 fs-16" for="exampleInputDate2">Schedule pickup</label>
+              <label class="my-1 mr-2 Lato600 fs-16">Schedule  pickup</label>
               <div class="form-group">
                 <div class="input-group input-group-border">
-                  <div class="input-group-prepend"><span class="input-group-text"><span
+                  <ion-modal trigger="dateTimeStartOne" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+                    <ng-template>
+                      <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'start')"></ion-datetime>
+                    </ng-template>
+                  </ion-modal>
+                  <div class="input-group-prepend" id="dateTimeStartOne"><span class="input-group-text"><span
                         class="far fa-calendar-alt"></span></span></div>
-                  <input class="form-control datepicker Lato400 fs-14" id="exampleInputDate2" placeholder="Start date" type="text">
+                  <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text"  [value]="time.start"
+                  formControlName="pickupStartDate">
                 </div>
               </div>
             </div>
-            <span class="Lato500 fs-17">at</span>
+            <span class="Lato500 fs-16">at</span>
             <div class="col">
               <div class="form-group">
-                <label class="my-2  Lato600 fs-16" for="exampleInputDate3"></label>
+                <label class="h6" for="exampleInputDate3"></label>
                 <div class="input-group input-group-border">
-                  <div class="input-group-prepend"><span class="input-group-text"><span
+                  <ion-modal trigger="dateTimeEndOne" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+                    <ng-template>
+                      <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'end')"></ion-datetime>
+                    </ng-template>
+                  </ion-modal>
+                  <div class="input-group-prepend" id="dateTimeEndOne"><span class="input-group-text"><span
                         class="far fa-calendar-alt"></span></span></div>
-                  <input class="form-control datepicker Lato400 fs-14" id="exampleInputDate3" placeholder="End date" type="text">
+                  <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text" [value]="time.end"
+                  formControlName="pickupEndDate">
                 </div>
               </div>
             </div>
@@ -64,14 +76,14 @@
           class=" py-3 bg-primary border-light shadow-soft d-flex align-items-between align-items-center w-100 my-3 mb-4">
 
           <div class="form-check w-100 text-center">
-            <input class="form-check-input Lato400 fs-14" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+            <input class="form-check-input Lato400 fs-14" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" formControlName="tripType"
               checked>
             <label class="form-check-label" for="exampleRadios1">
               One way trip
             </label>
           </div>
           <div class="form-check w-100 text-center">
-            <input class="form-check-input Lato400 fs-14" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <input class="form-check-input Lato400 fs-14" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" formControlName="tripType" >
             <label class="form-check-label" for="exampleRadios2">
               Round trip
             </label>
@@ -81,23 +93,35 @@
         <div>
           <div class="input-daterange datepicker row align-items-center">
             <div class="col">
-              <label class="my-2  Lato600 fs-16" for="exampleInputDate2">Return Date</label>
+              <label class="my-1 mr-2 Lato600 fs-16">Return Date</label>
               <div class="form-group">
                 <div class="input-group input-group-border">
-                  <div class="input-group-prepend"><span class="input-group-text"><span
+                  <ion-modal trigger="dateTimeStart" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+                    <ng-template>
+                      <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'returnStart')"></ion-datetime>
+                    </ng-template>
+                  </ion-modal>
+                  <div class="input-group-prepend" id="dateTimeStart"><span class="input-group-text"><span
                         class="far fa-calendar-alt"></span></span></div>
-                  <input class="form-control datepicker Lato400 fs-14" id="exampleInputDate2" placeholder="Start date" type="text">
+                  <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text"  [value]="time.returnStart"
+                  formControlName="returnStartDate">
                 </div>
               </div>
             </div>
-            <span class="Lato500 fs-17">at</span>
+            <span class="Lato500 fs-16">at</span>
             <div class="col">
               <div class="form-group">
-                <label class="my-2  Lato600 fs-16" for="exampleInputDate3"></label>
+                <label class="h6" for="exampleInputDate3"></label>
                 <div class="input-group input-group-border">
-                  <div class="input-group-prepend"><span class="input-group-text"><span
+                  <ion-modal trigger="dateTimeEnd" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+                    <ng-template>
+                      <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'returnEnd')"></ion-datetime>
+                    </ng-template>
+                  </ion-modal>
+                  <div class="input-group-prepend" id="dateTimeEnd"><span class="input-group-text"><span
                         class="far fa-calendar-alt"></span></span></div>
-                  <input class="form-control datepicker Lato400 fs-14" id="exampleInputDate3" placeholder="End date" type="text">
+                  <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text" [value]="time.returnEnd"
+                  formControlName="returnEndDate">
                 </div>
               </div>
             </div>
@@ -126,8 +150,7 @@
           </div>
         </div>
         <div class="">
-          <button class="btn btn-info position-fixed bottom-0  w-90 mb-2"  type="button"
-            routerLink="../vehicle">Next</button>
+          <button class="btn btn-info position-fixed bottom-0  w-90 mb-2"  type="submit" >Next</button>
         </div>
       </form>
     </div>

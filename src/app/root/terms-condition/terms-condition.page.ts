@@ -33,10 +33,10 @@ export class TermsConditionPage implements OnInit {
     console.log("triigerd")
     
       const data = {
-        ...this.dataProvider.user,
+        ...this.dataProvider?.user,
         termsCondition:true
       }
-      this.user.updateUser(this.dataProvider.user.id, data)
+      this.user.updateUser(this.dataProvider?.user.id, data)
       this.router.navigateByUrl('/root/homepage') 
     }
      

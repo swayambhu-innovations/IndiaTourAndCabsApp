@@ -17,7 +17,7 @@ const routes: Routes = [
         loadChildren: () => import('./outstation/outstation/outstation.module').then( m => m.OutstationPageModule)
       },
       {
-        path: 'vehicle',
+        path: 'vehicle/:page',
         loadChildren: () => import('./outstation/vehicle/vehicle.module').then( m => m.VehiclePageModule)
       },
       {
@@ -45,7 +45,7 @@ const routes: Routes = [
         loadChildren: () => import('./blog/blog/blog.module').then( m => m.BlogPageModule)
       },
       {
-        path: 'blog-detail',
+        path: 'blog-detail/:id',
         loadChildren: () => import('./blog/blog-detail/blog-detail.module').then( m => m.BlogDetailPageModule)
       },
       {

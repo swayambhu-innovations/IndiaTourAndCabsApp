@@ -26,7 +26,7 @@ export class AuthService {
     private fs: Firestore,
     private auth: Auth,
     private router: Router,
-    private dataprovider: DataProviderService,
+    private dataProvider: DataProviderService,
     private alertify: AlertsAndNotificationsService,
     private platform: Platform
   ) {
@@ -40,7 +40,7 @@ export class AuthService {
           console.log(user);
           this.userIsLoggedIn = true;
           this.userId = user.uid;
-          this.dataprovider.user = user;
+          this.dataProvider.user = user;
           this.userAvailable.next(user);
         } else {
           this.userIsLoggedIn = false;
@@ -80,7 +80,7 @@ export class AuthService {
       })
       .catch((err) => {
         console.log(err);
-        this.dataprovider.loading = false;
+        this.dataProvider.loading = false;
         this.alertify.presentToast(err);
       });
   }
@@ -104,7 +104,7 @@ export class AuthService {
       this.alertify.presentToast('Account created Successfully');
       // this.router.navigateByUrl('/home');
     });
-    this.dataprovider.loading = false;
+    this.dataProvider.loading = false;
     // this.router.navigate(['/all-products'])
   }
 
@@ -141,11 +141,11 @@ export class AuthService {
   }
 
   public async logout() {
-    this.dataprovider.LoggedInUser = false;
-    this.dataprovider.user = {} as UserData;
+    this.dataProvider.LoggedInUser = false;
+    this.dataProvider.user = {} as UserData;
 
     return await signOut(this.auth).then((res) => {
-      this.dataprovider.LoggedInUser = false;
+      this.dataProvider.LoggedInUser = false;
       this.router.navigateByUrl('/login');
     });
   }

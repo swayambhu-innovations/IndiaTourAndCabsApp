@@ -37,9 +37,9 @@ export class UserProfilePage implements OnInit {
   constructor(private database: DatabaseService, public dataProvider: DataProviderService, private user: UserService, private alertify: AlertsAndNotificationsService, private router: Router) { }
 
   ngOnInit() {
-    console.log(this.dataProvider.user)
-    if(this.dataProvider.user){
-      this.profileForm.patchValue(this.dataProvider.user);
+    console.log(this.dataProvider?.user)
+    if(this.dataProvider?.user){
+      this.profileForm.patchValue(this.dataProvider?.user);
       console.log(this.profileForm.value); 
     }
     this.profileForm.valueChanges.subscribe((value) => {
@@ -67,15 +67,15 @@ export class UserProfilePage implements OnInit {
         photoURL: this.url,
       }
       console.log(profile)
-      this.user.updateUser(this.dataProvider.user.id, profile);
+      this.user.updateUser(this.dataProvider?.user.id, profile);
     }
     else {
       const profile = {
         ...this.profileForm.value,
-        photoURL: this.dataProvider.user.photoURL,
+        photoURL: this.dataProvider?.user.photoURL,
       }
       console.log(profile)
-      this.user.updateUser(this.dataProvider.user.id, profile);
+      this.user.updateUser(this.dataProvider?.user.id, profile);
     }
 
 

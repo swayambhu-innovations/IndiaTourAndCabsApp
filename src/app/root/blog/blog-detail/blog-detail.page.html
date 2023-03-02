@@ -4,34 +4,16 @@
   </ion-header>
  
   <ion-content class="ion-padding">
-    <img src="https://waybird.imgix.net/lodge_images/images/000/080/557/original/killa-bhawan-9.jpg?w=1400&h=960"
+    <img [src]="blog.photoURL"
       class="card-img-top rounded-top" alt="Themesberg office">
     <div>
-      <h3 class="h5 Lato600 fs-18">8 Waterfalls in Jaipur to visit this year</h3>
-      <div class="t-grey pb-3 Lato500 fs-14">October 9th, 2022</div>
-      <div class=" pb-3 Lato400 fs-14">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor, ante vel luctus ultricies, magna
-        tellus ornare enim, nec vulputate ante magna et nunc. Aenean vehicula augue orci, eu hendrerit nunc hendrerit
-        vitae. Curabitur sollicitudin nulla ac urna elementum, eu euismod nisi imperdiet. Proin quis tincidunt eros,
-        venenatis bibendum metus. Suspendisse potenti. Quisque ultrices rhoncus tristique. Integer eget velit ut tellus
-        facilisis blandit.
-        Integer pharetra eleifend libero, vel blandit justo placerat non. Vestibulum sit amet dapibus ligula, at
-        elementum tellus. Mauris pellentesque libero ut varius congue. Pellentesque malesuada viverra tempus. Donec
-        facilisis urna nunc. Quisque iaculis sapien eu mi tempus aliquet. Etiam varius et ante mattis tincidunt.
-        Suspendisse et tincidunt leo. Donec sit amet aliquet nulla.
-        Mauris lacinia leo dolor, non lobortis nisi imperdiet sed. Etiam nisl metus, facilisis dapibus metus ac,
-        facilisis blandit nulla. Sed pharetra ut metus eu sodales. Vivamus in pretium eros. Ut in volutpat sapien, id
-        condimentum ante. Proin vel massa bibendum, finibus metus eu, porttitor felis. Vivamus laoreet volutpat
-        porttitor. Duis ultricies erat et facilisis tempus. Praesent tempus gravida elit, ut suscipit tortor
-        pellentesque sed. Integer hendrerit, purus viverra facilisis lacinia, quam diam vestibulum ante, id cursus leo
-        diam vel magna.
-        Maecenas purus odio, feugiat sit amet leo vitae, imperdiet gravida risus. Sed felis quam, congue id metus sit
-        amet, posuere dictum quam. Sed scelerisque ligula ac erat sollicitudin eleifend. Suspendisse ut dolor ante.
-        Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi id erat nec diam sodales ultricies. Morbi in
-        ipsum convallis, feugiat diam id, feugiat est..
+      <div class="d-flex align-items-center mt-2 Lato400 fs-16 ">
+        <span class="small"><span class="far fa-calendar-alt mr-2"></span>By <span class="t-orange">{{blog?.author?.displayName}}</span> from
+          Rajputana Cabs</span>
       </div>
-
-
+      <h3 class="h5 Lato600 fs-18">{{blog.title}}</h3>
+      <div class="t-grey pb-3 Lato500 fs-14">{{blog.created.toDate() | date}}</div>
+      <div class=" pb-3 Lato400 fs-14">{{blog.description}}</div>
     </div>
   </ion-content>
   

@@ -16,24 +16,24 @@
   </div>
 
   <div class="mt-4">
-    <form action="">
+    <form action="" [formGroup]="bookRideForm" (ngSubmit)="bookRide()">
       <div class="form-group">
         <label class="my-2 mr-2 Lato600 fs-16" for="inlineFormCustomSelectPref">Enter Pickup location</label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" >
           <option selected>Location</option>
-          <option value="1">United States</option>
-          <option value="2">Germany</option>
-          <option value="3">Canada</option>
+          <option value="United">United States</option>
+          <option value="Germany">Germany</option>
+          <option value="Canada">Canada</option>
         </select>
         
       </div>
       <div class="form-group">
         <label class="my-2 mr-2 Lato600 fs-16" for="inlineFormCustomSelectPref">To</label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="dropLocation">
           <option selected>Enter your location</option>
-          <option value="1">United States</option>
-          <option value="2">Germany</option>
-          <option value="3">Canada</option>
+          <option value="United">United States</option>
+          <option value="Germany">Germany</option>
+          <option value="Canada">Canada</option>
         </select>
       </div>
       <div>
@@ -45,12 +45,12 @@
                 <!-- <ion-datetime-button datetime="datetime" #dateTime></ion-datetime-button> -->
                 <ion-modal trigger="dateTimeStart" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
                   <ng-template>
-                    <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'end')"></ion-datetime>
+                    <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'start')"></ion-datetime>
                   </ng-template>
                 </ion-modal>
                 <div class="input-group-prepend" id="dateTimeStart"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text">
+                <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text" [value]="time.start | date" formControlName="pickupStartDate">
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@
                 </ion-modal>
                 <div class="input-group-prepend" id="dateTimeEnd"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text">
+                <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text"  [value]="time.end" formControlName="pickupEndDate">
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@
       <div class="card bg-primary shadow-soft text-center border-light mt-3">
         <div class="d-flex p-3  justify-content-between align-items-center">
           <div class="Lato600 fs-16 t-blue text-start w-75">Wanna Explore The Spots Nearby Get A Guide</div>
-          <ion-checkbox slot="start" checked></ion-checkbox>
+          <ion-checkbox slot="start" formControlName="guideAvailable" ></ion-checkbox>
             
           
         </div>
@@ -98,8 +98,7 @@
         </div>
       </div>
       <div class="">
-        <button class="btn btn-info position-fixed bottom-0  w-90 mb-2"  type="button"
-          routerLink="../vehicle">Next</button>
+        <button class="btn btn-info position-fixed bottom-0  w-90 mb-2"  type="submit" >Next</button>
       </div>
     </form>
   </div>
