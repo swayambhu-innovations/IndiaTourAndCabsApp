@@ -1,6 +1,6 @@
 <ng-container *ngIf="bookingType =='cabRide'">
   <div  class="rounded my-3 bg-primary border-light shadow-soft" *ngFor="let cabRide of cabRides">
-    <ion-grid>
+    <ion-grid routerLink="/root/booking-details">
       
       <div class="d-flex justify-content-end w-100"><button class="btn btn-primary text-dark fs-14 Lato400 py-1 my-2 text-right" type="button">Guide Booking</button></div>
       <div class="d-flex align-items-center w-100">
@@ -67,7 +67,7 @@
 
 <ng-container *ngIf="bookingType =='renting'" >
   <div  *ngFor="let cabRide of rentals"
-  class="card bg-primary border-light shadow-soft p-3 d-flex align-items-center justify-content-between">
+  class="card bg-primary border-light shadow-soft p-3 d-flex align-items-center justify-content-between" routerLink="/root/booking-details">
   <div class="d-flex justify-content-end w-100"><button class="btn btn-primary text-dark fs-14 Lato400 py-1 my-2" type="button">Rental</button></div>
   <div class="d-flex align-items-center w-100">
     <ion-avatar style="min-height: 3.5rem; min-width: 5.3rem">
@@ -102,7 +102,7 @@
 </ng-container>
 
 <ng-container *ngIf="bookingType =='guide'" >
-  <div  *ngFor="let cabRide of guide"
+  <div  *ngFor="let cabRide of guide" routerLink="/root/booking-details"
   class="card bg-primary border-light shadow-soft p-3 d-flex align-items-center justify-content-between my-2">
   <div class="d-flex justify-content-end w-100"><button class="btn btn-primary text-dark fs-14 Lato400 py-1 my-2" type="button">Guide Booking</button></div>
   <div class="d-flex align-items-center w-100">
@@ -140,7 +140,7 @@
 
 <ng-container *ngIf="bookingType =='outstations'">
   <div  class="rounded my-3 bg-primary border-light shadow-soft" *ngFor="let cabRide of outstations">
-    <ion-grid>
+    <ion-grid routerLink="/root/booking-details">
       
       <div class="d-flex justify-content-end w-100"><button class="btn btn-primary text-dark fs-14 Lato400 py-1 my-2 text-right" type="button">Guide Booking</button></div>
       <div class="d-flex align-items-center w-100">

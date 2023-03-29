@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
-import { vehicle } from 'src/structures/cabRide.structure';
+import { vehicle } from 'src/structures/booking.structure';
 
 @Component({
   selector: 'app-vehicle-card',

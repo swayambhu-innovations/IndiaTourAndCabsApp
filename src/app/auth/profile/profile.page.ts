@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { AuthService } from 'src/services/Auth/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,7 @@ import { ActionSheetController } from '@ionic/angular';
 export class ProfilePage implements OnInit {
 
   presentingElement:any=null;
-  constructor(private actionSheetCtrl: ActionSheetController) { }
+  constructor(private actionSheetCtrl: ActionSheetController, public auth:AuthService) { }
 
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');

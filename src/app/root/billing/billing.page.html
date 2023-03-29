@@ -5,7 +5,7 @@
 
 
   <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
-    <app-vehicle-card></app-vehicle-card>
+    <app-vehicle-card [vehicle]="this.dataProvider.booking.vehicle"></app-vehicle-card>
     <div class="form-group my-3">
       <label for="email" class="my-2  Lato600 fs-16">Coupon</label>
       <input type="email" class="form-control w-100 Lato400 fs-14" placeholder="Eg  Taxi2022" id="email" aria-describedby="emailHelp">

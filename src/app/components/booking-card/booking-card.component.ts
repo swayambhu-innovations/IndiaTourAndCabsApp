@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { cabRide } from 'src/structures/cabRide.structure';
-import { guide } from 'src/structures/guide.structure';
-import { renting } from 'src/structures/renting.structure';
+import { booking } from 'src/structures/booking.structure';
 
 @Component({
   selector: 'app-booking-card',
@@ -10,9 +8,9 @@ import { renting } from 'src/structures/renting.structure';
 })
 export class BookingCardComponent implements OnInit {
 @Input() bookingType:string = '';
-@Input() cabRides: cabRide | any;
-@Input() rentals: renting | any;
-@Input() guide: guide| any;
+@Input() cabRides: booking | any;
+@Input() rentals: booking | any;
+@Input() guide: booking | any;
 @Input() outstations: any;
   constructor() { }
   ngOnInit() {}

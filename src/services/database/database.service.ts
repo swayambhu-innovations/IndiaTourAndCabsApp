@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { DataProviderService } from '../Data-Provider/data-provider.service';
 import { addDoc, collection, collectionChanges, collectionData, doc, docData, Firestore, getDoc, getDocs, query, setDoc, updateDoc, where } from '@angular/fire/firestore';
-import { cabRide } from 'src/structures/cabRide.structure';
+import { booking } from 'src/structures/booking.structure';
 import { urls } from '../url';
-import { guide } from 'src/structures/guide.structure';
 
 @Injectable({
   providedIn: 'root'
@@ -42,19 +41,19 @@ export class DatabaseService {
 
   // Specific Creation
   
-  bookRide(ride: cabRide) {
-    return addDoc(collection(this.fs, urls.rides), ride);
+  bookings(ride: booking) {
+    return addDoc(collection(this.fs, urls.bookings), ride);
   }
 
-  renting(ride: cabRide) {
+  renting(ride: booking) {
     return addDoc(collection(this.fs, urls.renting), ride);
   }
 
-  guide(data: guide) {
+  guide(data: booking) {
     return addDoc(collection(this.fs, urls.guide), data);
   }
 
-  outstation(data: guide) {
+  outstation(data: booking) {
     return addDoc(collection(this.fs, urls.outstation), data);
   }
 
@@ -62,7 +61,7 @@ export class DatabaseService {
   
   userRides(id:any){
     console.log(this.dataProvider.user?.id);
-    return collectionData(query(collection(this.fs, urls.rides), where('user.userId', '==', id)), { idField: 'id' });
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id)), { idField: 'id' });
   }
   userRenting(id:any){
     console.log(this.dataProvider.user?.id);
@@ -88,5 +87,23 @@ export class DatabaseService {
   blogDetails(BLOG_ID:any){
     const blogUrl = urls.blog.replace('{BLOG_ID}', BLOG_ID);
     return getDoc(doc(this.fs, blogUrl));
+  }
+
+  // Vehicles
+
+  cabVehicles(){
+    return getDocs(collection(this.fs, urls.vehicleCab));
+  }
+  rentalVehicles(){
+    return getDocs(collection(this.fs, urls.vehicleRental));
+  }
+
+  outstationVehicles(){
+    return getDocs(collection(this.fs, urls.vehicleOutstation));
+  }
+
+  // getRentalPackages
+  getRentalPackages(){
+    return getDocs(collection(this.fs, urls.rentalPackages));
   }
 }

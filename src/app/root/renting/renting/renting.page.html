@@ -30,7 +30,7 @@
           <button class="btn btn-primary  bg-primary shadow-soft text-center border-light px-2 py-2"
             *ngFor="let package of packages" (click)="selectPackage(package)" type="button">
             <div class="Lato600 fs-18">{{package.hours}} hr</div>
-            <div class="Lato400 fs-14">{{package.kms}} km</div>
+            <div class="Lato400 fs-14">{{package.distance}} km</div>
           </button>
 
         </div>
@@ -50,8 +50,7 @@
                 </ion-modal>
                 <div class="input-group-prepend" id="dateTimeStart"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text"  [value]="time.start"
-                  formControlName="pickupStartDate">
+                <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text"  [value]="time.start">
               </div>
             </div>
           </div>
@@ -69,8 +68,7 @@
                 </ion-modal>
                 <div class="input-group-prepend" id="dateTimeEnd"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text"  [value]="time.end"
-                  formControlName="pickupEndDate">
+                <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text"  [value]="time.end" >
               </div>
             </div>
           </div>

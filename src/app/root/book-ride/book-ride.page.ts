@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DatabaseService } from 'src/services/database/database.service';
-import { cabRide } from 'src/structures/cabRide.structure';
+import { booking } from 'src/structures/booking.structure';
 
 @Component({
   selector: 'app-book-ride',
@@ -42,7 +42,7 @@ export class BookRidePage implements OnInit {
   }
 
   bookRide() {
-    const data: cabRide = {
+    const data: booking = {
       ...this.bookRideForm.value,
       pickupLocation: this.pickupLocation.value,
       pickupStartDate: this.time.start,
@@ -54,7 +54,8 @@ export class BookRidePage implements OnInit {
         phone: this.dataProvider?.user.phone,
         userId: this.dataProvider?.user.id,
         address: this.dataProvider?.user.address,
-      }
+      },
+      type: 'cab'
 
     };
     console.log(data);

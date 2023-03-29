@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DatabaseService } from 'src/services/database/database.service';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
-import { guide } from 'src/structures/guide.structure';
-import { renting } from 'src/structures/renting.structure';
+import { booking } from 'src/structures/booking.structure';
+
 
 @Component({
   selector: 'app-book-a-guide',
@@ -70,7 +70,7 @@ export class BookAGuidePage implements OnInit {
   }
 
   guide() {
-    const data: guide = {
+    const data: booking = {
       ...this.rentingForm.value,
       pickupLocation: this.pickupLocation.value,
       pickupStartDate: this.time.start,

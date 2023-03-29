@@ -3,8 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DatabaseService } from 'src/services/database/database.service';
-import { cabRide } from 'src/structures/cabRide.structure';
-import { renting } from 'src/structures/renting.structure';
+import { booking, RentalPackage } from 'src/structures/booking.structure';
+
 
 @Component({
   selector: 'app-renting',
@@ -14,30 +14,12 @@ import { renting } from 'src/structures/renting.structure';
 export class RentingPage implements OnInit {
 
   selectedPackage: any;
-  packages:any [] = [
-    {
-      hours: 1,
-      kms: 100
-    },
-    {
-      hours: 2,
-      kms: 200
-    },
-    {
-      hours: 3,
-      kms: 300
-    },
-    {
-      hours: 4,
-      kms: 400
-    }
-
-  ]
+  packages: RentalPackage[] = []
   time: { start: Date, end: Date } = {
     start: new Date(),
     end: new Date()
   }
-  pickupLocation : FormGroup = new FormGroup({
+  pickupLocation: FormGroup = new FormGroup({
     address: new FormControl('Pick up location added'),
     landmark: new FormControl('landmark added'),
     pinCode: new FormControl('23232'),
@@ -52,10 +34,23 @@ export class RentingPage implements OnInit {
   });
 
 
-  
+
   constructor(private database: DatabaseService, private dataProvider: DataProviderService, private router: Router) { }
 
   ngOnInit() {
+    this.rentalPackages();
+  }
+
+  rentalPackages() {
+    this.database.getRentalPackages().then(res => {
+      res.forEach((element: any) => {
+        this.packages.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log(this.packages)
+      });
+    })
   }
 
   changedTime(event: any, type: 'start' | 'end') {
@@ -69,7 +64,7 @@ export class RentingPage implements OnInit {
   }
 
   renting() {
-    const data: renting = {
+    const data: booking = {
       ...this.rentingForm.value,
       pickupLocation: this.pickupLocation.value,
       pickupStartDate: this.time.start,
@@ -82,7 +77,8 @@ export class RentingPage implements OnInit {
         phone: this.dataProvider?.user.phone,
         userId: this.dataProvider?.user.id,
         address: this.dataProvider?.user.address,
-      }
+      },
+      type: 'rental'
 
     };
     console.log(data);

@@ -4,7 +4,7 @@ import { NavController } from '@ionic/angular';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DatabaseService } from 'src/services/database/database.service';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
-import { vehicle } from 'src/structures/cabRide.structure';
+import { vehicle, VehicleCategory } from 'src/structures/booking.structure';
 
 @Component({
   selector: 'app-vehicle',
@@ -17,38 +17,53 @@ export class VehiclePage implements OnInit {
 
 
 
-  vehicleList: vehicle[] = [
-    {
-      vehicleName: "Maruti Suzuki Swift Dzire",
-      vehicleImage: "https://www.pngmart.com/files/22/Sedan-PNG-Clipart.png",
-      modelType: "Sedan",
-      noOfSeats: 4,
-      ratePerKm: 10,
-      vehicleNumber: "MH 12 AB 1234",
-      color: "Blue",
-      fuelTankCapacity: 50,
-      airConditioner: true,
-      vehicleDescription: "Maruti Suzuki Swift Dzire is a 5 seater sedan car available at a price range of Rs. 5.89 - 9.34 Lakh in India. It is available in 10 variants, 1 engine option and 1 transmission option: Manual. Other key specifications of the Swift Dzire include a kerb weight of 970kg, ground clearance of 170mm and boot space of 378 litres.",
-    },
-    {
-      vehicleName: "Audi A4",
-      vehicleImage: "https://purepng.com/public/uploads/large/sedan-0hx.png",
-      modelType: "Sedan",
-      noOfSeats: 5,
-      ratePerKm: 10,
-      vehicleNumber: "MH 12 AB 1234",
-      color: "Blue",
-      fuelTankCapacity: 20,
-      airConditioner: false,
-      vehicleDescription: "Maruti Suzuki Swift Dzire is a 5 seater sedan car available at a price range of Rs. 5.89 - 9.34 Lakh in India. It is available in 10 variants, 1 engine option and 1 transmission option: Manual. Other key specifications of the Swift Dzire include a kerb weight of 970kg, ground clearance of 170mm and boot space of 378 litres.",
-    }
-  ];
+  vehicleList: VehicleCategory[] = [];
 
   constructor(private dataProvider: DataProviderService, private database: DatabaseService, private router: Router, private navController: NavController, private UI: AlertsAndNotificationsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     console.log(this.fromUrl);
+    this.getVehicleDetails();
   }
+
+  getVehicleDetails() {
+    if (this.fromUrl == 'cab') {
+      this.database.cabVehicles().then((res) => {
+        res.forEach((element: any) => {
+          this.vehicleList.push({
+            ...element.data(),
+            id: element.id,
+          });
+          console.log(this.vehicleList)
+        });
+      })
+    }
+    if (this.fromUrl == 'renting') {
+      this.database.rentalVehicles().then((res) => {
+        res.forEach((element: any) => {
+          this.vehicleList.push({
+            ...element.data(),
+            id: element.id,
+          });
+          console.log(this.vehicleList)
+        });
+      })
+
+    }
+    if (this.fromUrl == 'outstation') {
+      this.database.outstationVehicles().then((res) => {
+        res.forEach((element: any) => {
+          this.vehicleList.push({
+            ...element.data(),
+            id: element.id,
+          });
+          console.log(this.vehicleList)
+        });
+      })
+
+    }
+  }
+
 
   // CAB RIDE BOOKING
   booking() {
@@ -58,7 +73,7 @@ export class VehiclePage implements OnInit {
     }
     console.log(data);
     if (this.fromUrl == 'cab') {
-      this.database.bookRide(data).then((res) => {
+      this.database.bookings(data).then((res) => {
         console.log(res);
         this.UI.presentToast("Ride Booked Successfully");
         this.router.navigate(['/root/billing']);
@@ -66,7 +81,7 @@ export class VehiclePage implements OnInit {
       return;
     }
     if (this.fromUrl == 'renting') {
-      this.database.renting(data).then((res) => {
+      this.database.bookings(data).then((res) => {
         console.log(res);
         this.UI.presentToast("Renting Booked Successfully");
         this.router.navigate(['/root/billing']);

@@ -18,11 +18,11 @@ const routes: Routes = [
       },
       {
         path: 'vehicle/:page',
-        loadChildren: () => import('./outstation/vehicle/vehicle.module').then( m => m.VehiclePageModule)
+        loadChildren: () => import('./vehicle/vehicle.module').then( m => m.VehiclePageModule)
       },
       {
         path: 'billing',
-        loadChildren: () => import('./outstation/billing/billing.module').then( m => m.BillingPageModule)
+        loadChildren: () => import('./billing/billing.module').then( m => m.BillingPageModule)
       },
       {
         path: 'renting',
@@ -107,13 +107,7 @@ const routes: Routes = [
         path:'homepage',
         loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepagePageModule)
       },
-      {
-        path: 'profile',
-        loadChildren: () =>
-          import('./profile/profile.module').then(
-            (m) => m.ProfilePageModule
-          ),
-      },
+      
       {
         path: 'orders',
         loadChildren: () =>

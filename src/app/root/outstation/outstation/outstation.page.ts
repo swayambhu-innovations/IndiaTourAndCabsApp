@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DatabaseService } from 'src/services/database/database.service';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
-import { outstation } from 'src/structures/outstation.structure';
+import { booking } from 'src/structures/booking.structure';
+
 
 @Component({
   selector: 'app-outstation',
@@ -50,7 +51,7 @@ export class OutstationPage implements OnInit {
   }
 
   guide() {
-    const data: outstation = {
+    const data: booking = {
       ...this.outstation.value,
       pickupLocation: this.pickupLocation.value,
       dropLocation: this.pickupLocation.value,
@@ -63,7 +64,8 @@ export class OutstationPage implements OnInit {
         phone: this.dataProvider?.user.phone,
         userId: this.dataProvider?.user.id,
         address: this.dataProvider?.user.address,
-      }
+      },
+      type: 'outstation',
     };
     console.log(data);
     this.dataProvider.booking = data;

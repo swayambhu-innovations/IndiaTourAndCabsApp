@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 
 @Component({
   selector: 'app-billing',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillingPage implements OnInit {
 
-  constructor() { }
+  constructor(public dataProvider:DataProviderService) { }
 
   ngOnInit() {
+    console.log(this.dataProvider.vehicle);
   }
 
 }
