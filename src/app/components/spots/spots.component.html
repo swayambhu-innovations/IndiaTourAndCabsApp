@@ -1,12 +1,10 @@
 
-  <swiper [slidesPerView]="2" [loop]="true" effect="fade" >
+  <swiper [loop]="true" effect="fade" >
     <ng-template swiperSlide *ngFor="let tour of Tours">
-      <ion-card class="tourCard">
-       
+      <ion-card class="tourCard">   
         <ion-img [src]='tour.image'></ion-img>
         <ion-row class="ion-justify-content-between">
           <ion-col size="6">
-
             <div
               style="
                 background-color: rgba(0, 0, 0, 0.392);

@@ -119,4 +119,10 @@ export class DatabaseService {
     const tourUrl = urls.tour.replace('{TOUR_ID}', TOUR_ID );
     return getDoc(doc(this.fs, tourUrl));
   }
+
+    getSpots(){
+      return getDocs(query(collection(this.fs,'spots')));
+    }
 }
+
+
