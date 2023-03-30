@@ -46,15 +46,15 @@ export class DatabaseService {
   }
 
   renting(ride: booking) {
-    return addDoc(collection(this.fs, urls.renting), ride);
+    return addDoc(collection(this.fs, urls.bookings), ride);
   }
 
   guide(data: booking) {
-    return addDoc(collection(this.fs, urls.guide), data);
+    return addDoc(collection(this.fs, urls.bookings), data);
   }
 
   outstation(data: booking) {
-    return addDoc(collection(this.fs, urls.outstation), data);
+    return addDoc(collection(this.fs, urls.bookings), data);
   }
 
   // Orders
@@ -70,12 +70,12 @@ export class DatabaseService {
 
   userGuide(id:any){
     console.log(this.dataProvider.user?.id);
-    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id)), { idField: 'id' });
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id),where('type', '==' , 'guide')), { idField: 'id' });
   }
 
   userOutstation(id:any){
     console.log(this.dataProvider.user?.id);
-    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id)), { idField: 'id' });
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id),where('type', '==' , 'outstation')), { idField: 'id' });
   }
 
   // Blogs
@@ -105,6 +105,10 @@ export class DatabaseService {
   // getRentalPackages
   getRentalPackages(){
     return getDocs(collection(this.fs, urls.rentalPackages));
+  }
+
+  getGuidePackages(){
+    return getDocs(collection(this.fs, urls.guidePackages));
   }
   // Locations
   getLocations(){

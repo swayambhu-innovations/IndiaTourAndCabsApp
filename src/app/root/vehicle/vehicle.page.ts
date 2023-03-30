@@ -89,7 +89,7 @@ export class VehiclePage implements OnInit {
       return;
     }
     if (this.fromUrl == 'outstation') {
-      this.database.outstation(data).then((res) => {
+      this.database.bookings(data).then((res) => {
         console.log(res);
         this.UI.presentToast("outstation Booked Successfully");
         this.router.navigate(['/root/billing']);

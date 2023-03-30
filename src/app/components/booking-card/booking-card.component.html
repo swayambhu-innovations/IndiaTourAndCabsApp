@@ -1,72 +1,72 @@
 <ng-container *ngIf="bookingType =='cabRide'">
-
-  <div class="card bg-primary border-light shadow-soft" *ngFor="let cabRide of cabRides">
+  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of cabRides">
     <div class="justify-content-end mr-2 d-flex">
       <a href="#" class="badge badge-danger p-2 mb-2">Taxi Booking</a>
     </div>
     <div class="d-flex justify-content-between align-items-center p-3">
       <div class="d-flex align-items-center">
-        <div class="car-outer"><img [src]="cabRide.vehicle.image" alt=""></div>
+        <div class="car-outer"><img [src]="cabRide.vehicle?.image" alt=""></div>
         <div class="pl-2">
-          <div class="Lato600 fs-16">{{cabRide.vehicle.vehicleCategory}}</div>
+          <div class="Lato600 fs-16">{{cabRide.vehicle?.vehicleCategory}}</div>
           <div class="Lato400 fs-13 mt-1">{{cabRide.pickupStartDate.toDate() | date}}</div>
+          <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle?.fullPrice}}</div>
         </div>
       </div>
-      <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle.fullPrice}}</div>
+      
     </div>
     <div class="border"></div>
     <div class="fs-14 Lato400 px-3 pt-2">
       <div class="wrapper ms-2">
         <ul class="StepProgress">
           <li class="StepProgress-item current fs-14 Lato400">{{cabRide.pickupLocation.name}}</li>
-          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation.name}}</li>
+          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation?.name}}</li>
         </ul>
       </div>
     </div>
     <div class="d-flex align-items-center px-3 pb-2">
-      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle.seats}}</span></div>
-      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle.acNonac == 'ac' "
+      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle?.seats}}</span></div>
+      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle?.acNonac == 'ac' "
           class="Lato500 t-green ml-1">Yes</span><span class="Lato500 t-green ml-1"
-          *ngIf="cabRide.vehicle.acNonac != 'ac'">NonAc</span></div>
+          *ngIf="cabRide.vehicle?.acNonac != 'ac'">NonAc</span></div>
     </div>
   </div>
-
 </ng-container>
 
 
 <ng-container *ngIf="bookingType =='renting'">
-
-  <div class="card bg-primary border-light shadow-soft" *ngFor="let cabRide of rentals">
+  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of rentals">
     <div class="justify-content-end mr-2 d-flex">
       <a href="#" class="badge badge-danger p-2 mb-2">Rental Booking</a>
     </div>
     <div class="d-flex justify-content-between align-items-center p-3">
       <div class="d-flex align-items-center">
-        <div class="car-outer"><img [src]="cabRide.vehicle.image" alt=""></div>
+        <div class="car-outer"><img [src]="cabRide.vehicle?.image" alt=""></div>
         <div class="pl-2">
-          <div class="Lato600 fs-16">{{cabRide.vehicle.vehicleCategory}}</div>
+          <div class="Lato600 fs-16">{{cabRide.vehicle?.vehicleCategory}}</div>
           <div class="Lato400 fs-13 mt-1">{{cabRide.pickupStartDate.toDate() | date}}</div>
+          <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle?.fullPrice}}</div>
         </div>
       </div>
-      <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle.fullPrice}}</div>
+      
     </div>
     <div class="border"></div>
     <div class="fs-14 Lato400 px-3 pt-2">
       <div class="wrapper ms-2">
         <ul class="StepProgress">
           <li class="StepProgress-item current fs-14 Lato400">{{cabRide.pickupLocation.name}}</li>
-          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation.name}}</li>
+          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation?.name}}</li>
         </ul>
       </div>
     </div>
     <div class="d-flex align-items-center px-3 pb-2">
-      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle.seats}}</span></div>
-      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle.acNonac == 'ac' "
+      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle?.seats}}</span></div>
+      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle?.acNonac == 'ac' "
           class="Lato500 t-green ml-1">Yes</span><span class="Lato500 t-green ml-1"
-          *ngIf="cabRide.vehicle.acNonac != 'ac'">NonAc</span></div>
+          *ngIf="cabRide.vehicle?.acNonac != 'ac'">NonAc</span></div>
     </div>
+    <div class="border"></div>
     <div class="d-flex justify-content-between align-items-center w-100">
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center pl-2 pb-3 pt-2">
        <div class="img-outer-driver">
           <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
         </div>
@@ -79,19 +79,65 @@
       </button>
     </div>
   </div>
+</ng-container>
 
-  
+
+<ng-container *ngIf="bookingType =='outstations'">
+  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of outstations">
+    <div class="justify-content-end mr-2 d-flex">
+      <a href="#" class="badge badge-danger p-2 mb-2">Outstation Booking</a>
+    </div>
+    <div class="d-flex justify-content-between align-items-center p-3">
+      <div class="d-flex align-items-center">
+        <div class="car-outer"><img [src]="cabRide.vehicle?.image" alt=""></div>
+        <div class="pl-2">
+          <div class="Lato600 fs-16">{{cabRide.vehicle?.vehicleCategory}}</div>
+          <div class="Lato400 fs-13 mt-1">{{cabRide.pickupStartDate.toDate() | date}}</div>
+          <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle?.fullPrice}}</div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="border"></div>
+    <div class="fs-14 Lato400 px-3 pt-2">
+      <div class="wrapper ms-2">
+        <ul class="StepProgress">
+          <li class="StepProgress-item current fs-14 Lato400">{{cabRide.pickupLocation.name}}</li>
+          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation?.name}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex align-items-center px-3 pb-2">
+      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle?.seats}}</span></div>
+      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle?.acNonac == 'ac' "
+          class="Lato500 t-green ml-1">Yes</span><span class="Lato500 t-green ml-1"
+          *ngIf="cabRide.vehicle?.acNonac != 'ac'">NonAc</span></div>
+    </div>
+    <div class="border"></div>
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <div class="d-flex align-items-center pl-2 pb-3 pt-2">
+       <div class="img-outer-driver">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </div>
+        <div class="ml-2">
+          <div class="Lato400 fs-14 ">Umesh Yadav</div>
+        </div>
+      </div>
+      <button class="btn btn-icon-only btn-primary mr-3" type="button" aria-label="love button" title="love button">
+        <i class="fa-solid fa-phone"></i>
+      </button>
+    </div>
+  </div>
 </ng-container>
 
 <ng-container *ngIf="bookingType =='guide'">
-  <div *ngFor="let cabRide of guide" routerLink="/root/booking-details"
-    class="card bg-primary border-light shadow-soft p-3 d-flex align-items-center justify-content-between my-2">
-    <div class="d-flex justify-content-end w-100"><button class="btn btn-primary text-dark fs-14 Lato400 py-1 my-2"
-        type="button">Guide Booking</button></div>
+  <div class="card bg-primary border-light shadow-soft p-3 d-flex align-items-center justify-content-between my-2" *ngFor="let cabRide of guide" routerLink="/root/booking-details">
+    <div class="justify-content-end mr-2 d-flex">
+      <a href="#" class="badge badge-danger p-2 mb-2">Guide Booking</a>
+    </div>
     <div class="d-flex align-items-center w-100">
-      <ion-avatar style="min-height: 5.3rem; min-width: 5.3rem">
-        <ion-img
-          src="https://us.123rf.com/450wm/lacheev/lacheev2109/lacheev210900016/173818773-portrait-of-happy-clever-intelligent-young-man-in-glasses-looking-at-camera-and-smiling-headshot-of.jpg?ver=6"></ion-img>
+      <ion-avatar style="min-height: 5.1rem; min-width: 5.1rem">
+        <ion-img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></ion-img>
       </ion-avatar>
       <div class="w-100 pl-3">
         <div class="d-flex justify-content-between align-items-center w-100">
@@ -104,7 +150,8 @@
         <div class="d-flex justify-content-between align-items-center w-100">
           <div>
             <div class="Lato400 fs-18 mt-2">Price : <b class="t-green">₹ 2500</b></div>
-            <div class="Lato400 fs-14 ">Guide: Umesh Yadav</div>
+            <div class="Lato400 fs-14 " *ngIf="!cabRide.guide?.displayName">Not Assigned Yet, Check after Some time</div>
+            <div class="Lato400 fs-14 " *ngIf="cabRide.guide?.displayName">Guide: Umesh Yadav</div>
           </div>
           <button class="btn btn-icon-only btn-primary mr-3" type="button" aria-label="love button" title="love button">
             <i class="fa-solid fa-phone"></i>
@@ -112,81 +159,7 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
   </div>
 </ng-container>
 
 
-<ng-container *ngIf="bookingType =='outstations'">
-  <div class="rounded my-3 bg-primary border-light shadow-soft" *ngFor="let cabRide of outstations">
-    <ion-grid routerLink="/root/booking-details">
-
-      <div class="d-flex justify-content-end w-100"><button
-          class="btn btn-primary text-dark fs-14 Lato400 py-1 my-2 text-right" type="button">Guide Booking</button>
-      </div>
-      <div class="d-flex align-items-center w-100">
-
-        <ion-avatar style="min-height: 3.5rem; min-width: 5.3rem">
-          <ion-img [src]="cabRide.vehicle.vehicleImage"></ion-img>
-        </ion-avatar>
-        <div class="w-100 pl-3">
-          <div class="d-flex justify-content-between align-items-center w-100">
-            <div>
-              <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate.toDate() | date: 'dd MMMM yyyy'}}</div>
-              <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate.toDate() | date: 'hh:mm a'}}</div>
-            </div>
-
-          </div>
-          <div class="d-flex justify-content-between align-items-center w-100">
-            <div>
-              <div class="Lato400 fs-18 mt-2">Price : <b class="t-green">₹ 2500</b></div>
-              <div class="Lato400 fs-14 ">Guide: Umesh Yadav</div>
-            </div>
-            <button class="btn btn-icon-only btn-primary mr-3" type="button" aria-label="love button"
-              title="love button">
-              <i class="fa-solid fa-phone"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <ion-row class="ion-justify-content-between ion-align-items-start ion-border">
-        <ion-col size="1">
-          <ion-icon name="ellipse" class="ion-margin-bottom" color="primary"></ion-icon>
-          <ion-icon name="ellipse" color="secondary"></ion-icon>
-        </ion-col>
-        <ion-col size="11">
-          <p color="secondary" style="margin: 0; color: #212638; font-size: 0.8rem">
-            {{cabRide.pickupLocation.name}}
-          </p>
-          <br />
-          <p color="secondary" style="margin: 0; color: #212638; font-size: 0.8rem">
-            {{cabRide.dropLocation.name}}
-          </p>
-        </ion-col>
-      </ion-row>
-      <div class="border py-2"></div>
-      <ion-row class="ion-justify-content-between ion-align-items-center">
-        <ion-col size="2">
-          <ion-avatar style="height: 2rem; width: 2rem">
-            <ion-img src="assets/avatar.jpg"></ion-img>
-          </ion-avatar>
-        </ion-col>
-        <ion-col size="8">
-          Driver:
-          <ion-text style="font-weight: 400; color: black; font-size: var(--ion-text)">
-            Jake Sully</ion-text>
-        </ion-col>
-        <ion-col size="2" class=" ion-align-self-end">
-          <button class="commonbutton">
-            <ion-icon name="call"></ion-icon>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-</ng-container>

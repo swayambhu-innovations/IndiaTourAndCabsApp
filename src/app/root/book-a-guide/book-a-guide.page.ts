@@ -14,42 +14,19 @@ import { booking } from 'src/structures/booking.structure';
 })
 export class BookAGuidePage implements OnInit {
   
+  locationsList: any[] = [];
   selectedPackage: any;
-  packages:any [] = [
-    {
-      hours: 1,
-      kms: 100
-    },
-    {
-      hours: 2,
-      kms: 200
-    },
-    {
-      hours: 3,
-      kms: 300
-    },
-    {
-      hours: 4,
-      kms: 400
-    }
-
-  ]
+  packages:any [] = []
   time: { start: Date, end: Date } = {
     start: new Date(),
     end: new Date()
   }
-  pickupLocation : FormGroup = new FormGroup({
-    address: new FormControl('Pick up location added'),
-    landmark: new FormControl('landmark added'),
-    pinCode: new FormControl('23232'),
-    lat: new FormControl('434343434'),
-    lng: new FormControl('23232324234'),
-  });
-  public rentingForm: FormGroup = new FormGroup({
+
+  public guideBookForm: FormGroup = new FormGroup({
+    pickupLocation: new FormControl(),
     guideAvailable: new FormControl(true),
     status: new FormControl('pending'),
     created: new FormControl(Date.now()),
-    // user: user;
   });
 
 
@@ -57,6 +34,8 @@ export class BookAGuidePage implements OnInit {
   constructor(private database: DatabaseService, private dataProvider: DataProviderService, private router: Router, private UI : AlertsAndNotificationsService) { }
 
   ngOnInit() {
+    this.locations();
+    this.guidePackages();
   }
 
   changedTime(event: any, type: 'start' | 'end') {
@@ -71,8 +50,7 @@ export class BookAGuidePage implements OnInit {
 
   guide() {
     const data: booking = {
-      ...this.rentingForm.value,
-      pickupLocation: this.pickupLocation.value,
+      ...this.guideBookForm.value,
       pickupStartDate: this.time.start,
       pickupEndDate: this.time.end,
       package: this.selectedPackage,
@@ -83,7 +61,8 @@ export class BookAGuidePage implements OnInit {
         phone: this.dataProvider?.user.phone,
         userId: this.dataProvider?.user.id,
         address: this.dataProvider?.user.address,
-      }
+      },
+      type: 'guide',
 
     };
     console.log(data);
@@ -97,5 +76,29 @@ export class BookAGuidePage implements OnInit {
     
   }
 
+  locations() {
+    this.database.getLocations().then(res => {
+      res.forEach((element: any) => {
+        this.locationsList.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log(this.locationsList)
+      });
+    })
+  }
+
+
+  guidePackages() {
+    this.database.getGuidePackages().then(res => {
+      res.forEach((element: any) => {
+        this.packages.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log(this.packages)
+      });
+    })
+  }
 
 }

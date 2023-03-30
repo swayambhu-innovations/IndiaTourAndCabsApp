@@ -1,12 +1,9 @@
-
-<ion-header class="ion-padding">
-    <app-header></app-header>
-</ion-header>
-<ion-content class="ion-padding">
-    <app-booking-details-card></app-booking-details-card>
-    <app-booking-card bookingType="cabRide" [cabRides]="cabRides"></app-booking-card>
-    <app-booking-card bookingType="renting" [rentals]="userRenting"></app-booking-card>
-    <app-booking-card bookingType="guide" [guide]="userGuide"></app-booking-card>
-    <app-booking-card bookingType="outstations" [outstations]="userOutstation"></app-booking-card>
-
-</ion-content>
+<div class="ion-page" id="main-content">
+    <app-header currentPanel="Orders"></app-header>
+    <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
+        <app-booking-card bookingType="cabRide" [cabRides]="cabRides"></app-booking-card>
+        <app-booking-card bookingType="renting" [rentals]="userRenting"></app-booking-card>
+        <app-booking-card bookingType="guide" [guide]="userGuide"></app-booking-card>
+        <app-booking-card bookingType="outstations" [outstations]="userOutstation"></app-booking-card>
+    </ion-content>
+</div>
