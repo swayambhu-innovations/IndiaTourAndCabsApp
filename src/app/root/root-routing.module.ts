@@ -14,7 +14,7 @@ const routes: Routes = [
       },
       {
         path: 'outstation',
-        loadChildren: () => import('./outstation/outstation/outstation.module').then( m => m.OutstationPageModule)
+        loadChildren: () => import('./outstation/outstation.module').then( m => m.OutstationPageModule)
       },
       {
         path: 'vehicle/:page',
@@ -69,7 +69,7 @@ const routes: Routes = [
         loadChildren: () => import('./tours/tours/tours.module').then( m => m.ToursPageModule)
       },
       {
-        path: 'tours-details',
+        path: 'tours-details/:id',
         loadChildren: () => import('./tours/tour-detail/tour-detail.module').then( m => m.TourDetailPageModule) 
       },
       {
@@ -140,7 +140,14 @@ const routes: Routes = [
       {
         path: 'user-profile',
         loadChildren: () => import('./user-profile/user-profile.module').then( m => m.UserProfilePageModule)
-      }
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./profile/profile.module').then(
+            (m) => m.ProfilePageModule
+          ),
+      },
     ]
   },
 ];

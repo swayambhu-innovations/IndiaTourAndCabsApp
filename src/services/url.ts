@@ -12,6 +12,11 @@ export const urls = {
     vehicleCab:`/service/rental/vehicleCategories`,
     vehicleOutstation:`/service/outstation/vehicleCategories`,
     rentalPackages:`/service/rental/packages`,
+    locations:`/locations`,
+
+
+    tours:`/services/tours/tours`,
+    tour:`/services/tours/tours/{TOUR_ID}`,
 
     
    

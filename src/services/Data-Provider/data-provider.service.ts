@@ -17,7 +17,7 @@ export class DataProviderService {
   public phoneData : ConfirmationResult | any;
   public appSettings:any;
   public loadedClothImages:{name:string,image:string}[] = [];
-  booking: any;
+  public booking: any;
   public vehicle:any;
   constructor() { }
 }

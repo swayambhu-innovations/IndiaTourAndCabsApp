@@ -17,16 +17,13 @@
     <form action="#" class="w-100" [formGroup]="rentingForm" (ngSubmit)="renting()">
       <div class="form-group my-3 w-100">
         <label for="email" class="my-2  Lato600 fs-16">Enter Pickup Location</label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-          <option selected>Location</option>
-          <option value="1">United States</option>
-          <option value="2">Germany</option>
-          <option value="3">Canada</option>
-        </select>
+        <ion-select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="pickupLocation">
+          <ion-select-option *ngFor="let location of locationsList" [value]="location">{{location.name}}</ion-select-option>
+        </ion-select>
       </div>
       <div class="my-4">
         <div class="my-2  Lato600 fs-16">Select Package</div>
-        <div class="d-flex align-items-center justify-content-between ">
+        <div class="d-flex align-items-center  ">
           <button class="btn btn-primary  bg-primary shadow-soft text-center border-light px-2 py-2"
             *ngFor="let package of packages" (click)="selectPackage(package)" type="button">
             <div class="Lato600 fs-18">{{package.hours}} hr</div>
@@ -50,7 +47,8 @@
                 </ion-modal>
                 <div class="input-group-prepend" id="dateTimeStart"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text"  [value]="time.start">
+                <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text"
+                  [value]="time.start">
               </div>
             </div>
           </div>
@@ -68,7 +66,8 @@
                 </ion-modal>
                 <div class="input-group-prepend" id="dateTimeEnd"><span class="input-group-text"><span
                       class="far fa-calendar-alt"></span></span></div>
-                <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text"  [value]="time.end" >
+                <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text"
+                  [value]="time.end">
               </div>
             </div>
           </div>

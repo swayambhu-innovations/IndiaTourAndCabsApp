@@ -2,13 +2,10 @@
   <app-header></app-header>
   <ion-card class="profile box">
     <ion-row
-      class="ion-padding ion-justify-content-between ion-align-items-center"
-    >
+      class="ion-padding ion-justify-content-between ion-align-items-center">
       <ion-col size="4">
         <ion-avatar class="ProfileImage">
-          <ion-img
-            src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
-          >
+          <ion-img [src]="dataProvider.user.photoURL  ">
           </ion-img>
         </ion-avatar>
       </ion-col>
@@ -19,13 +16,12 @@
             color: black;
             margin: 0.5rem 0;
             font-weight: 500;
-          "
-          >Arjun Reddy</ion-text
+          ">{{dataProvider.user.displayName}} </ion-text
         >
         <p style="margin: .3rem 0; font-size: 0.9rem; font-weight: 500">
-          redy@arjun.com
+          {{dataProvider.user.email}}
         </p>
-        <p style="margin: .3rem 0; font-size: 0.9rem; font-weight: 500">1234567890</p>
+        <p style="margin: .3rem 0; font-size: 0.9rem; font-weight: 500">{{dataProvider.user.phone}}</p>
       </ion-col>
       <ion-col size="2">
         <ion-button
@@ -65,7 +61,7 @@
     </ion-text>
   </ion-card>
   <ion-card class="profile ion-padding box">
-    <ion-text color="secondary" style="font-weight: 500">
+    <ion-text color="secondary" style="font-weight: 500" (click)="this.auth.logout()">
       <ion-icon name="log-out-outline" style="margin-right: 0.6rem"></ion-icon>
       LogOut
     </ion-text>

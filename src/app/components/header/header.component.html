@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-card class="ion-text-end" *ngIf="currentPanel !== 'homepage'">
     <ion-icon name="chevron-back" routerLink="../homepage"></ion-icon>
   </ion-card>
@@ -14,4 +14,46 @@
     </ion-card>
 
   </div>
+</ion-header> -->
+
+
+<ion-header *ngIf="path!='/root/homepage'">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="/root/homepage"><ion-icon name="chevron-back-outline"></ion-icon></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{currentPanel}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons>
+        <!-- <ion-button routerLink="../notifications" (click)="notification()"><ion-icon name="notifications-outline"></ion-icon></ion-button> -->
+        <ion-buttons slot="end">
+      
+          <ion-card class="ion-text-end" id="language-modal" (click)="presentActionSheet()">
+            <ion-icon name="language"></ion-icon> 
+          </ion-card>
+          <ion-card class="p-2 ml-2">
+            <ion-icon routerLink="../notifications" name="notifications"></ion-icon>
+          </ion-card>
+        </ion-buttons>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header *ngIf="path=='/root/homepage'">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <img width="50px" src="assets/itcMain.png" />
+    </ion-buttons>
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+      
+      <ion-card class="ion-text-end" id="language-modal" (click)="presentActionSheet()">
+        <ion-icon name="language"></ion-icon> 
+      </ion-card>
+      <ion-card class="p-2 ml-2">
+        <ion-icon routerLink="../notifications" name="notifications"></ion-icon>
+      </ion-card>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>

@@ -12,20 +12,18 @@ import { booking } from 'src/structures/booking.structure';
 })
 export class BookRidePage implements OnInit {
 
+
+  locationsList: any[] = [];
   time: { start: Date, end: Date } = {
     start: new Date(),
     end: new Date()
   }
-  pickupLocation : FormGroup = new FormGroup({
-    address: new FormControl('Pick up location added'),
-    landmark: new FormControl('landmark added'),
-    pinCode: new FormControl('23232'),
-    lat: new FormControl('434343434'),
-    lng: new FormControl('23232324234'),
-  });
-  public bookRideForm: FormGroup = new FormGroup({
-    dropLocation: new FormControl(''),
 
+ 
+ 
+  public bookRideForm: FormGroup = new FormGroup({
+    dropLocation: new FormControl(),
+    pickupLocation: new FormControl(),
     guideAvailable: new FormControl(false),
     status: new FormControl('pending'),
     created: new FormControl(Date.now()),
@@ -34,6 +32,8 @@ export class BookRidePage implements OnInit {
   constructor(private database: DatabaseService, private dataProvider: DataProviderService, private router: Router) { }
 
   ngOnInit() {
+    this.locations();
+    
   }
 
   changedTime(event: any, type: 'start' | 'end') {
@@ -42,9 +42,10 @@ export class BookRidePage implements OnInit {
   }
 
   bookRide() {
+    console.log(this.bookRideForm.value.dropLocation);
     const data: booking = {
       ...this.bookRideForm.value,
-      pickupLocation: this.pickupLocation.value,
+      
       pickupStartDate: this.time.start,
       pickupEndDate: this.time.end,
       user: {
@@ -62,6 +63,18 @@ export class BookRidePage implements OnInit {
     this.dataProvider.booking = data;
     console.log(this.dataProvider.booking);
     this.router.navigateByUrl('/root/vehicle/cab')
+  }
+
+  locations() {
+    this.database.getLocations().then(res => {
+      res.forEach((element: any) => {
+        this.locationsList.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log(this.locationsList)
+      });
+    })
   }
 
 }

@@ -18,16 +18,17 @@ export class UserProfilePage implements OnInit {
   public url: any;
   public file: any;
   public change: boolean = false;
-  address:FormGroup = new FormGroup({
-    address: new FormControl(''),
-  });
+  
   public profileForm: FormGroup = new FormGroup({
     displayName: new FormControl(''),
     phone: new FormControl(''),
-    address: this.address,
+    alternativePhone: new FormControl(''),
+    address: new FormControl(''),
+    landmark: new FormControl(''),
+    pincode: new FormControl(''),
     email: new FormControl(''),
     gender: new FormControl(''),
-    phoneNumber: new FormControl(''),
+
     photoURL: new FormControl(''),
     DateOfBirth: new FormControl(''),
 
@@ -68,6 +69,8 @@ export class UserProfilePage implements OnInit {
       }
       console.log(profile)
       this.user.updateUser(this.dataProvider?.user.id, profile);
+      this.alertify.presentToast('Profile Updated');
+      this.router.navigate(['/root/homepage']);
     }
     else {
       const profile = {
@@ -76,6 +79,10 @@ export class UserProfilePage implements OnInit {
       }
       console.log(profile)
       this.user.updateUser(this.dataProvider?.user.id, profile);
+      this.alertify.presentToast('Profile Updated');
+      this.router.navigate(['/root/homepage']);
+
+
     }
 
 

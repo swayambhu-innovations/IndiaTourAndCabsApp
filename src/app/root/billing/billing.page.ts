@@ -11,7 +11,7 @@ export class BillingPage implements OnInit {
   constructor(public dataProvider:DataProviderService) { }
 
   ngOnInit() {
-    console.log(this.dataProvider.vehicle);
+    console.log(this.dataProvider.booking.vehicle);
   }
 
 }

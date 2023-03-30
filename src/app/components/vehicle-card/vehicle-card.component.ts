@@ -12,7 +12,7 @@ export class VehicleCardComponent implements OnInit {
   @Input() vehicle:vehicle | any;
   public data: any[] = [];
   chooseDate: any;
-  constructor(private dataProvider:DataProviderService) { }
+  constructor(public dataProvider:DataProviderService) { }
 
   ngOnInit() {}
   selectDate(value: any) {

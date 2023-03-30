@@ -61,21 +61,21 @@ export class DatabaseService {
   
   userRides(id:any){
     console.log(this.dataProvider.user?.id);
-    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id)), { idField: 'id' });
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id),where('type', '==' , 'cab')), { idField: 'id' });
   }
   userRenting(id:any){
     console.log(this.dataProvider.user?.id);
-    return collectionData(query(collection(this.fs, urls.renting), where('user.userId', '==', id)), { idField: 'id' });
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id),where('type', '==' , 'rental')), { idField: 'id' });
   }
 
   userGuide(id:any){
     console.log(this.dataProvider.user?.id);
-    return collectionData(query(collection(this.fs, urls.guide), where('user.userId', '==', id)), { idField: 'id' });
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id)), { idField: 'id' });
   }
 
   userOutstation(id:any){
     console.log(this.dataProvider.user?.id);
-    return collectionData(query(collection(this.fs, urls.outstation), where('user.userId', '==', id)), { idField: 'id' });
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id)), { idField: 'id' });
   }
 
   // Blogs
@@ -105,5 +105,18 @@ export class DatabaseService {
   // getRentalPackages
   getRentalPackages(){
     return getDocs(collection(this.fs, urls.rentalPackages));
+  }
+  // Locations
+  getLocations(){
+    return getDocs(collection(this.fs, urls.locations));
+  }
+
+  tours(){
+    return getDocs(collection(this.fs, urls.tours));
+  }
+
+  singleTours(TOUR_ID:any){
+    const tourUrl = urls.tour.replace('{TOUR_ID}', TOUR_ID );
+    return getDoc(doc(this.fs, tourUrl));
   }
 }

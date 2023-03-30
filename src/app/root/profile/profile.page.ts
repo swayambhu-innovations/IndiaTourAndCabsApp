@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { AuthService } from 'src/services/Auth/auth.service';
+import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
+import { DatabaseService } from 'src/services/database/database.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +12,7 @@ import { AuthService } from 'src/services/Auth/auth.service';
 export class ProfilePage implements OnInit {
 
   presentingElement:any=null;
-  constructor(private actionSheetCtrl: ActionSheetController, public auth:AuthService) { }
+  constructor(private actionSheetCtrl: ActionSheetController, public auth:AuthService, private database:DatabaseService, public dataProvider:DataProviderService) { }
 
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');

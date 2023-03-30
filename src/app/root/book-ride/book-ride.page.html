@@ -19,22 +19,17 @@
     <form action="" [formGroup]="bookRideForm" (ngSubmit)="bookRide()">
       <div class="form-group">
         <label class="my-2 mr-2 Lato600 fs-16" for="inlineFormCustomSelectPref">Enter Pickup location</label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" >
-          <option selected>Location</option>
-          <option value="United">United States</option>
-          <option value="Germany">Germany</option>
-          <option value="Canada">Canada</option>
-        </select>
+        <ion-select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="pickupLocation" placeholder="Select Pickup Location">
+          <ion-select-option *ngFor="let location of locationsList" [value]="location">{{location.name}}</ion-select-option>
+        </ion-select>
         
       </div>
       <div class="form-group">
         <label class="my-2 mr-2 Lato600 fs-16" for="inlineFormCustomSelectPref">To</label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="dropLocation">
-          <option selected>Enter your location</option>
-          <option value="United">United States</option>
-          <option value="Germany">Germany</option>
-          <option value="Canada">Canada</option>
-        </select>
+        <ion-select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="dropLocation" placeholder="Select Drop Location">
+
+          <ion-select-option *ngFor="let location of locationsList" [value]="location">{{location.name}}</ion-select-option>
+        </ion-select>
       </div>
       <div>
         <div class="input-daterange datepicker row align-items-center">

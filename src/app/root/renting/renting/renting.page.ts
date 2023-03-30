@@ -13,20 +13,16 @@ import { booking, RentalPackage } from 'src/structures/booking.structure';
 })
 export class RentingPage implements OnInit {
 
+  locationsList: any[] = [];
   selectedPackage: any;
   packages: RentalPackage[] = []
   time: { start: Date, end: Date } = {
     start: new Date(),
     end: new Date()
   }
-  pickupLocation: FormGroup = new FormGroup({
-    address: new FormControl('Pick up location added'),
-    landmark: new FormControl('landmark added'),
-    pinCode: new FormControl('23232'),
-    lat: new FormControl('434343434'),
-    lng: new FormControl('23232324234'),
-  });
+
   public rentingForm: FormGroup = new FormGroup({
+    pickupLocation: new FormControl(),
     guideAvailable: new FormControl(false),
     status: new FormControl('pending'),
     created: new FormControl(Date.now()),
@@ -39,6 +35,7 @@ export class RentingPage implements OnInit {
 
   ngOnInit() {
     this.rentalPackages();
+    this.locations();
   }
 
   rentalPackages() {
@@ -66,7 +63,6 @@ export class RentingPage implements OnInit {
   renting() {
     const data: booking = {
       ...this.rentingForm.value,
-      pickupLocation: this.pickupLocation.value,
       pickupStartDate: this.time.start,
       pickupEndDate: this.time.end,
       package: this.selectedPackage,
@@ -85,6 +81,18 @@ export class RentingPage implements OnInit {
     this.dataProvider.booking = data;
     console.log(this.dataProvider.booking);
     this.router.navigateByUrl('/root/vehicle/renting')
+  }
+
+  locations() {
+    this.database.getLocations().then(res => {
+      res.forEach((element: any) => {
+        this.locationsList.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log(this.locationsList)
+      });
+    })
   }
 
 }

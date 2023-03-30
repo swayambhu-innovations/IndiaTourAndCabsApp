@@ -15,21 +15,17 @@ import { booking } from 'src/structures/booking.structure';
 export class OutstationPage implements OnInit {
 
 
- 
+  locationsList: any[] = [];
   time: { start: Date, end: Date, returnStart:Date, returnEnd:Date } = {
     start: new Date(),
     end: new Date(),
     returnStart: new Date(),
     returnEnd: new Date()
   }
-  pickupLocation : FormGroup = new FormGroup({
-    address: new FormControl('outstation up location added'),
-    landmark: new FormControl('landmark added'),
-    pinCode: new FormControl('23232'),
-    lat: new FormControl('434343434'),
-    lng: new FormControl('23232324234'),
-  });
+  
   public outstation: FormGroup = new FormGroup({
+    dropLocation: new FormControl(),
+    pickupLocation: new FormControl(),
     guideAvailable: new FormControl(true),
     status: new FormControl('pending'),
     created: new FormControl(Date.now()),
@@ -43,6 +39,7 @@ export class OutstationPage implements OnInit {
   constructor(private database: DatabaseService, private dataProvider: DataProviderService, private router: Router, private UI : AlertsAndNotificationsService) { }
 
   ngOnInit() {
+    this.locations();
   }
 
   changedTime(event: any, type: 'start' | 'end' |'returnStart' | 'returnEnd') {
@@ -53,10 +50,10 @@ export class OutstationPage implements OnInit {
   guide() {
     const data: booking = {
       ...this.outstation.value,
-      pickupLocation: this.pickupLocation.value,
-      dropLocation: this.pickupLocation.value,
       pickupStartDate: this.time.start,
       pickupEndDate: this.time.end,
+      returnEndDate: this.time.returnEnd,
+      returnStartDate: this.time.returnStart,
       user: {
         displayName: this.dataProvider?.user.displayName,
         email: this.dataProvider?.user.email,
@@ -72,6 +69,18 @@ export class OutstationPage implements OnInit {
     this.router.navigateByUrl('/root/vehicle/outstation');
     console.log(this.dataProvider.booking);
     
+  }
+
+  locations() {
+    this.database.getLocations().then(res => {
+      res.forEach((element: any) => {
+        this.locationsList.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log(this.locationsList)
+      });
+    })
   }
 
 
