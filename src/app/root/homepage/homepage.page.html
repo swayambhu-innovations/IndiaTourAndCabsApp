@@ -3,8 +3,33 @@
   <app-loading *ngIf="!dataProvider.user"></app-loading>
   <app-carousel></app-carousel>
   <app-order-card></app-order-card>
+  <ion-card>
+    <google-map height="200px"
+          width="100%"
+          [options]="mapOptions"
+          [center]="center"
+          [zoom]="zoom"
+          (mapClick)="moveMap($event)"
+          (mapMousemove)="move($event)">
+          <map-marker
+            *ngIf="currentPosition"
+            [options]="markerOptions"
+            icon="./assets/circle.png"
+            [position]="this.currentPosition"
+        ></map-marker>
+          <map-marker
+            *ngFor="let marker of markers"
+            [label]="marker.label"
+            [options]="markerOptions"
+            [position]="marker.position"
+        ></map-marker>
+  </google-map>
+    <ion-button expand="block" fill="solid" shape="round">
+      Visit Spot
+    </ion-button>
+  </ion-card>
 
-  <ion-text color="secondary" style="font-weight: 600; font-size: 1.2rem">Explore Place Around You</ion-text>
+  <!-- <ion-text color="secondary" style="font-weight: 600; font-size: 1.2rem">Explore Place Around You</ion-text>
   <ion-card style="
       padding: 0;
       width: 100%;
@@ -13,7 +38,6 @@
       position: relative;
       border-radius: 0.6rem;
     ">
-    <ion-img src="assets/map.png" style="height: 100%; width: 100%; object-fit: cover"></ion-img>
     <button fill="outline" routerLink="../book-a-guide" style="
         width: 90%;
         position: absolute;
@@ -25,9 +49,9 @@
       Book A Guide to Explore the Place
       <ion-icon name="search-outline" style="margin: 0 0.4rem; font-size: var(--ion-text)"></ion-icon>
     </button>
-  </ion-card>
+  </ion-card> -->
   <p style="font-size: var(--ion-text); color: rgb(58, 58, 58)">
-    You Have Four Great Sport For Visit Around
+    You Have {{markers.length}} Great Sport For Visit Around
   </p>
   <ion-row class="ion-justify-content-between ion-align-items-center ion-margin-top"
     style="width: 100%; height: var(--ion-height); margin: 1rem 0">
@@ -41,9 +65,9 @@
       <ion-text class="Lato600 fs-14">Rent A Cab</ion-text>
     </button>
   </ion-row>
-  <div class="my-4">
+  <div class="my-4" *ngIf="showcaseSpots.length > 0">
     <ion-text color="secondary" class="Lato600 fs-20">Spots</ion-text>
-    <app-spots routerLink="../spot-detail"></app-spots>
+    <app-spots [Tours]="showcaseSpots" routerLink="../spot-detail"></app-spots>
   </div>
   <button class="bluebuttonClass py-3 px-2 w-100">
     <ion-row>

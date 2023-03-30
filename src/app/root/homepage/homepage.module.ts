@@ -8,6 +8,7 @@ import { HomepagePageRoutingModule } from './homepage-routing.module';
 
 import { HomepagePage } from './homepage.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
     IonicModule,
     HomepagePageRoutingModule,
     ComponentsModule,
+    GoogleMapsModule
   ],
   declarations: [HomepagePage]
 })

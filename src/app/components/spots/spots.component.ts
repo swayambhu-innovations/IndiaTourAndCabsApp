@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Component, Input, OnInit,ViewEncapsulation  } from '@angular/core';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom ]);
 
@@ -11,7 +11,7 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom ]);
 })
 export class SpotsComponent implements OnInit {
 
-  Tours = [
+  @Input() Tours = [
     {
       id: 4,
       name: 'Tour 4',
@@ -48,6 +48,8 @@ export class SpotsComponent implements OnInit {
   ]
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("this.Tours",this.Tours);
+  }
 
 }

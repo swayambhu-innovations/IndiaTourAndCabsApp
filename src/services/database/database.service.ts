@@ -106,4 +106,8 @@ export class DatabaseService {
   getRentalPackages(){
     return getDocs(collection(this.fs, urls.rentalPackages));
   }
+
+  getSpots(){
+    return getDocs(query(collection(this.fs,'spots')));
+  }
 }
