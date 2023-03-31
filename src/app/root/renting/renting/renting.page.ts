@@ -26,6 +26,8 @@ export class RentingPage implements OnInit {
     status: new FormControl('pending'),
     created: new FormControl(Date.now()),
     // user: user;
+    pickupEndDate: new FormControl(''),
+    pickupStartDate: new FormControl(''),
   });
 
   constructor(
