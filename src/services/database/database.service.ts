@@ -140,10 +140,6 @@ export class DatabaseService {
     return getDoc(doc(this.fs,'service/guide'));
   }
 
-  getGuidePackages(){
-    return getDocs(collection(this.fs,'service/guide/packages'));
-  }
-
   getOutStationService(){
     return getDoc(doc(this.fs,'service/outstation'));
   }
