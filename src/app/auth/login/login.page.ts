@@ -30,9 +30,7 @@ export class LoginPage implements OnInit {
   }
 
   loginWithGoogle(){
-    this.auth.signUpWithGoogle().then((res)=>{
-      this.router.navigateByUrl('/root/terms-condition')
-    })
+    this.auth.signUpWithGoogle()
   }
 
 }

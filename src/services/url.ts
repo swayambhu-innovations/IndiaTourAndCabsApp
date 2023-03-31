@@ -9,14 +9,14 @@ export const urls = {
     blogs:`/blogs`,
     blog:`/blogs/{BLOG_ID}`,
     vehicleRental:`/service/rental/vehicleCategories`,
-    vehicleCab:`/service/rental/vehicleCategories`,
+    vehicleCab:`/service/cab/vehicleCategories`,
     vehicleOutstation:`/service/outstation/vehicleCategories`,
     rentalPackages:`/service/rental/packages`,
     locations:`/locations`,
 
 
-    tours:`/services/tours/tours`,
-    tour:`/services/tours/tours/{TOUR_ID}`,
+    tours:`/service/tours/tours`,
+    tour:`/service/tours/tours/{TOUR_ID}`,
 
     
    

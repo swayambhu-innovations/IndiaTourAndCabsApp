@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "433563285733",
+    "project_id": "indiatoursandcabs",
+    "storage_bucket": "indiatoursandcabs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433563285733:android:eedd981b5acbdd58f63c0c",
+        "android_client_info": {
+          "package_name": "com.shreeva.indiatourscabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433563285733-6dr598po7dachghl5d3v7d4q7aaf6t9o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shreeva.indiatourscabs",
+            "certificate_hash": "6d7ec9f0fb1e8bf09281c02184be2623cc04439e"
+          }
+        },
+        {
+          "client_id": "433563285733-um8gven8nib1rqh0mu08gstk50raaje0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6mDJQdswpC3XYrnoe80PoE9S1WK4kstY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433563285733-um8gven8nib1rqh0mu08gstk50raaje0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

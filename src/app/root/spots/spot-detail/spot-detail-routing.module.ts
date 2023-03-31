@@ -5,7 +5,7 @@ import { SpotDetailPage } from './spot-detail.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: SpotDetailPage
   }
 ];

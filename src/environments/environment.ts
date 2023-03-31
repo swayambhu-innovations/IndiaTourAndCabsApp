@@ -12,7 +12,15 @@ export const environment = {
     messagingSenderId: '433563285733',
     measurementId: 'G-7C7G34ZFC7',
   },
-  production: false
+  production: false,
+  cloudFunctions : {
+    createOrder: 'http://localhost:5001/indiatoursandcabs/us-central1/createOrder',
+    capturePayment: 'http://localhost:5001/indiatoursandcabs/us-central1/capturePayments',
+    createSubscription: 'http://localhost:5001/indiatoursandcabs/us-central1/createSubscription',
+    verifySubscription:'http://localhost:5001/indiatoursandcabs/us-central1/verifySubscription',
+    checkSubscriptionStatus:'http://localhost:5001/indiatoursandcabs/us-central1/checkSubscriptionStatus',
+  },
+  RAZORPAY_KEY_ID: 'rzp_test_8cTBlk022y2EDq',
 };
 
 /*

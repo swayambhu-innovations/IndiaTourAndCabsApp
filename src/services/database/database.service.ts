@@ -120,9 +120,40 @@ export class DatabaseService {
     return getDoc(doc(this.fs, tourUrl));
   }
 
-    getSpots(){
-      return getDocs(query(collection(this.fs,'spots')));
-    }
+  getSpots(){
+    return getDocs(query(collection(this.fs,'spots')));
+  }
+  
+  getSpot(spotId:string){
+    return getDoc(doc(this.fs,'spots',spotId));
+  }
+
+  getRentalService(){
+    return getDoc(doc(this.fs,'service/rental'));
+  }
+
+  getGuideService(){
+    return getDoc(doc(this.fs,'service/guide'));
+  }
+
+  getGuidePackages(){
+    return getDocs(collection(this.fs,'service/guide/packages'));
+  }
+
+  getOutStationService(){
+    return getDoc(doc(this.fs,'service/outstation'));
+  }
+
+  getCabService(){
+    return getDoc(doc(this.fs,'service/cab'));
+  }
+  getSettings(){
+    return getDoc(doc(this.fs,'siteData/settings'));
+  }
+
+  getCurrentUserBookings(){
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', this.dataProvider.user?.id)), { idField: 'id' });
+  }
 }
 
 

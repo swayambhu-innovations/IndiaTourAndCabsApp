@@ -1,15 +1,10 @@
 
 <swiper [slidesPerView]="2" [loop]="true" effect="fade" >
-  <ng-template swiperSlide *ngFor="let tour of Tours">
+  <ng-template swiperSlide *ngFor="let image of images">
     <ion-card class="tourCard">
-     
-      <ion-img [src]='tour.image'></ion-img>
+      <ion-img [src]='image'></ion-img>
       <ion-row class="ion-justify-content-between">
-        
-        
       </ion-row>
-
     </ion-card>
   </ng-template>
- 
 </swiper>

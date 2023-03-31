@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ConfirmationResult } from '@angular/fire/auth';
 import { Subject } from 'rxjs';
+import { booking } from 'src/structures/booking.structure';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataProviderService {
+export class  DataProviderService {
 
   public LoggedInUser :boolean = false;
   public user:any;
@@ -17,7 +18,7 @@ export class DataProviderService {
   public phoneData : ConfirmationResult | any;
   public appSettings:any;
   public loadedClothImages:{name:string,image:string}[] = [];
-  public booking: any;
+  public booking: booking|undefined;
   public vehicle:any;
   constructor() { }
 }

@@ -1,28 +1,40 @@
-
 <div class="ion-page" id="main-content">
   <app-header currentPanel="Book Guide"></app-header>
 
   <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
     <div class="d-flex w-100 align-items-center">
       <div class="img-outer">
-        <img src="assets/outstation/outstation.svg" alt="">
+        <img src="assets/outstation/outstation.svg" alt="" />
       </div>
       <div class="">
         <div class="fs-20 Lato400 mb-2 t-blue">Easy and quick rides</div>
-        <div class="fs-14 t-grey">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is
-          simply dummy </div>
+        <div class="fs-14 t-grey">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.Lorem Ipsum is simply dummy
+        </div>
       </div>
     </div>
-  
-    <form action="#" class="w-100"  [formGroup]="rentingForm" (ngSubmit)="guide()">
+
+    <form
+      action="#"
+      class="w-100"
+      [formGroup]="rentingForm"
+      (ngSubmit)="guide()"
+    >
       <div class="form-group my-3 w-100">
-        <label for="email" class="my-2  Lato600 fs-16">Enter Pickup Location</label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <label for="email" class="my-2 Lato600 fs-16"
+          >Enter Pickup Location</label
+        >
+        <!-- <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
           <option selected>Location</option>
-          <option value="1">United States</option>
-          <option value="2">Germany</option>
-          <option value="3">Canada</option>
-        </select>
+        </select> -->
+        <ion-select placeholder="Select Location" formControlName="pickupLocation">
+          <ion-select-option
+            [value]="location"
+            *ngFor="let location of locations"
+            >{{location.name}}</ion-select-option
+          >
+        </ion-select>
       </div>
       <div>
         <div class="my-1 mr-2 Lato600 fs-16">Spots near the location</div>
@@ -30,55 +42,62 @@
       </div>
       <div class="my-3">
         <div class="my-1 mr-2 Lato600 fs-16">Select Package</div>
-        <div class="d-flex align-items-center justify-content-between ">
-          <button class="btn btn-primary  bg-primary shadow-soft text-center border-light px-2 py-2"
-              *ngFor="let package of packages" (click)="selectPackage(package)" type="button">
-              <div class="Lato600 fs-18">{{package.hours}} hr</div>
-              <div class="Lato400 fs-14">{{package.kms}} km</div>
-            </button>
+        <div class="d-flex align-items-center justify-content-between">
+          <button
+            class="btn btn-primary bg-primary shadow-soft text-center border-light px-2 py-2"
+            *ngFor="let package of packages"
+            (click)="selectPackage(package)"
+            type="button"
+          >
+            <div class="Lato600 fs-18">{{package.days}} hr</div>
+            <div class="Lato400 fs-14">{{package.price | currency:'INR'}}</div>
+          </button>
         </div>
       </div>
       <div class="input-daterange datepicker row align-items-center">
         <div class="col">
-          <label class="my-1 mr-2 Lato600 fs-16">Schedule  pickup</label>
+          <label class="my-1 mr-2 Lato600 fs-16">Schedule pickup</label>
           <div class="form-group">
             <div class="input-group input-group-border">
-              <ion-modal trigger="dateTimeStart" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
+              <ion-modal
+                trigger="dateTimeStart"
+                [initialBreakpoint]="0.60"
+                [breakpoints]="[0, 0.25, 0.65,0.9]"
+                [keepContentsMounted]="true"
+              >
                 <ng-template>
-                  <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'start')"></ion-datetime>
+                  <ion-datetime
+                    mode="ios"
+                    [showDefaultButtons]="true"
+                    (ionChange)="changedTime($event,'start')"
+                  ></ion-datetime>
                 </ng-template>
               </ion-modal>
-              <div class="input-group-prepend" id="dateTimeStart"><span class="input-group-text"><span
-                    class="far fa-calendar-alt"></span></span></div>
-              <input class="form-control datepicker" id="exampleInputDate2" placeholder="Start date" type="text"  [value]="time.start"
-              formControlName="pickupStartDate">
-            </div>
-          </div>
-        </div>
-        <span class="Lato500 fs-16">at</span>
-        <div class="col">
-          <div class="form-group">
-            <label class="h6" for="exampleInputDate3"></label>
-            <div class="input-group input-group-border">
-              <ion-modal trigger="dateTimeEnd" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]" [keepContentsMounted]="true">
-                <ng-template>
-                  <ion-datetime mode="ios" [showDefaultButtons]="true" (ionChange)="changedTime($event,'end')"></ion-datetime>
-                </ng-template>
-              </ion-modal>
-              <div class="input-group-prepend" id="dateTimeEnd"><span class="input-group-text"><span
-                    class="far fa-calendar-alt"></span></span></div>
-              <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="text" [value]="time.end"
-              formControlName="pickupEndDate">
+              <div class="input-group-prepend" id="dateTimeStart">
+                <span class="input-group-text"
+                  ><span class="far fa-calendar-alt"></span
+                ></span>
+              </div>
+              <input
+                class="form-control datepicker"
+                id="exampleInputDate2"
+                placeholder="Start date"
+                type="text"
+                [value]="time.start"
+                formControlName="pickupStartDate"
+              />
             </div>
           </div>
         </div>
       </div>
-     
-      
       <div>
-        <button class="btn btn-info text-dark mr-2 mb-2 w-100 mt-3"  type="submit">Next</button>
+        <button
+          class="btn btn-info text-dark mr-2 mb-2 w-100 mt-3"
+          type="submit"
+        >
+          Next
+        </button>
       </div>
     </form>
-  
   </ion-content>
 </div>

@@ -6,28 +6,28 @@
     </div>
     <div class="d-flex justify-content-between align-items-center p-3">
       <div class="d-flex align-items-center">
-        <div class="car-outer"><img [src]="cabRide.vehicle.image" alt=""></div>
+        <div class="car-outer"><img [src]="cabRide.vehicle?.image" alt=""></div>
         <div class="pl-2">
-          <div class="Lato600 fs-16">{{cabRide.vehicle.vehicleCategory}}</div>
-          <div class="Lato400 fs-13 mt-1">{{cabRide.pickupStartDate.toDate() | date}}</div>
+          <div class="Lato600 fs-16">{{cabRide.vehicle?.vehicleCategory}}</div>
+          <div class="Lato400 fs-13 mt-1">{{cabRide.pickupStartDate?.toDate() | date}}</div>
         </div>
       </div>
-      <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle.fullPrice}}</div>
+      <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle?.fullPrice}}</div>
     </div>
     <div class="border"></div>
     <div class="fs-14 Lato400 px-3 pt-2">
       <div class="wrapper ms-2">
         <ul class="StepProgress">
-          <li class="StepProgress-item current fs-14 Lato400">{{cabRide.pickupLocation.name}}</li>
-          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation.name}}</li>
+          <li class="StepProgress-item current fs-14 Lato400">{{cabRide.pickupLocation?.name}}</li>
+          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation?.name}}</li>
         </ul>
       </div>
     </div>
     <div class="d-flex align-items-center px-3 pb-2">
-      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle.seats}}</span></div>
-      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle.acNonac == 'ac' "
+      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle?.seats}}</span></div>
+      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle?.acNonac == 'ac' "
           class="Lato500 t-green ml-1">Yes</span><span class="Lato500 t-green ml-1"
-          *ngIf="cabRide.vehicle.acNonac != 'ac'">NonAc</span></div>
+          *ngIf="cabRide.vehicle?.acNonac != 'ac'">NonAc</span></div>
     </div>
   </div>
 
@@ -42,28 +42,28 @@
     </div>
     <div class="d-flex justify-content-between align-items-center p-3">
       <div class="d-flex align-items-center">
-        <div class="car-outer"><img [src]="cabRide.vehicle.image" alt=""></div>
+        <div class="car-outer"><img [src]="cabRide.vehicle?.image" alt=""></div>
         <div class="pl-2">
-          <div class="Lato600 fs-16">{{cabRide.vehicle.vehicleCategory}}</div>
-          <div class="Lato400 fs-13 mt-1">{{cabRide.pickupStartDate.toDate() | date}}</div>
+          <div class="Lato600 fs-16">{{cabRide.vehicle?.vehicleCategory}}</div>
+          <div class="Lato400 fs-13 mt-1">{{cabRide.pickupStartDate?.toDate() | date}}</div>
         </div>
       </div>
-      <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle.fullPrice}}</div>
+      <div class="Lato600 t-green fs-16">$ {{cabRide.vehicle?.fullPrice}}</div>
     </div>
     <div class="border"></div>
     <div class="fs-14 Lato400 px-3 pt-2">
       <div class="wrapper ms-2">
         <ul class="StepProgress">
-          <li class="StepProgress-item current fs-14 Lato400">{{cabRide.pickupLocation.name}}</li>
-          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation.name}}</li>
+          <li class="StepProgress-item current fs-14 Lato400">{{cabRide.pickupLocation?.name}}</li>
+          <li class="StepProgress-item fs-14 Lato400">{{cabRide.dropLocation?.name}}</li>
         </ul>
       </div>
     </div>
     <div class="d-flex align-items-center px-3 pb-2">
-      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle.seats}}</span></div>
-      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle.acNonac == 'ac' "
+      <div class="Lato400 fs-14">Seats : <span class="Lato500 t-red ml-1">{{cabRide.vehicle?.seats}}</span></div>
+      <div class="Lato400 fs-14 pl-2">Air Condition : <span *ngIf="cabRide.vehicle?.acNonac == 'ac' "
           class="Lato500 t-green ml-1">Yes</span><span class="Lato500 t-green ml-1"
-          *ngIf="cabRide.vehicle.acNonac != 'ac'">NonAc</span></div>
+          *ngIf="cabRide.vehicle?.acNonac != 'ac'">NonAc</span></div>
     </div>
     <div class="d-flex justify-content-between align-items-center w-100">
       <div class="d-flex align-items-center">
@@ -96,8 +96,8 @@
       <div class="w-100 pl-3">
         <div class="d-flex justify-content-between align-items-center w-100">
           <div>
-            <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate.toDate() | date: 'dd MMMM yyyy'}}</div>
-            <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate.toDate() | date: 'hh:mm a'}}</div>
+            <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate?.toDate() | date: 'dd MMMM yyyy'}}</div>
+            <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate?.toDate() | date: 'hh:mm a'}}</div>
           </div>
 
         </div>
@@ -132,13 +132,13 @@
       <div class="d-flex align-items-center w-100">
 
         <ion-avatar style="min-height: 3.5rem; min-width: 5.3rem">
-          <ion-img [src]="cabRide.vehicle.vehicleImage"></ion-img>
+          <ion-img [src]="cabRide.vehicle?.vehicleImage"></ion-img>
         </ion-avatar>
         <div class="w-100 pl-3">
           <div class="d-flex justify-content-between align-items-center w-100">
             <div>
-              <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate.toDate() | date: 'dd MMMM yyyy'}}</div>
-              <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate.toDate() | date: 'hh:mm a'}}</div>
+              <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate?.toDate() | date: 'dd MMMM yyyy'}}</div>
+              <div class="Lato400 fs-14 ">{{cabRide.pickupStartDate?.toDate() | date: 'hh:mm a'}}</div>
             </div>
 
           </div>
@@ -161,11 +161,11 @@
         </ion-col>
         <ion-col size="11">
           <p color="secondary" style="margin: 0; color: #212638; font-size: 0.8rem">
-            {{cabRide.pickupLocation.name}}
+            {{cabRide.pickupLocation?.name}}
           </p>
           <br />
           <p color="secondary" style="margin: 0; color: #212638; font-size: 0.8rem">
-            {{cabRide.dropLocation.name}}
+            {{cabRide.dropLocation?.name}}
           </p>
         </ion-col>
       </ion-row>

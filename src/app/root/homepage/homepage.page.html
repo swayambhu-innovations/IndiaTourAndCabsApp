@@ -2,81 +2,72 @@
 <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
   <app-loading *ngIf="!dataProvider.user"></app-loading>
   <app-carousel></app-carousel>
-  <app-order-card></app-order-card>
+  <!-- <app-order-card [booking]="booking" *ngFor="let booking of this.bookings"></app-order-card> -->
   <ion-card>
-    <google-map height="200px"
-          width="100%"
-          [options]="mapOptions"
-          [center]="center"
-          [zoom]="zoom"
-          (mapClick)="moveMap($event)"
-          (mapMousemove)="move($event)">
-          <map-marker
-            *ngIf="currentPosition"
-            [options]="markerOptions"
-            icon="./assets/circle.png"
-            [position]="this.currentPosition"
-        ></map-marker>
-          <map-marker
-            *ngFor="let marker of markers"
-            [label]="marker.label"
-            [options]="markerOptions"
-            [position]="marker.position"
-        ></map-marker>
-  </google-map>
-    <ion-button expand="block" fill="solid" shape="round">
+    <google-map
+      height="200px"
+      width="100%"
+      [options]="mapOptions"
+      [center]="center"
+      [zoom]="zoom"
+      (mapClick)="moveMap($event)"
+      (mapMousemove)="move($event)"
+    >
+      <map-marker
+        *ngIf="currentPosition"
+        [options]="markerOptions"
+        icon="./assets/circle.png"
+        [position]="this.currentPosition"
+      ></map-marker>
+      <map-marker
+        *ngFor="let marker of markers"
+        [label]="marker.label"
+        [options]="markerOptions"
+        [position]="marker.position"
+      ></map-marker>
+    </google-map>
+    <ion-button expand="block" *ngIf="showcaseSpots.length > 0" routerLink="../spot-detail/{{showcaseSpots[0].id}}" fill="solid" shape="round">
       Visit Spot
     </ion-button>
   </ion-card>
-
-  <!-- <ion-text color="secondary" style="font-weight: 600; font-size: 1.2rem">Explore Place Around You</ion-text>
-  <ion-card style="
-      padding: 0;
-      width: 100%;
-      margin: 1rem 0;
-      height: 10rem;
-      position: relative;
-      border-radius: 0.6rem;
-    ">
-    <button fill="outline" routerLink="../book-a-guide" style="
-        width: 90%;
-        position: absolute;
-        font-size: var(--ion-text2);
-        bottom: 1rem;
-        left: 5%;
-        right: 5%;
-      ">
-      Book A Guide to Explore the Place
-      <ion-icon name="search-outline" style="margin: 0 0.4rem; font-size: var(--ion-text)"></ion-icon>
-    </button>
-  </ion-card> -->
   <p style="font-size: var(--ion-text); color: rgb(58, 58, 58)">
     You Have {{markers.length}} Great Sport For Visit Around
   </p>
-  <ion-row class="ion-justify-content-between ion-align-items-center ion-margin-top"
-    style="width: 100%; height: var(--ion-height); margin: 1rem 0">
-    <button routerLink="../book-ride" class="bluebuttonClass py-3 px-2 ">
-      <ion-img src="assets/icon/taxi1.png" style="height: 1.8rem; width: 1.8rem; margin: 0 0.5rem"></ion-img>
-      <ion-text class="Lato600 fs-14 ">Book A Cab</ion-text>
+  <ion-row
+    class="ion-justify-content-between ion-align-items-center ion-margin-top"
+    style="width: 100%; height: var(--ion-height); margin: 1rem 0"
+  >
+    <button routerLink="../book-ride" class="bluebuttonClass py-3 px-2">
+      <ion-img
+        src="assets/icon/taxi1.png"
+        style="height: 1.8rem; width: 1.8rem; margin: 0 0.5rem"
+      ></ion-img>
+      <ion-text class="Lato600 fs-14">Book A Cab</ion-text>
     </button>
     <button class="bluebuttonClass py-3 px-2" routerLink="../renting">
-      <ion-img src="assets/icon/taxi2.png " style="height: 2rem; width: 2rem; margin: 0 0.5rem"></ion-img>
+      <ion-img
+        src="assets/icon/taxi2.png "
+        style="height: 2rem; width: 2rem; margin: 0 0.5rem"
+      ></ion-img>
 
       <ion-text class="Lato600 fs-14">Rent A Cab</ion-text>
     </button>
   </ion-row>
   <div class="my-4" *ngIf="showcaseSpots.length > 0">
     <ion-text color="secondary" class="Lato600 fs-20">Spots</ion-text>
-    <app-spots [Tours]="showcaseSpots" routerLink="../spot-detail"></app-spots>
+    <app-spots [Tours]="showcaseSpots"></app-spots>
   </div>
   <button class="bluebuttonClass py-3 px-2 w-100">
     <ion-row>
       <ion-col size="10" class="ion-text-start" routerLink="../book-a-guide">
-        <ion-text class="Lato500 fs-14 ">Book A Guide To Explore Spot</ion-text>
-        <div class="fs-12 mt-2 Lato400">Lorem ipsum dolor sit amet.</div>
+        <ion-text class="Lato500 fs-14">Book A Guide To Explore Spot</ion-text>
+        <div class="fs-12 mt-2 Lato400">Explore the places like never before.</div>
       </ion-col>
       <ion-col size="2">
-        <ion-img src="assets/icon/icon3.png" style="height: 2rem; width: 2rem; margin: 0 0.5rem"></ion-img>
+        <ion-img
+          src="assets/icon/icon3.png"
+          style="height: 2rem; width: 2rem; margin: 0 0.5rem"
+        ></ion-img>
       </ion-col>
     </ion-row>
   </button>
@@ -86,13 +77,18 @@
   <button class="bluebuttonClass py-3 px-2" style="width: 100%; margin: 1rem 0">
     <ion-row>
       <ion-col size="10" class="ion-text-start" routerLink="../outstation">
-        <ion-text style="font-weight: 400; font-size: var(--ion-text)">Book An Outstation Cab</ion-text>
+        <ion-text style="font-weight: 400; font-size: var(--ion-text)"
+          >Book An Outstation Cab</ion-text
+        >
         <p style="font-weight: 400; font-size: 0.6rem">
           Get to experience local culture and cuisine
         </p>
       </ion-col>
       <ion-col size="2">
-        <ion-img src="assets/icon/icon4.png" style="height: 2rem; width: 2rem; margin: 0 0.5rem"></ion-img>
+        <ion-img
+          src="assets/icon/icon4.png"
+          style="height: 2rem; width: 2rem; margin: 0 0.5rem"
+        ></ion-img>
       </ion-col>
     </ion-row>
   </button>

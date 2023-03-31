@@ -2,37 +2,35 @@
   <ion-grid>
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="3" style="--ion-grid-columns: 0px;">
-        <ion-text class="t-green fs-20 Lato600">{{12000 | currency:'INR'}}</ion-text>
+        <ion-text class="t-green fs-20 Lato600">{{booking?.grandTotal| currency:'INR'}}</ion-text>
       </ion-col>
       <ion-col size="4.5">
-        
-          <button class="btn btn-primary text-dark animate-up-2 py-1" type="button">Outstation</button>
-        
+        <button class="btn btn-primary text-dark animate-up-2 py-1" type="button">{{booking?.type | titlecase}}</button>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-between ion-align-items-center ion-margin-top ion-border">
       <ion-col size="4.5">
-        <ion-img src="assets/car.png"></ion-img>
-        <p class="ion-text-center " style="margin:.5rem 0; color: black;font-size: .7rem;">GJ 28 AB 1235</p>
+        <ion-img [src]="booking?.vehicle?.vehicleImage"></ion-img>
+        <p class="ion-text-center " style="margin:.5rem 0; color: black;font-size: .7rem;">{{booking?.vehicle?.vehicleNumber}}</p>
       </ion-col>
       <ion-col size="0.5">
-        <ion-icon name="ellipse" class="ion-margin-bottom" color="primary"></ion-icon>
-        <ion-icon name="ellipse" color="secondary"></ion-icon>
+        <ion-icon *ngIf="booking?.pickupLocation" name="ellipse" class="ion-margin-bottom" color="primary"></ion-icon>
+        <ion-icon *ngIf="booking?.dropLocation" name="ellipse" color="secondary"></ion-icon>
       </ion-col>
       <ion-col size="6.5">
-        <p color="secondary" style="margin: 0; color: #212638;font-size: .8rem;">Brahma Temple, Rajshthan</p> <br>
-        <p color="secondary" style="margin: 0; color: #212638;font-size: .8rem;">Robin Restaurant, Delhi</p>
+        <p color="secondary" style="margin: 0; color: #212638;font-size: .8rem;">{{booking?.pickupLocation?.name}}</p> <br>
+        <p color="secondary" style="margin: 0; color: #212638;font-size: .8rem;">{{booking?.dropLocation?.name}}</p>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-between ion-align-items-center ion-margin-top "
       style="border-top: 2px solid #cbcbcb;">
       <ion-col size="2" class="ion-margin-top">
         <ion-avatar style="height:2.3rem;width:2.3rem">
-          <ion-img src="assets/avatar.jpg"></ion-img>
+          <ion-img [src]="booking?.user?.photoURL"></ion-img>
         </ion-avatar>
       </ion-col>
       <ion-col size="4.5" class="ion-margin-top">
-        <ion-text style="font-weight: 400; color: black; font-size: 1.1rem;"> Jake Sully</ion-text>
+        <ion-text style="font-weight: 400; color: black; font-size: 1.1rem;"> {{booking?.user?.displayName}}</ion-text>
       </ion-col>
       <ion-col size="5.5" class="ion-margin-top ion-align-self-end">
         <button class="commonbutton">

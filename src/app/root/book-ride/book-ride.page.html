@@ -16,7 +16,7 @@
   </div>
 
   <div class="mt-4">
-    <form action="" [formGroup]="bookRideForm" (ngSubmit)="bookRide()">
+    <form [formGroup]="bookRideForm" (ngSubmit)="bookRide()">
       <div class="form-group">
         <label class="my-2 mr-2 Lato600 fs-16" for="inlineFormCustomSelectPref">Enter Pickup location</label>
         <ion-select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="pickupLocation" placeholder="Select Pickup Location">

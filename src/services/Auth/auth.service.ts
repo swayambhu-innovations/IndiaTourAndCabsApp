@@ -6,10 +6,14 @@ import { urls } from '../url';
 import { DataProviderService } from '../Data-Provider/data-provider.service';
 import { AlertsAndNotificationsService } from '../uiService/alerts-and-notifications.service';
 import { Platform } from '@ionic/angular';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { EMPTY, Observable, Subject } from 'rxjs';
 import { UserData } from 'src/structures/user.structure';
-
+import { registerPlugin } from '@capacitor/core';
+export interface AuthPlugin {
+  startAuth(): Promise<{ idToken: string; accessToken: string }>;
+}
+const PluginAuthService = registerPlugin<AuthPlugin>('AuthPlugin');
+export default PluginAuthService;
 @Injectable({
   providedIn: 'root',
 })
@@ -152,54 +156,44 @@ export class AuthService {
 
   public async signUpWithGoogle() {
     if (this.platform.is('capacitor')) {
-      GoogleAuth.signIn()
-        .then((googleUser: any) => {
-          alert('Google User: ' + googleUser.id);
+      PluginAuthService.startAuth()
+        .then((res) => {
+          // alert("good res"+JSON.stringify(res));
           const credential = GoogleAuthProvider.credential(
-            googleUser.authentication.idToken,
-            googleUser.authentication.accessToken
+            res.idToken,
+            res.accessToken
           );
           signInWithCredential(this.auth, credential)
             .then((credentials: UserCredential) => {
               console.log('Credentials ', credentials);
               getDoc(doc(this.fs, urls.users + credentials.user.uid))
-                .then((userDocument: any) => {
-                  if (!userDocument.exists()) {
-                    this.setEmailUserData(credentials.user, {
-                      phone: credentials.user.phoneNumber || '',
-                      photoURL: credentials.user.photoURL || '',
-                      displayName: credentials.user.displayName || '',
-                      dateOfBirth: Date.now(),
-                      gender: '',
-                    }).then(() => {
-                      // this.router.navigate(['']);
-                    });
-                  } else {
-                    this.alertify.presentToast(
-                      'Logged In.',
-                      'info',
-                      5000,
-                      [],
-                      true,
-                      ''
-                    );
-                    this.router.navigate(['']);
-                  }
-                })
-                .catch((error) => {
-                  console.log('ErrorCatched getting data', error);
-                  this.alertify.presentToast(
-                    error.message,
-                    'error',
-                    5000,
-                    [],
-                    true,
-                    ''
-                  );
-                });
+            .then((userDocument: any) => {
+              if (!userDocument.exists()) {
+                this.setEmailUserData(credentials.user, {
+                  phone: credentials.user.phoneNumber || '',
+                  photoURL: credentials.user.photoURL || '',
+                  displayName: credentials.user.displayName || '',
+                  dateOfBirth: Date.now(),
+                  gender: '',
+                }).then(() => { });
+              }
+              // this.router.navigateByUrl('/home');
+            })
+            .catch((error) => {
+              console.log('ErrorCatched getting data', error);
+              this.alertify.presentToast(
+                error.message,
+                'error',
+                5000,
+                [],
+                true,
+                ''
+              );
+            });
             })
             .catch((error) => {
               console.log('ErrorCatched authorizing', error);
+              this.dataProvider.loading = false;
               this.alertify.presentToast(
                 error.message,
                 'error',
@@ -210,16 +204,9 @@ export class AuthService {
               );
             });
         })
-        .catch((error) => {
-          console.log('ErrorCatched', error);
-          this.alertify.presentToast(
-            error.message,
-            'error',
-            5000,
-            [],
-            true,
-            ''
-          );
+        .catch((err) => {
+          this.dataProvider.loading = false;
+          this.alertify.presentToast(err);
         });
     } else {
       const gauth = new GoogleAuthProvider();

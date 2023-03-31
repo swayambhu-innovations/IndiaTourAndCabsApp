@@ -11,16 +11,12 @@ import { booking } from 'src/structures/booking.structure';
   styleUrls: ['./book-ride.page.scss'],
 })
 export class BookRidePage implements OnInit {
-
-
   locationsList: any[] = [];
   time: { start: Date, end: Date } = {
     start: new Date(),
     end: new Date()
   }
 
- 
- 
   public bookRideForm: FormGroup = new FormGroup({
     dropLocation: new FormControl(),
     pickupLocation: new FormControl(),
@@ -45,7 +41,6 @@ export class BookRidePage implements OnInit {
     console.log(this.bookRideForm.value.dropLocation);
     const data: booking = {
       ...this.bookRideForm.value,
-      
       pickupStartDate: this.time.start,
       pickupEndDate: this.time.end,
       user: {
@@ -57,8 +52,8 @@ export class BookRidePage implements OnInit {
         address: this.dataProvider?.user.address,
       },
       type: 'cab'
-
     };
+    // -----------------
     console.log(data);
     this.dataProvider.booking = data;
     console.log(this.dataProvider.booking);

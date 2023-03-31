@@ -4,6 +4,7 @@ import { DataProviderService } from 'src/services/Data-Provider/data-provider.se
 import { DatabaseService } from 'src/services/database/database.service';
 import { Geolocation } from '@capacitor/geolocation';
 import { Spot } from 'src/structures/service.structure';
+import { booking } from 'src/structures/booking.structure';
 
 // const printCurrentPosition = async () => {
 //   const coordinates = await Geolocation.getCurrentPosition();
@@ -40,6 +41,7 @@ export class HomepagePage implements OnInit {
     name: new FormControl('', Validators.required),
     hours: new FormControl(0, Validators.required),
   });
+  bookings: booking[] = [];
   moveMap(event: google.maps.MapMouseEvent) {
     if (event.latLng != null) {
       this.center = event.latLng.toJSON();
@@ -52,6 +54,9 @@ export class HomepagePage implements OnInit {
   ngOnInit() {
     this.getSpots();
     // this.updateSpots()
+    this.databaseService.getCurrentUserBookings().subscribe((data) => {
+      this.bookings = data as booking[];
+    })
   }
   updateSpots() {
     // updating spots

@@ -1,31 +1,36 @@
 import { Timestamp } from "@angular/fire/firestore";
 
-export type booking = {
-
-    pickupLocation: location;
-    dropLocation: location;
+export interface booking {
+    pickupLocation: MapLocation;
+    dropLocation: MapLocation;
     pickupStartDate: Timestamp;
     pickupEndDate: Timestamp;
     returnStartDate?: Timestamp;
     returnEndDate?: Timestamp;
     guideAvailable: boolean;
-    type: 'car' | 'outstation' | 'rental' | 'guide';
-    status: 'pending' | 'accepted' | 'rejected' | 'completed';
+    type: 'cab' | 'outstation' | 'rental' | 'guide';
+    status: 'pending' | 'accepted' | 'rejected' | 'completed' | 'assigned';
     created: Timestamp;
     updated?: Timestamp;
     user: user;
     driver?: driver;
+    vehicle?: vehicle;
     package?: any;
-    
+    grandTotal?:number;
+    costs?:{
+      cost:number;
+      name:string;
+    }[]
+    orderDetail?:any;
 }
 
-export type packages = {
+export interface packages {
     id?: string;
     hours: number;
     kms: number;
 }
 
-export type location = {
+export interface location {
     id?: string;
     name: string;
     address: string;
@@ -35,7 +40,7 @@ export type location = {
     lng: number;
 }
 
-export type user = {
+export interface user {
     displayName: string;
     email: string;
     photoURL: string;
@@ -44,7 +49,7 @@ export type user = {
     address?: location;
 }
 
-export type driver = {
+export interface driver {
     verificationType: 'aadharCard' | 'panCard' | 'voterId' | 'passport';
     phoneNumber: number;
     licenseNumber: string;
@@ -59,7 +64,7 @@ export type driver = {
     address?: location;
 }
 
-export type vehicle = {
+export interface vehicle {
     modelType: string;
     vehicleNumber: string;
     color?: string;

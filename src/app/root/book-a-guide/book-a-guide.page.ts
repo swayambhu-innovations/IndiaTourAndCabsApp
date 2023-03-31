@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
 import { DatabaseService } from 'src/services/database/database.service';
 import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
-import { booking } from 'src/structures/booking.structure';
+import { booking, MapLocation } from 'src/structures/booking.structure';
+import { GuideRentalPackage } from 'src/structures/service.structure';
 
 
 @Component({
@@ -14,49 +15,41 @@ import { booking } from 'src/structures/booking.structure';
 })
 export class BookAGuidePage implements OnInit {
   
-  selectedPackage: any;
-  packages:any [] = [
-    {
-      hours: 1,
-      kms: 100
-    },
-    {
-      hours: 2,
-      kms: 200
-    },
-    {
-      hours: 3,
-      kms: 300
-    },
-    {
-      hours: 4,
-      kms: 400
-    }
-
-  ]
+  selectedPackage: GuideRentalPackage|undefined;
+  packages:GuideRentalPackage [] = []
+  locations:MapLocation[] = [];
   time: { start: Date, end: Date } = {
     start: new Date(),
     end: new Date()
   }
-  pickupLocation : FormGroup = new FormGroup({
-    address: new FormControl('Pick up location added'),
-    landmark: new FormControl('landmark added'),
-    pinCode: new FormControl('23232'),
-    lat: new FormControl('434343434'),
-    lng: new FormControl('23232324234'),
-  });
   public rentingForm: FormGroup = new FormGroup({
     guideAvailable: new FormControl(true),
     status: new FormControl('pending'),
+    pickupLocation:new FormControl(''),
     created: new FormControl(Date.now()),
-    // user: user;
+    pickupStartDate: new FormControl(''),
   });
-
-
   
   constructor(private database: DatabaseService, private dataProvider: DataProviderService, private router: Router, private UI : AlertsAndNotificationsService) { }
-
+  
   ngOnInit() {
+    this.database.getGuidePackages().then((res) => {
+      this.packages = res.docs.map((doc)=>{
+        return {
+          ...doc.data(),
+          id: doc.id
+        } as GuideRentalPackage
+      })
+    })
+    this.database.getLocations().then((res) => {
+      console.log(res);
+      this.locations = res.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data()
+        } as MapLocation;
+      });
+    })
   }
 
   changedTime(event: any, type: 'start' | 'end') {
@@ -69,12 +62,11 @@ export class BookAGuidePage implements OnInit {
     this.selectedPackage = value;
   }
 
-  guide() {
+  async guide() {
+    let taxRes = await this.database.getSettings();
+    let tax = taxRes.data()!['tax']
     const data: booking = {
       ...this.rentingForm.value,
-      pickupLocation: this.pickupLocation.value,
-      pickupStartDate: this.time.start,
-      pickupEndDate: this.time.end,
       package: this.selectedPackage,
       user: {
         displayName: this.dataProvider?.user.displayName,
@@ -83,19 +75,22 @@ export class BookAGuidePage implements OnInit {
         phone: this.dataProvider?.user.phone,
         userId: this.dataProvider?.user.id,
         address: this.dataProvider?.user.address,
-      }
-
+      },
+      costs:[
+        {
+          name: 'Guide',
+          cost: this.selectedPackage!.price,
+        },
+        {
+          name: 'Tax',
+          cost: (this.selectedPackage!.price * tax) / 100,
+        }
+      ],
+      grandTotal: this.selectedPackage!.price + (this.selectedPackage!.price * tax) / 100
     };
     console.log(data);
     this.dataProvider.booking = data;
-    this.database.guide(data).then((res: any) => {
-      console.log(res);
-      this.UI.presentToast('Guide Booked Successful');
-      this.router.navigate(['/root/billing']);
-    });
-    console.log(this.dataProvider.booking);
-    
+    this.router.navigate(['/root/billing']);
+    console.log(this.dataProvider.booking); 
   }
-
-
 }

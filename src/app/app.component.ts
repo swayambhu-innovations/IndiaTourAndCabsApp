@@ -5,7 +5,6 @@ import {
   Platform,
   PopoverController,
 } from '@ionic/angular';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 import { Router } from '@angular/router';
 
@@ -16,7 +15,7 @@ import { EMPTY, Observable, Subject } from 'rxjs';
 import { AuthService } from 'src/services/Auth/auth.service';
 import { urls } from 'src/services/url';
 import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
-
+import { Geolocation } from '@capacitor/geolocation';
 
 
 @Component({
@@ -41,16 +40,13 @@ export class AppComponent {
     // private database: DatabaseService,
     private popOverController: PopoverController
   ) {
-    if (!this.platform.is('capacitor')) {
-      this.platform.ready().then(() => {
-        GoogleAuth.initialize({
-          clientId:'461704917744-okgeube23vb6rpg6puv9ah3arfa6uphp.apps.googleusercontent.com',
-          scopes: ['profile', 'email'],
-          grantOfflineAccess: true,
-        });
-        console.log(GoogleAuth);
-      });
-    }
+    Geolocation.requestPermissions({
+      permissions:['location','coarseLocation']
+    }).then((res)=>{
+      alert(JSON.stringify(res))
+    }).catch((err)=>{
+      alert(JSON.stringify(err))
+    });
     // this.database.getSettings().then((res) => { this.dataProvider.appSettings = res.data(); console.log(this.dataProvider.appSettings); });
     this.user = authState(this.auth);
     this.user.subscribe((user: any) => {

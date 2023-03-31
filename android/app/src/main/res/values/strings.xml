@@ -4,4 +4,5 @@
     <string name="title_activity_main">IndiaTourCabs</string>
     <string name="package_name">com.shreeva.indiatourscabs</string>
     <string name="custom_url_scheme">com.shreeva.indiatourscabs</string>
+  <string name="server_client_id">433563285733-um8gven8nib1rqh0mu08gstk50raaje0.apps.googleusercontent.com</string>
 </resources>
