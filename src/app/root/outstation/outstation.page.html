@@ -16,7 +16,7 @@
     </div>
 
     <div class="mt-4">
-      <form action="" [formGroup]="outstation" (ngSubmit)="guide()">
+      <form action="" [formGroup]="outstationForm" (ngSubmit)="outstation()">
         <div class="form-group">
           <label class="my-2  Lato600 fs-16" for="inlineFormCustomSelectPref">Enter Pickup location</label>
           <ion-select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="pickupLocation">
@@ -69,14 +69,14 @@
           class=" py-3 bg-primary border-light shadow-soft d-flex align-items-between align-items-center w-100 my-3 mb-4">
 
           <div class="form-check w-100 text-center">
-            <input class="form-check-input Lato400 fs-14" type="radio" name="tripType" id="tripType" value="ion-select-option1" formControlName="tripType"
+            <input class="form-check-input Lato400 fs-14" type="radio" name="tripType" id="tripType" value="One way trip" formControlName="tripType"
               checked>
             <label class="form-check-label" for="tripType">
               One way trip
             </label>
           </div>
           <div class="form-check w-100 text-center">
-            <input class="form-check-input Lato400 fs-14" type="radio" name="tripType" id="tripType" value="ion-select-option2" formControlName="tripType" >
+            <input class="form-check-input Lato400 fs-14" type="radio" name="tripType" id="tripType" value="Round trip" formControlName="tripType" >
             <label class="form-check-label" for="tripType">
               Round trip
             </label>

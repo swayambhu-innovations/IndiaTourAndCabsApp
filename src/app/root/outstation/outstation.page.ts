@@ -23,7 +23,7 @@ export class OutstationPage implements OnInit {
     returnEnd: new Date()
   }
   
-  public outstation: FormGroup = new FormGroup({
+  public outstationForm: FormGroup = new FormGroup({
     dropLocation: new FormControl(),
     pickupLocation: new FormControl(),
     guideAvailable: new FormControl(true),
@@ -47,9 +47,9 @@ export class OutstationPage implements OnInit {
     console.log(this.time);
   }
 
-  guide() {
+  outstation() {
     const data: booking = {
-      ...this.outstation.value,
+      ...this.outstationForm.value,
       pickupStartDate: this.time.start,
       pickupEndDate: this.time.end,
       returnEndDate: this.time.returnEnd,

@@ -1,12 +1,12 @@
 <swiper [slidesPerView]="1.2" [loop]="false" effect="fade" pager="true">
   <ng-template swiperSlide *ngFor="let tour of Tours">
-    <ion-card class="tourCard" routerLink="/root/tours-details/{{tour.id}}">
-      <ion-img [src]="tour.images[0]"></ion-img>
+    <ion-card class="tourCard" routerLink="/root/tours-details/{{tour?.id}}">
+      <ion-img [src]="tour?.images[0]"></ion-img>
       <ion-grid class="content ion-text-start">
         <ion-row routerLink="../tours-details">
           <ion-col>
             <ion-text style="font-size: 1.3rem; font-weight: 600; color: white"
-              >{{ tour.tourName }}
+              >{{ tour?.tourName }}
             </ion-text>
           </ion-col>
         </ion-row>
@@ -15,7 +15,7 @@
             <ion-text
               style="font-size: 1.2rem; font-weight: 600; color: #ff9114"
             >
-              ₹ {{ tour.tourPrice }}
+              ₹ {{ tour?.tourPrice }}
             </ion-text>
           </ion-col>
         </ion-row>
@@ -25,16 +25,16 @@
             <ion-text
               style="font-size: .8rem; font-weight: 200; color: #dbdbdb"
             >
-            {{ tour.aboutTour?.slice(0, 100) + "..." }}
+            {{ tour?.aboutTour?.slice(0, 100) + "..." }}
             </ion-text>
           </ion-col>
         </ion-row>
         <ion-row style="font-size: 0.8rem; font-weight: 200; color: #ff9114" >
           <ion-col class="pb-3">
-            <ion-text> {{ tour.noOfDays }} Days - {{ tour.noOfNights }} Night </ion-text>
+            <ion-text> {{ tour?.noOfDays }} Days - {{ tour?.noOfNights }} Night </ion-text>
           </ion-col>
           <ion-col>
-            <!-- <ion-text> No. of stoppage : {{ tour.stoppage }} </ion-text> -->
+            <!-- <ion-text> No. of stoppage : {{ tour?.stoppage }} </ion-text> -->
           </ion-col>
         </ion-row>
       </ion-grid>

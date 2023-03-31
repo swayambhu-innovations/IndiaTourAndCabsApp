@@ -86,3 +86,8 @@ ion-content {
     z-index: 999;
 background: #e1e1e1;
 }
+
+.swiper .swiper-slide{
+    justify-content: start;
+    align-items: safe;
+}
