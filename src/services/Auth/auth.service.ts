@@ -112,6 +112,9 @@ export class AuthService {
     // this.router.navigate(['/all-products'])
   }
 
+
+  
+
   public async setGoogleUserData(user: User, userData: any) {
     let data: UserData = {
       id: user.uid || '',
@@ -247,4 +250,10 @@ export class AuthService {
         });
     }
   }
+
+  public userDetail(USER_ID:any, data:any) {
+    const userUrl = urls.user.replace('{USER_ID}', USER_ID );
+    return setDoc(doc(this.fs, userUrl), data);
+  }
+
 }

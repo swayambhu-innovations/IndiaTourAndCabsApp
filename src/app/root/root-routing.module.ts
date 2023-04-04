@@ -93,7 +93,7 @@ const routes: Routes = [
         loadChildren: () => import('./tours/tour-review/tour-review.module').then( m => m.TourReviewPageModule)
       },
       {
-        path: 'booking-details',
+        path: 'booking-details/:id',
         loadChildren: () => import('./booking-details/booking-details/booking-details.module').then( m => m.BookingDetailsPageModule)
       },
       {
@@ -148,6 +148,19 @@ const routes: Routes = [
             (m) => m.ProfilePageModule
           ),
       },
+      {
+        path: 'about-us',
+        loadChildren: () => import('./about-us/about-us.module').then( m => m.AboutUsPageModule)
+      },
+      {
+        path: 'add-money',
+        loadChildren: () => import('./add-money/add-money.module').then( m => m.AddMoneyPageModule)
+      },
+      {
+        path: 'error-page',
+        loadChildren: () => import('./waiting-pages/error-page/error-page.module').then( m => m.ErrorPagePageModule)
+      },
+    
     ]
   },
 ];

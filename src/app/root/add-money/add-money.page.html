@@ -1,0 +1,24 @@
+<div class="ion-page" id="main-content">
+
+  <app-header currentPanel="Add Money"></app-header>
+
+  <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
+    <form >
+      <div class="form-group mb-3">
+        <label for="email">Amount</label>
+        <input type="number" class="form-control" id="" aria-describedby=""  [(ngModel)]="amount" [ngModelOptions]="{standalone: true}">
+        <small id="emailHelp" class="form-text text-muted">Select package for add money.</small>
+      </div>
+      <div class="d-flex align-items-center flex-wrap">
+        <button class="btn btn-primary btn-pill text-dark mr-2 mb-2 fs-14" type="button" (click)="addMoneyToWallet(500)">RS 500</button>
+        <button class="btn btn-primary btn-pill text-dark mr-2 mb-2 fs-14" type="button" (click)="addMoneyToWallet(1000)">RS 1000</button>
+        <button class="btn btn-primary btn-pill text-dark mr-2 mb-2 fs-14" type="button">RS 1500</button>
+        <button class="btn btn-primary btn-pill text-dark mr-2 mb-2 fs-14" type="button">RS 2500</button>
+      </div>
+      <div class="">
+        <button class="btn btn-info position-fixed bottom-0  w-90 mb-2"  type="submit" (click)="startPayment()">Add ₹{{amount}}</button>
+      </div>
+    </form>
+  </ion-content>
+
+</div>

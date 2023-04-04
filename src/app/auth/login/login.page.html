@@ -14,7 +14,7 @@
         <ion-input type="email" placeholder="Email"  formControlName="email"></ion-input>
         <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
         <ion-text class="ion-text-start">Forget Password?</ion-text>
-        <ion-button expand="block" type="submit">Login</ion-button>
+        <ion-button expand="block" color="primary" type="submit">Login</ion-button>
         <ion-item >
           <p class="ion-text-center" >
             Dont have an Account?
@@ -22,7 +22,7 @@
           </p>
         </ion-item>
         <p class="ion-text-center">Or use your Google account</p>
-        <button class="google" type="button" (click)="loginWithGoogle()">
+        <button class="google d-flex justify-content-center w-100" (click)="auth.signUpWithGoogle()">
           <ion-icon name="logo-google"></ion-icon>
         </button>
       </form>

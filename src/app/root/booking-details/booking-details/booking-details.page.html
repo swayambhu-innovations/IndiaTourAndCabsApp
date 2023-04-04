@@ -7,10 +7,10 @@
 
     <div class=" my-3 d-flex justify-content-between align-items-center">
       <div class="Lato500 fs-16 ">Package Details</div>
-      <div><button class="btn btn-primary btn-sm text-dark py-1" type="button">Rental</button>
+      <div><button class="btn btn-primary btn-sm text-dark py-1" type="button">{{currentBooking?.type}}</button>
       </div>
     </div>
-    <app-booking-details-card></app-booking-details-card>
+    <app-booking-details-card [booking]="currentBooking"></app-booking-details-card>
     <div class="Lato500 fs-16 my-3">Driver Info</div>
     <div class="card bg-primary border-light shadow-soft d-flex flex-row w-100 justify-content-between align-items-center p-3">
       <div class="d-flex">

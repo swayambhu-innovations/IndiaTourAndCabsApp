@@ -22,6 +22,56 @@ export class PaymentService {
     return `Receipt#${Math.floor(Math.random() * 5123 * 43) + 10}`;
   }
   
+  handleWallet(data:any){
+    console.log(data);
+    this.WindowRef = window;
+    var result:Subject<any> = new Subject();
+      var ref = this;
+      function preparePaymentDetails(order: any, orderDetails: any,result:Subject<any>) {
+        return {
+          key: environment.RAZORPAY_KEY_ID, // Enter the Key ID generated from the Dashboard
+          amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 29935 refers to 29935 paise or INR 299.35.
+          name: 'Pay',
+          currency: order.currency,
+          order_id: order.id, //This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order). Refer the Checkout form table given below
+          image: 'https://madhavseva.com/assets/Images/logo.png',
+          handler: function (response: any) {
+            ref.finalizePayment(response,result);
+          },
+          prefill: {
+            name: orderDetails.user.displayName,
+            contact: '+91' + orderDetails.user.phone,
+          },
+          theme: {
+            color: '#ffc670',
+          },
+        };
+      }
+      let orderDetails = {
+        amount: data.wallet,
+        receipt: this.generateRecipetNumber(),
+      };
+      console.log("Order details",orderDetails);
+      this.createOrder(orderDetails).subscribe((order) => {
+          console.log("Payment details",order)
+          let orderDetail = preparePaymentDetails(order, data,result)
+          var rzp1 = new this.WindowRef.Razorpay(orderDetail);
+          this.orders.push(orderDetail);
+          rzp1.open();
+          result.next({...orderDetails,stage:"paymentGatewayOpened"})
+        },
+        (error) => {
+          console.log(error.message, "error");
+          result.next({...orderDetails,stage:"paymentGatewayError"})
+        },
+        ()=>{
+          // completed
+          result.next({...orderDetails,stage:"paymentGatewayClosed"})
+        }
+      )
+      return result
+  }
+
   handlePayment(data:booking){
     console.log(data);
     this.WindowRef = window;
@@ -61,7 +111,7 @@ export class PaymentService {
           result.next({...orderDetails,stage:"paymentGatewayOpened"})
         },
         (error) => {
-          this.alertify.presentToast(error.message, "error");
+           console.log(error.message, "error");
           result.next({...orderDetails,stage:"paymentGatewayError"})
         },
         ()=>{

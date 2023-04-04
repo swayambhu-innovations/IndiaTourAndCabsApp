@@ -43,9 +43,9 @@ export class AppComponent {
     Geolocation.requestPermissions({
       permissions:['location','coarseLocation']
     }).then((res)=>{
-      alert(JSON.stringify(res))
+      console.log(JSON.stringify(res))
     }).catch((err)=>{
-      alert(JSON.stringify(err))
+      console.log(JSON.stringify(err))
     });
     // this.database.getSettings().then((res) => { this.dataProvider.appSettings = res.data(); console.log(this.dataProvider.appSettings); });
     this.user = authState(this.auth);
@@ -109,7 +109,7 @@ export class AppComponent {
         });
       } else {
         console.log("logged out");
-        this.router.navigate(['login']);
+        this.router.navigate(['/auth/login']);
         this.dataProvider.LoggedInUser = false;
         this.dataProvider.user = null;
         this.loggedInUserData.next(false);
@@ -117,5 +117,7 @@ export class AppComponent {
       }
     });
   }
+
+  
 
 }

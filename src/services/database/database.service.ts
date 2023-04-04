@@ -78,6 +78,11 @@ export class DatabaseService {
     return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', id),where('type', '==' , 'outstation')), { idField: 'id' });
   }
 
+  getBookingDetails(BOOKING_ID:any){
+    const bookingUrl = urls.booking.replace('{BOOKING_ID}', BOOKING_ID);
+    return getDoc(doc(this.fs, bookingUrl));
+  }
+
   // Blogs
 
   blogs(){
@@ -154,6 +159,8 @@ export class DatabaseService {
   getCurrentUserBookings(){
     return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', this.dataProvider.user?.id)), { idField: 'id' });
   }
+
+  
 }
 
 

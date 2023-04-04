@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { booking } from 'src/structures/booking.structure';
 
 @Component({
   selector: 'app-booking-details-card',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingDetailsCardComponent implements OnInit {
 
+  @Input() bookingType: string = '';
+  @Input() booking: booking | any;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

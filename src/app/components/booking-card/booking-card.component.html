@@ -1,5 +1,5 @@
 <ng-container *ngIf="bookingType =='cabRide'">
-  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of cabRides">
+  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of cabRides" routerLink="/root/booking-details/{{cabRide.id}}">
     <div class="justify-content-end mr-2 d-flex">
       <a href="#" class="badge badge-danger p-2 mb-2">Taxi Booking</a>
     </div>
@@ -34,7 +34,7 @@
 
 
 <ng-container *ngIf="bookingType =='renting'">
-  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of rentals">
+  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of rentals" routerLink="/root/booking-details/{{cabRide.id}}">
     <div class="justify-content-end mr-2 d-flex">
       <a href="#" class="badge badge-danger p-2 mb-2">Rental Booking</a>
     </div>
@@ -83,7 +83,7 @@
 
 
 <ng-container *ngIf="bookingType =='outstations'">
-  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of outstations">
+  <div class="card bg-primary border-light shadow-soft mb-4" *ngFor="let cabRide of outstations" routerLink="/root/booking-details/{{cabRide.id}}">
     <div class="justify-content-end mr-2 d-flex">
       <a href="#" class="badge badge-danger p-2 mb-2">Outstation Booking</a>
     </div>
@@ -131,7 +131,7 @@
 </ng-container>
 
 <ng-container *ngIf="bookingType =='guide'">
-  <div class="card bg-primary border-light shadow-soft p-3 d-flex align-items-center justify-content-between my-2" *ngFor="let cabRide of guide" routerLink="/root/booking-details">
+  <div class="card bg-primary border-light shadow-soft p-3 d-flex align-items-center justify-content-between my-2" *ngFor="let cabRide of guide" routerLink="/root/booking-details/{{cabRide.id}}">
     <div class="justify-content-end mr-2 d-flex">
       <a href="#" class="badge badge-danger p-2 mb-2">Guide Booking</a>
     </div>

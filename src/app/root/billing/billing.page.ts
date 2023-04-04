@@ -113,6 +113,7 @@ export class BillingPage implements OnInit {
               .catch((err: any) => {
                 console.log(err);
                 this.alertify.presentToast('Error adding booking', 'error');
+                this.router.navigate(['/root/error-page']);
               })
               .finally(() => {
                 this.dataProvider.loading = false;
@@ -120,6 +121,8 @@ export class BillingPage implements OnInit {
             }
           } else {
             this.dataProvider.loading = false;
+            this.alertify.presentToast('Error adding on Wallet', 'error');
+            this.router.navigateByUrl('/root/error-page');
           }
           // this._snackBar.open("Payment successful");
           // this.close.emit();

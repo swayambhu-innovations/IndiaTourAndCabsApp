@@ -3,6 +3,7 @@ export const urls = {
     users: `/users/`,
     user:`/users/{USER_ID}`,
     bookings:`/bookings`,
+    booking:`/bookings/{BOOKING_ID}`,
     renting:`/renting`,
     guide:`/guide`,
     outstation:`/outstation`,

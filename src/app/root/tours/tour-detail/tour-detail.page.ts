@@ -16,11 +16,13 @@ export class TourDetailPage implements OnInit {
   public currentTour:any;
   ngOnInit() {
     this.tour();
+    console.log(this.currentTour);
   }
 
   tour(){
     this.database.singleTours(this.id).then((res)=>{
       this.currentTour = res.data();
+      console.log(res.data());
       })
   }
 

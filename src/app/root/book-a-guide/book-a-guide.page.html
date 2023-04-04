@@ -28,7 +28,7 @@
         <!-- <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
           <option selected>Location</option>
         </select> -->
-        <ion-select placeholder="Select Location" formControlName="pickupLocation">
+        <ion-select class="custom-select" placeholder="Select Location" formControlName="pickupLocation">
           <ion-select-option
             [value]="location"
             *ngFor="let location of locations"

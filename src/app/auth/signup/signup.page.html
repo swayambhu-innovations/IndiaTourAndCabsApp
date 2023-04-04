@@ -17,13 +17,13 @@
         <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
         <ion-input type="password" placeholder="Confirm Password" formControlName="confirmPassword"></ion-input>
   
-        <ion-text class="ion-text-start" style="text-decoration: none;" >Already have an Account? 
-          <b color="primary" style="text-decoration: underline;color:#DC9C40 ;" >Login</b>
+        <ion-text class="ion-text-start ion-text-center" style="text-decoration: none;" >Already have an Account? 
+          <a color="primary" style="text-decoration: underline;color:#DC9C40 ;" >Login</a>
         </ion-text>
-        <ion-button expand="block" type="submit">Sign Up</ion-button>
+        <ion-button expand="block" color="primary" type="submit">Sign Up</ion-button>
         
         <p class="ion-text-center" >Or  Signup With Google account</p>
-        <button class="google" (click)="auth.signUpWithGoogle()">
+        <button class="google d-flex justify-content-center w-100" (click)="auth.signUpWithGoogle()">
           <ion-icon name="logo-google"></ion-icon>
     
         </button>
