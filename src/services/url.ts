@@ -22,6 +22,8 @@ export const urls = {
     tours:`/service/tours/tours`,
     tour:`/service/tours/tours/{TOUR_ID}`,
 
+    banners:`/banner-management`,
+
     
    
 }

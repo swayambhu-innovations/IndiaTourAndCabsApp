@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { booking } from 'src/structures/booking.structure';
 import { paymentDetail } from '../structures/payment.structure';
 import { AlertsAndNotificationsService } from './uiService/alerts-and-notifications.service';
+import { NumberFormatStyle } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class PaymentService {
     return `Receipt#${Math.floor(Math.random() * 5123 * 43) + 10}`;
   }
   
-  handleWallet(data:any){
-    console.log(data);
+  handleWallet(amount:number){
+    console.log(amount);
     this.WindowRef = window;
     var result:Subject<any> = new Subject();
       var ref = this;
@@ -38,23 +39,23 @@ export class PaymentService {
           handler: function (response: any) {
             ref.finalizePayment(response,result);
           },
-          prefill: {
-            name: orderDetails.user.displayName,
-            contact: '+91' + orderDetails.user.phone,
-          },
+          // prefill: {
+          //   name: this.dataProvider.user.name,
+          //   contact: '+91' + orderDetails.user.phone,
+          // },
           theme: {
             color: '#ffc670',
           },
         };
       }
       let orderDetails = {
-        amount: data.wallet,
+        amount: amount * 100,
         receipt: this.generateRecipetNumber(),
       };
       console.log("Order details",orderDetails);
       this.createOrder(orderDetails).subscribe((order) => {
           console.log("Payment details",order)
-          let orderDetail = preparePaymentDetails(order, data,result)
+          let orderDetail = preparePaymentDetails(order, amount,result)
           var rzp1 = new this.WindowRef.Razorpay(orderDetail);
           this.orders.push(orderDetail);
           rzp1.open();

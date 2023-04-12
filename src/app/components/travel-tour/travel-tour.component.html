@@ -1,20 +1,18 @@
 <swiper [slidesPerView]="1.2" [loop]="false" effect="fade" pager="true">
   <ng-template swiperSlide *ngFor="let tour of Tours">
     <ion-card class="tourCard" routerLink="/root/tours-details/{{tour?.id}}">
-      <ion-img [src]="tour?.images[0]"></ion-img>
+      <ion-img [src]="tour?.images[0]" ></ion-img>
       <ion-grid class="content ion-text-start">
-        <ion-row routerLink="../tours-details">
+        <ion-row >
           <ion-col>
-            <ion-text style="font-size: 1.3rem; font-weight: 600; color: white"
-              >{{ tour?.tourName }}
+            <ion-text style="font-size: 1.3rem; font-weight: 600; color: white">{{ tour?.tourName }}
             </ion-text>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
             <ion-text
-              style="font-size: 1.2rem; font-weight: 600; color: #ff9114"
-            >
+              style="font-size: 1.2rem; font-weight: 600; color: #ff9114">
               ₹ {{ tour?.tourPrice }}
             </ion-text>
           </ion-col>
@@ -23,8 +21,7 @@
           <ion-col>
             
             <ion-text
-              style="font-size: .8rem; font-weight: 200; color: #dbdbdb"
-            >
+              style="font-size: .8rem; font-weight: 200; color: #dbdbdb">
             {{ tour?.aboutTour?.slice(0, 100) + "..." }}
             </ion-text>
           </ion-col>
@@ -43,8 +40,4 @@
     </ion-card>
   </ng-template>
 </swiper>
-<ion-button color="tertiary" style="width: 80%;margin: .5rem 10%; --border-radius: 0.6rem;text-transform: capitalize;">
-  <ion-text style="font-weight: 500; font-size: var(--ion-text)"
-  >Explore All Tours</ion-text
-  >
-</ion-button>
+

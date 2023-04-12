@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import Swiper from 'swiper';
 
 @Component({
@@ -17,21 +17,7 @@ export class CarouselComponent implements OnInit {
     pagination: true
    };
   constructor() { }
-  images=[
-    {
-      id:1,
-      image:'assets/carousel.jpg'
-    },
-    {
-      id:2,
-      image:'assets/carousel.jpg'
-    },
-    {
-      id:3,
-      image:'assets/carousel.jpg'
-    },
- 
-  ]
+  @Input() img:any[] =[]
   ngOnInit() {}
   setSwiperInstance(swiper: Swiper) {
     setInterval(() => {

@@ -1,7 +1,7 @@
 <app-header></app-header>
 <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
   <app-loading *ngIf="!dataProvider.user"></app-loading>
-  <app-carousel></app-carousel>
+  <app-carousel [img]="banners"></app-carousel>
   <!-- <app-order-card [booking]="booking" *ngFor="let booking of this.bookings"></app-order-card> -->
   <ion-card>
     <google-map
@@ -92,7 +92,10 @@
       </ion-col>
     </ion-row>
   </button>
-  <app-travel-tour></app-travel-tour>
+  <app-travel-tour [Tours]="Tours"></app-travel-tour>
+  <ion-button color="tertiary" style="width: 80%;margin: .5rem 10%; --border-radius: 0.6rem;text-transform: capitalize;" routerLink="/root/tours">
+    <ion-text style="font-weight: 500; font-size: var(--ion-text)">Explore All Tours</ion-text>
+  </ion-button>
   <app-blogs style="margin-bottom: 2rem" routerLink="../blog"></app-blogs>
   <app-questions></app-questions>
   <app-contact></app-contact>

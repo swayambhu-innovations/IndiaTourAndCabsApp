@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DatabaseService } from 'src/services/database/database.service';
 
 @Component({
   selector: 'app-tour-card',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TourCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() Tours:any[] = []
+  constructor(private database:DatabaseService) { }
+ 
+  ngOnInit() {
+  }
 
-  ngOnInit() {}
+  
 
 }

@@ -31,6 +31,7 @@ export class AddMoneyPage implements OnInit {
 
   startPayment() {
     this.dataProvider.loading = true;
+    console.log(this.amount);
     if (this.amount){
       this.paymentService.handleWallet(this.amount).subscribe(
         (res) => {
@@ -38,6 +39,7 @@ export class AddMoneyPage implements OnInit {
           if (res.stage == 'paymentCaptureSuccess') {
             this.alertify.presentToast('Payment successful');
             // this.close.emit();
+            
             if (this.amount){
               const data = {
                 ...this.dataProvider.user,

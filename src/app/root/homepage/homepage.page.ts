@@ -21,6 +21,9 @@ export class HomepagePage implements OnInit {
     public dataProvider: DataProviderService,
     private databaseService: DatabaseService
   ) {}
+
+  Tours:any[] = []
+  banners: any[] = [];
   spots: Spot[] = [];
   filteredSpots:Spot[] = []
   showcaseSpots: any[] = [];
@@ -52,7 +55,9 @@ export class HomepagePage implements OnInit {
     if (event.latLng != null) this.display = event.latLng.toJSON();
   }
   ngOnInit() {
+    this.tours();
     this.getSpots();
+    this.getBanners();
     // this.updateSpots()
     this.databaseService.getCurrentUserBookings().subscribe((data) => {
       this.bookings = data as booking[];
@@ -153,4 +158,30 @@ export class HomepagePage implements OnInit {
       this.getCurrentLocation();
     });
   }
+
+  getBanners() {
+    this.databaseService.banners().then((blogs)=>{
+      blogs.forEach((element: any) => {
+        this.banners.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log("Banners",this.banners)
+      });
+    })
+  }
+
+  tours(){
+    this.databaseService.tours().then((res)=>{
+      res.forEach((element: any) => {
+        this.Tours.push({
+          ...element.data(),
+          id: element.id,
+        });
+        console.log(this.Tours)
+      });
+    })
+  }
+
+  
 }

@@ -160,6 +160,11 @@ export class DatabaseService {
     return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', this.dataProvider.user?.id)), { idField: 'id' });
   }
 
+  // Mics
+
+  banners(){
+    return getDocs(collection(this.fs, urls.banners));
+  }
   
 }
 
