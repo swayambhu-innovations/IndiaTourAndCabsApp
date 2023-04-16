@@ -67,11 +67,7 @@ export class TourBillingPage implements OnInit {
                 this.dataProvider.loading = false;
               });
             }
-          } else {
-            this.dataProvider.loading = false;
-            this.alertify.presentToast('Error adding on Wallet', 'error');
-            this.router.navigateByUrl('/root/error-page');
-          }
+          } 
           // this._snackBar.open("Payment successful");
           // this.close.emit();
         },

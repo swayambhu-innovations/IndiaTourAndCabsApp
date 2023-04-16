@@ -43,7 +43,7 @@ export class TourDetailPage implements OnInit {
         displayName: this.dataProvider.user.displayName,
         phone: this.dataProvider.user.phone,
         photoURL: this.dataProvider.user.photoURL,
-        userId: this.dataProvider.user.userId,
+        userId: this.dataProvider.user.id,
       },
       tourDetails: {
         tourName: this.currentTour.tourName,
