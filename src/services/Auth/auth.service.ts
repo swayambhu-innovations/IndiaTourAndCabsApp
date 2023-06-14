@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Auth, authState, createUserWithEmailAndPassword, GoogleAuthProvider, linkWithPhoneNumber, signInWithCredential, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, signOut, User, getAuth, RecaptchaVerifier, UserCredential, } from '@angular/fire/auth';
-import {addDoc,collection,deleteDoc,doc,DocumentReference,Firestore,getDoc,getDocs,setDoc,updateDoc} from '@angular/fire/firestore';
+import {addDoc,collection,deleteDoc,doc,docData,DocumentReference,Firestore,getDoc,getDocs,setDoc,updateDoc} from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { urls } from '../url';
 import { DataProviderService } from '../Data-Provider/data-provider.service';
 import { AlertsAndNotificationsService } from '../uiService/alerts-and-notifications.service';
 import { Platform } from '@ionic/angular';
-import { EMPTY, Observable, Subject } from 'rxjs';
+import { EMPTY, Observable, Subject, Subscription } from 'rxjs';
 import { UserData } from 'src/structures/user.structure';
 import { registerPlugin } from '@capacitor/core';
 export interface AuthPlugin {
@@ -26,6 +26,7 @@ export class AuthService {
   public newUser: boolean = false;
   public readonly user: Observable<User | null> = EMPTY;
   private currentUser: User | any = null;
+  private userSubscription:Subscription = Subscription.EMPTY;
   constructor(
     private fs: Firestore,
     private auth: Auth,
@@ -37,15 +38,16 @@ export class AuthService {
     if (auth) {
       console.log(this.auth);
       this.user = authState(this.auth);
-
-      this.user.subscribe((user: any) => {
+      this.user.subscribe((user) => {
         if (user) {
           this.currentUser = user;
           console.log(user);
           this.userIsLoggedIn = true;
           this.userId = user.uid;
-          this.dataProvider.user = user;
           this.userAvailable.next(user);
+          this.userSubscription = docData(doc(this.fs,'users/'+user.uid),{idField:'id'}).subscribe((user) => {
+            this.dataProvider.user = user;
+          })
         } else {
           this.userIsLoggedIn = false;
         }

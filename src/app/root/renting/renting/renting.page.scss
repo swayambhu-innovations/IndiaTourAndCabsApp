@@ -11,3 +11,7 @@
         object-fit: cover;
     }
 }
+.active{
+    background-color: var(--ion-color-primary) !important;
+    color:white;
+}

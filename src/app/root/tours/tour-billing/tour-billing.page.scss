@@ -1,0 +1,12 @@
+.tours{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    div{
+        border-radius: 8px;
+    }
+    div.active{
+        background: var(--ion-color-primary);
+        color:white;
+    }
+}

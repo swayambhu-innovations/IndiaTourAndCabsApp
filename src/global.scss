@@ -91,3 +91,32 @@ background: #e1e1e1;
     justify-content: start;
     align-items: safe;
 }
+.map-container{
+//     box-shadow:
+//   2.2px 3.6px 32.5px -12px rgba(0, 0, 0, 0.018),
+//   5.3px 8.6px 49.7px -12px rgba(0, 0, 0, 0.025),
+//   9.9px 16.2px 56.6px -12px rgba(0, 0, 0, 0.031),
+//   17.6px 28.8px 57.7px -12px rgba(0, 0, 0, 0.037),
+//   33px 53.9px 59.4px -12px rgba(0, 0, 0, 0.047),
+//   79px 129px 117px -12px rgba(0, 0, 0, 0.07)
+// ;
+    border-radius: 10px !important;
+}
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+.gm-style-iw .gm-style-iw-c{
+    padding: 0px;
+}
+.gm-style{
+    border:none !important;
+}
+.swiper-wrapper-homepage{
+    padding: 20px;
+}

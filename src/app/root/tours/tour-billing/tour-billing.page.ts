@@ -21,10 +21,13 @@ export class TourBillingPage implements OnInit {
     specialRequest: new FormControl('',[Validators.required]),
     pickupLocation: new FormControl('',[Validators.required]), 
   });
+  selectedDate: any;
 
   locationsList: any[] = [];
-  constructor(private database: DatabaseService, private dataProvider: DataProviderService, private alertify:AlertsAndNotificationsService, private payment:PaymentService, private router:Router) { }
-
+  constructor(private database: DatabaseService, public dataProvider: DataProviderService, private alertify:AlertsAndNotificationsService, private payment:PaymentService, private router:Router) { }
+  ionViewDidEnter() {
+    console.log(this.dataProvider.tour);
+  }
   ngOnInit() {
     this.locations();
   }

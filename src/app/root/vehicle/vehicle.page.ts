@@ -75,8 +75,8 @@ export class VehiclePage implements OnInit {
         vehicle: this.dataProvider.vehicle
       }
       this.dataProvider.booking = data;
-      this.router.navigate(['/root/billing']);
       console.log(data);
+      this.router.navigate(['/root/billing']);
     }
     // if (this.fromUrl == 'cab') {
     //   this.dataProvider.loading = true;

@@ -1,5 +1,11 @@
-<ion-slides [options]="slideOptsOne">
-  <ion-slide *ngFor="let img of img">
-    <ion-img [src]="img.bannerImage"></ion-img>
-  </ion-slide>
-</ion-slides>
+<swiper [slidesPerView]="1.1" [pagination]="true" [loop]="true" [autoplay]="true" [centeredSlides]="true" [spaceBetween]="7">
+  <ng-container *ngIf="!loaded">
+    <ng-template swiperSlide>
+      <ion-skeleton-text animated class="slide"></ion-skeleton-text>
+    </ng-template>
+  </ng-container>
+  <ng-template swiperSlide *ngFor="let banner of banners">
+    <img [src]="banner.bannerImage" class="slide" (load)="loaded=true;banner.loaded = true;" loading="lazy" (click)="click(banner)" #localImg>
+    <ion-skeleton-text animated class="slide" *ngIf="banner.loaded"></ion-skeleton-text>
+  </ng-template>
+</swiper>

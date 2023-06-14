@@ -1,4 +1,7 @@
 <!-- <ion-router-outlet></ion-router-outlet> -->
+<div class="overlay" *ngIf="dataProvider.loading">
+  <ion-spinner color="primary" name="crescent"></ion-spinner>
+</div>
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 

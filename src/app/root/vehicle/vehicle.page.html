@@ -1,12 +1,8 @@
 
 
 <div class="ion-page" id="main-content">
-  
-    <app-header currentPanel="Vehicle"></app-header>
-
+  <app-header currentPanel="Vehicle"></app-header>
   <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
     <app-vehicle-card *ngFor="let vehicle of vehicleList" [vehicle]="vehicle" (click)="booking();" ></app-vehicle-card>
-    
   </ion-content>
-  
 </div>

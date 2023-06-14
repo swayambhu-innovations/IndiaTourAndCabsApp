@@ -9,6 +9,7 @@ import { HomepagePageRoutingModule } from './homepage-routing.module';
 import { HomepagePage } from './homepage.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     IonicModule,
     HomepagePageRoutingModule,
     ComponentsModule,
+    SwiperModule,
     GoogleMapsModule
   ],
   declarations: [HomepagePage]

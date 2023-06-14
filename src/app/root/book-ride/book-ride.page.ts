@@ -31,6 +31,9 @@ export class BookRidePage implements OnInit {
     this.locations();
     
   }
+  ionViewDidEnter(){
+    this.bookRideForm.controls['dropLocation'].setValue(this.dataProvider?.routeData.location.id);
+  }
 
   changedTime(event: any, type: 'start' | 'end') {
     this.time[type] = new Date(event.detail.value);
@@ -41,6 +44,7 @@ export class BookRidePage implements OnInit {
     console.log(this.bookRideForm.value.dropLocation);
     const data: booking = {
       ...this.bookRideForm.value,
+      dropLocation:this.locationsList.find((element:any) => element.id == this.bookRideForm.value.dropLocation),
       pickupStartDate: this.time.start,
       pickupEndDate: this.time.end,
       user: {

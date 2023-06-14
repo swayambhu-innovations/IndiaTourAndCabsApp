@@ -8,7 +8,9 @@
     align-items: center;
     justify-content: center;
     gap:20px;
-    background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+    background-image: linear-gradient(to top, rgba(255,255,255,0.7), rgba(255,255,255,0));
+    z-index: 999999;
+    backdrop-filter: blur(10px);
     ion-button{
         color:white;
     }

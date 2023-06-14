@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   @Input() currentPanel: String = '';
+  @Input() showbackButton:boolean = true;
   constructor(public router:Router,private navController: NavController, public dataProvider:DataProviderService,private location: Location , private actionSheetCtrl:ActionSheetController) { }
 
   ngOnInit() {}

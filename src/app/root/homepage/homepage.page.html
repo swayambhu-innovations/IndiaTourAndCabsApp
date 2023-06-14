@@ -1,8 +1,8 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <ion-content class="homepage" fullscreen class="ion-padding" scroll-y="true">
   <app-loading *ngIf="!dataProvider.user"></app-loading>
   <app-carousel [img]="banners"></app-carousel>
-  <!-- <app-order-card [booking]="booking" *ngFor="let booking of this.bookings"></app-order-card> -->
+  <app-order-card [booking]="booking" *ngFor="let booking of this.bookings"></app-order-card>
   <ion-card>
     <google-map
       height="200px"
@@ -99,4 +99,222 @@
   <app-blogs style="margin-bottom: 2rem" routerLink="../blog"></app-blogs>
   <app-questions></app-questions>
   <app-contact></app-contact>
+</ion-content> -->
+
+<ion-content>
+  <app-header [showbackButton]="false"></app-header>
+  <app-carousel [banners]="banners"></app-carousel>
+  <app-order-card
+    [booking]="booking"
+    *ngFor="let booking of this.bookings"
+  ></app-order-card>
+  <section class="mapView">
+    <h5>Explore places around you</h5>
+    <div
+      class="card bg-primary shadow-soft text-center border-light"
+      [ngStyle]="{height:mapHeight+'px'}"
+    >
+      <google-map
+        height="{{mapHeight}}px"
+        width="100%"
+        [options]="mapOptions"
+        [center]="center"
+        [zoom]="zoom"
+        (mapClick)="moveMap($event)"
+        (mapMousemove)="move($event)"
+      >
+        <map-marker
+          *ngIf="currentPosition"
+          [options]="markerOptions"
+          icon="./assets/circle.png"
+          [position]="this.currentPosition"
+        ></map-marker>
+        <map-marker
+          #markerInst="mapMarker"
+          #markerElm
+          *ngFor="let marker of markers"
+          [label]="marker.label"
+          [options]="markerOptions"
+          [position]="marker.position"
+          [icon]="selectedSpot?.id === marker.spot.id ? 'assets/markerActive.png' : 'assets/markerInactive.png'"
+          (mapClick)="openInfoWindow(markerInst,infoWindow,marker)"
+        >
+          <map-info-window
+            #infoWindow="mapInfoWindow"
+            (closeclick)="closeInfo(marker)"
+          >
+            <div class="infoPanel">
+              <img [src]="marker.spot.images[0]" alt="" />
+              <p class="title">{{marker.spot.name}}</p>
+              <p>{{marker.spot.address}}</p>
+              <p>{{marker.spot.rating}}</p>
+              <p>{{marker.spot.category}}</p>
+            </div>
+          </map-info-window>
+        </map-marker>
+      </google-map>
+      <button
+        *ngIf="showcaseSpots.length > 0 && this.selectedSpot"
+        routerLink="../spot-detail/{{showcaseSpots[0].id}}"
+      >
+        Visit Spot
+      </button>
+    </div>
+  </section>
+  <section class="bookActions">
+    <button
+      class="btn btn-primary mr-3"
+      type="button"
+      routerLink="../book-ride"
+    >
+      <i class="fa-solid fa-car-side"></i>
+      Book A Cab
+    </button>
+    <button class="btn btn-primary mr-3" type="button" routerLink="../renting">
+      <i class="fa-solid fa-car-on"></i>
+      Rent A Cab
+    </button>
+  </section>
+  <section class="spots">
+    <h5>Spots</h5>
+    <swiper
+      [loop]="true"
+      [slidesPerView]="2"
+      [spaceBetween]="20"
+      wrapperClass="swiper-wrapper swiper-wrapper-homepage"
+    >
+      <ng-template swiperSlide *ngFor="let spot of filteredSpots">
+        <div
+          class="border-light shadow-soft card tourCard"
+          routerLink="../spot-detail/{{ spot.id }}"
+          [ngStyle]="{'background-image':'url('+spot.images[0]+')'}"
+        >
+          <div class="content">
+            <div class="tags">
+              <div class="tag">
+                <p>{{spot.category}}</p>
+                <i
+                  *ngIf="spot.category=='Eat'"
+                  class="fa-solid fa-utensils"
+                ></i>
+                <i *ngIf="spot.category=='Shop'" class="fa-solid fa-shop"></i>
+                <i
+                  *ngIf="spot.category=='Explore'"
+                  class="fa-solid fa-route"
+                ></i>
+              </div>
+              <div class="rating">
+                <p>{{spot.rating || 0}}</p>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <div class="detail">
+              <p class="title">{{spot.name}}</p>
+              <p class="address">
+                <!-- address icon -->
+                <i class="fa-solid fa-map-marker-alt"></i>
+                {{spot.address}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+  </section>
+  <section class="bookGuide">
+    <button routerLink="../book-a-guide" class="btn btn-primary" type="button">
+      <i class="fa-solid fa-person-skiing-nordic"></i>
+      <span>
+        <p>Book A guide</p>
+        <p>Experience local culture</p>
+      </span>
+    </button>
+  </section>
+  <section class="outstation">
+    <h5>Outstation</h5>
+    <div class="places">
+      <div routerLink="../outstation" (click)="dataProvider.routeData=place"
+        class="card bg-primary border-light shadow-soft place"
+        *ngFor="let place of places"
+        [ngStyle]="{'background-image':'url('+place.image+')'}"
+      >
+        <p>{{place.name}}</p>
+      </div>
+    </div>
+    <button
+      routerLink="../outstation"
+      class="btn btn-primary text-dark mr-2 mb-2"
+      (click)="dataProvider.routeData=undefined"
+      type="button"
+    >
+      <i class="fa-solid fa-route"></i>
+      Book An Outstation Cab
+    </button>
+  </section>
+  <section class="tours">
+    <swiper
+      [slidesPerView]="1.5"
+      [loop]="true"
+      [spaceBetween]="30"
+      wrapperClass="swiper-wrapper swiper-wrapper-homepage"
+    >
+      <ng-template swiperSlide *ngFor="let tour of tours">
+        <div
+          class="card bg-primary border-light shadow-soft tourCard"
+          routerLink="/root/tours-details/{{tour?.id}}"
+          [ngStyle]="{'background-image':'url('+tour.images[0]+')'}"
+        >
+          <div class="content">
+            <h3>{{tour.tourName}}</h3>
+            <h5>{{tour.tourPrice}}</h5>
+            <p>{{clipText(tour.aboutTour,100)}}</p>
+            <div class="tags">
+              <span> {{tour.noOfDays}} Days - {{tour.noOfNights}} Nights </span>
+              <span> No. of stoppage - {{tour.noOfDays}} </span>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+    <button
+      routerLink="../outstation"
+      class="btn btn-primary text-dark mr-2 mb-2"
+      type="button"
+    >
+      <i class="fa-regular fa-map"></i>
+      Explore all Tours
+    </button>
+  </section>
+  <section class="blogs">
+    <swiper wrapperClass="swiper-wrapper swiper-wrapper-homepage" [loop]="true" [spaceBetween]="30" [slidesPerView]="1.5">
+      <ng-template swiperSlide *ngFor="let post of blogs">
+        <div
+          routerLink="../blog-detail/{{post.id}}"
+          class="card bg-primary border-light shadow-soft blogCard"
+          [ngStyle]="{'background-image':'url('+post.photoURL+')'}"
+        >
+          <div class="content">
+            <h3>{{post.title}}</h3>
+            <p>{{clipText(post.excerpt,60)}}</p>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+  </section>
+  <section class="faqs">
+    <h5>Frequently Asked Questions</h5>
+    <div class="accordions">
+      <div class="card bg-primary border-light shadow-soft accordion" *ngFor="let question of questions">
+        <div class="title" (click)="question.expanded = !question.expanded">
+          <h6>{{question.title}}</h6>
+          <span>
+            <i [ngClass]="{'upside':question.expanded,'downSide':!question.expanded}" class="fa-solid fa-chevron-down"></i>
+          </span>
+        </div>
+        <div class="body" *ngIf="question.expanded">
+          <p>{{question.body}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </ion-content>

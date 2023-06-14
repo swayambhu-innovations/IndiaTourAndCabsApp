@@ -1,4 +1,5 @@
 import { Timestamp } from "@angular/fire/firestore";
+import { OutputData } from "@editorjs/editorjs";
 
 export interface booking {
     pickupLocation: MapLocation;
@@ -129,4 +130,62 @@ export interface VehicleCommissionPackages {
   type:'percentage'|'fixed';
   value:number;
   enabled:boolean;
+}
+
+export interface TourDay {
+  day: number;
+  locationName?: MapLocation;
+  activites:{
+    startTime: string;
+    endTime: string;
+    activity: string;
+    description: string;
+  }[]
+}
+
+export interface TourData {
+  id?:string;
+  tourName: string;
+  tourPrice:number;
+  aboutTour:string;
+  pickupLocation:MapLocation;
+  dropOffLocation:MapLocation;
+  description: string;
+  noOfDays: number;
+  noOfNights: number;
+  tourAgent: Agent;
+  holidays: {start:Date,end:Date}[];
+  days: TourDay[];
+  images: string[];
+  enabled: boolean;
+  features: string[];
+}
+
+export interface Agent {
+  image:string;
+  name:string;
+  phone:string;
+  preferredLocationForWork:string;
+  email:string;
+  languages:string;
+  workExperience:string;
+  dateOfBirth:string;
+  education:string;
+  tourGuideLicenseNumber:string;
+  tourGuideSkills:string;
+}
+
+export interface Blog {
+  id?:string;
+  title: string;
+  excerpt: string;
+  description: OutputData;
+  created: Timestamp;
+  photoURL: string;
+  author: {
+    displayName: string;
+    email: string;
+    phone: string;
+    photoURL: string;
+  }
 }

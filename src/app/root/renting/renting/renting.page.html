@@ -23,9 +23,9 @@
       </div>
       <div class="my-4">
         <div class="my-2  Lato600 fs-16">Select Package</div>
-        <div class="d-flex align-items-center  ">
+        <div class="d-flex align-items-center">
           <button class="btn btn-primary  bg-primary shadow-soft text-center border-light px-2 py-2"
-            *ngFor="let package of packages" (click)="selectPackage(package)" type="button">
+            *ngFor="let package of packages" (click)="selectPackage(package)" [ngClass]="{'active':this.selectedPackage?.id == package.id}" type="button">
             <div class="Lato600 fs-18">{{package.hours}} hr</div>
             <div class="Lato400 fs-14">{{package.distance}} km</div>
           </button>
@@ -51,25 +51,25 @@
               </div>
             </div>
           </div>
-          <span class="Lato500 fs-16">at</span>
+          <!-- <span class="Lato500 fs-16">at</span>
           <div class="col">
             <div class="form-group">
               <label class="h6" for="exampleInputDate3"></label>
               <div class="input-group input-group-border">
-                <!-- <ion-modal trigger="dateTimeEnd" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]"
+                <ion-modal trigger="dateTimeEnd" [initialBreakpoint]="0.60" [breakpoints]="[0, 0.25, 0.65,0.9]"
                   [keepContentsMounted]="true">
                   <ng-template>
                     <ion-datetime mode="ios" [showDefaultButtons]="true"
                       (ionChange)="changedTime($event,'end')"></ion-datetime>
                   </ng-template>
-                </ion-modal> -->
+                </ion-modal>
                 <div class="input-group-prepend" id="dateTimeEnd"><span class="input-group-text"><span
                       class="fa-solid fa-clock"></span></span></div>
                 <input class="form-control datepicker" id="exampleInputDate3" placeholder="End date" type="time"
                   [value]="time.end">
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div>

@@ -55,7 +55,6 @@ import { LoadingComponent } from './loading/loading.component';
     IonicModule,
     RouterModule,
     SwiperModule
-    
   ],
   exports: [
     HeaderComponent,

@@ -156,8 +156,11 @@ export class DatabaseService {
     return getDoc(doc(this.fs,'siteData/settings'));
   }
 
-  getCurrentUserBookings(){
-    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', this.dataProvider.user?.id)), { idField: 'id' });
+  getCurrentUserBookings(userId?:string){
+    if(!userId){
+      return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', this.dataProvider.user.id)), { idField: 'id' });
+    }
+    return collectionData(query(collection(this.fs, urls.bookings), where('user.userId', '==', userId)), { idField: 'id' });
   }
 
   // Mics

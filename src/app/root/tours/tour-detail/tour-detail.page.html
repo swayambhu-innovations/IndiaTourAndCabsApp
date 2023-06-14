@@ -1,16 +1,19 @@
 <div class="ion-page" id="main-content">
-
   <ion-header class="ion-padding">
     <app-header currentPanel="Tours"></app-header>
   </ion-header>
   <ion-content class="ion-padding">
-    <img [src]="currentTour?.images[0]" class="card-img-top rounded" alt="Designer desk">
+    <img
+      [src]="(currentTour?.images || [])[0]"
+      class="card-img-top rounded"
+      alt="Designer desk"
+    />
     <div class="d-flex justify-content-between align-items-center my-3">
       <div class="t-blue Lato600 fs-18">{{currentTour?.tourName}}</div>
-      <div class="t-green Lato600 fs-18">₹ {{currentTour?.tourPrice}} </div>
+      <div class="t-green Lato600 fs-18">₹ {{currentTour?.tourPrice}}</div>
     </div>
     <div>
-      <ion-segment [(ngModel)]="status" color="primary" value="overview" >
+      <ion-segment [(ngModel)]="status" color="primary" value="overview">
         <ion-segment-button value="overview">
           <ion-label>Overview</ion-label>
         </ion-segment-button>
@@ -28,71 +31,78 @@
           <div *ngSwitchCase="'overview'">
             <div class="Lato600 fs-16 mt-2">Brief about the trip</div>
 
-            <div class="Lato400 fs-14">
-              {{currentTour?.aboutTour}}
-            </div>
+            <div class="Lato400 fs-14">{{currentTour?.aboutTour}}</div>
           </div>
           <div *ngSwitchCase="'itinerary'">
             <div class="mt-4">
               <div class="wrapper ms-2">
                 <ul class="StepProgress">
-                  <li class="StepProgress-item ">
-                    <strong>pickup from {{currentTour?.pickupLocation.name}}</strong>
+                  <li class="StepProgress-item">
+                    <strong
+                      >Pickup from {{currentTour?.pickupLocation?.name}}</strong
+                    >
                   </li>
-                  <li class="StepProgress-item " *ngFor="let day of currentTour?.days " >
-                    <strong>{{day.activity}}</strong>
-                    <div class="Lato500 fs-13 t-grey mt-1">{{day.description}}</div>
+                  <li
+                    class="StepProgress-item"
+                    *ngFor="let day of currentTour?.days; let isLast = last "
+                  >
+                    <strong>{{day.locationName?.name}}</strong>
+                    <div class="wrapper ms-2">
+                      <ul class="StepProgress">
+                        <li
+                          class="StepProgress-item"
+                          [ngClass]="{'last':isLast}"
+                          *ngFor="let activity of day?.activites"
+                        >
+                          <strong>{{activity?.activity}}</strong>
+                          <i>{{activity.startTime}} - {{activity.endTime}}</i>
+                          <br />
+                          <span>{{activity.description}}</span>
+                        </li>
+                      </ul>
+                    </div>
                   </li>
-  
-                  <li class="StepProgress-item ">
-                    <strong>Drop to {{currentTour?.dropOffLocation.name}}</strong>
+
+                  <li class="StepProgress-item">
+                    <strong
+                      >Drop to {{currentTour?.dropOffLocation?.name}}</strong
+                    >
                   </li>
                 </ul>
               </div>
             </div>
             <div class="card bg-primary shadow-soft border-light mt-4">
               <div class="Lato400 fs-18 px-3 py-2">Billing Summary</div>
-              <div class="d-flex justify-content-between align-items-center px-3 py-1">
+              <div
+                class="d-flex justify-content-between align-items-center px-3 py-1"
+              >
                 <div class="Lato400 fs-14">Taxi Fare</div>
-                <div>$20</div>
+                <div>{{20 | currency:'INR'}}</div>
               </div>
-              <div class="d-flex justify-content-between align-items-center px-3 py-1">
-                <div class="Lato400 fs-14">Taxi Fare</div>
-                <div class="Lato400 fs-14">$20</div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center px-3 py-1">
-                <div class="Lato400 fs-14">Taxi Fare</div>
-                <div class="Lato400 fs-14">$20</div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center px-3 py-1">
-                <div class="Lato400 fs-14">Taxi Fare</div>
-                <div class="Lato400 fs-14">$20</div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center px-3 py-1">
-                <div class="Lato400 fs-14">Taxi Fare</div>
-                <div class="Lato400 fs-14">$20</div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center px-3 py-1">
-                <div class="Lato400 fs-14">Taxi Fare</div>
-                <div class="Lato400 fs-14">$20</div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center px-3 py-3">
+              <div
+                class="d-flex justify-content-between align-items-center px-3 py-3"
+              >
                 <div class="Lato400 fs-16">Total Amount</div>
-                <div class="Lato400 fs-16">₹1200</div>
+                <div class="Lato400 fs-16">{{currentTour?.tourPrice | currency:'INR'}}</div>
               </div>
-              <div class="t-green Lato400 fs-15 px-3 pb-3">Yay! Your Total discount is ₹350</div>
+              <!-- <div class="t-green Lato400 fs-15 px-3 pb-3">
+                Yay! Your Total discount is {{currentTour?.tourPrice | currency:'INR'}}
+              </div> -->
             </div>
           </div>
           <div *ngSwitchCase="'reviewAndRatings'">
             <app-photo-gallery></app-photo-gallery>
-        <app-spot-review-card></app-spot-review-card>
+            <app-spot-review-card></app-spot-review-card>
           </div>
-
         </div>
       </div>
     </div>
-    <button class="btn btn-info text-dark mr-2 mb-2 w-100 mt-3" type="button" (click)="bookTour()">Book this
-      Tour</button>
+    <button
+      class="btn btn-info text-dark mr-2 mb-2 w-100 mt-3"
+      type="button"
+      (click)="bookTour()"
+    >
+      Book this Tour
+    </button>
   </ion-content>
-
 </div>

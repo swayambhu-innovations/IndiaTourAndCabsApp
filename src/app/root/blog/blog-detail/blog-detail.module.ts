@@ -6,8 +6,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { BlogDetailPageRoutingModule } from './blog-detail-routing.module';
 
-import { BlogDetailPage } from './blog-detail.page';
+import { BlogDetailPage, RemoveExtraBrPipe } from './blog-detail.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { BodyComponent } from './body/body.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { ComponentsModule } from 'src/app/components/components.module';
     BlogDetailPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [BlogDetailPage]
+  declarations: [BlogDetailPage,RemoveExtraBrPipe,BodyComponent]
 })
 export class BlogDetailPageModule {}

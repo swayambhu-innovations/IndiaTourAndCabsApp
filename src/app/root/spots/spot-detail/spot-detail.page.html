@@ -45,8 +45,8 @@
     </ng-container>
     <div class="bottomPadding"></div>
   <div class="fixedActions">
-    <ion-button >Book A Cab</ion-button>
-    <ion-button >Book A Guide</ion-button>
+    <ion-button routerLink="../../book-ride" (click)="dataProvider.routeData=currentSpot" >Book A Cab</ion-button>
+    <ion-button routerLink="../../book-a-guide" (click)="dataProvider.routeData=currentSpot">Book A Guide</ion-button>
   </div>
   </ion-content>
 </div>

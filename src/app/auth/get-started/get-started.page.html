@@ -1,12 +1,12 @@
 <ion-content fullscreen scroll-y="false">
-  <ion-slides [options]="slideOptsOne">
-    <ion-slide *ngFor="let item of items">
+  <swiper [autoplay]="true" [slidesPerView]="1">
+    <ng-template swiperSlide *ngFor="let item of items">
       <div class="slide">
         <img [src]="item.img" />
       </div>
       <ion-text class="bg-text"> {{item.text}} </ion-text>
-      <ion-img src="assets/itcMain.png" class="logo"></ion-img>
+      <img src="assets/itcMain.png" class="logo">
       <ion-button class="button" routerLink="../login">Get Started</ion-button>
-    </ion-slide>
-  </ion-slides>
+    </ng-template>
+  </swiper>
 </ion-content>

@@ -77,7 +77,7 @@ export class AppComponent {
           //   this.router.navigate(['/pick-up-address']);
           // }
           if (this.dataProvider?.user?.termsCondition == true && this.dataProvider.LoggedInUser == true) {
-            this.router.navigate(['/root/homepage']);
+            this.router.navigateByUrl('/root/homepage');
           }
           // let unReadNotifications: notificationStructure[] = [];
           let showBackDrop = true;

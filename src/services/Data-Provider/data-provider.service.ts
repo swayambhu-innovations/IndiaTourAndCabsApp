@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ConfirmationResult } from '@angular/fire/auth';
 import { Subject } from 'rxjs';
-import { booking } from 'src/structures/booking.structure';
+import { TourData, booking } from 'src/structures/booking.structure';
 
 
 @Injectable({
@@ -13,6 +13,7 @@ export class  DataProviderService {
   public user:any;
   public loading:boolean = false;
   public chooseService:any[]=[];
+  public routeData:any;
   public signUp:any;
   public notification:any[] = [];
   public phoneData : ConfirmationResult | any;

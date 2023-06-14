@@ -28,6 +28,10 @@ import { providePerformance, getPerformance } from '@angular/fire/performance';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { PaymentService } from 'src/services/payment.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from 'src/services/Auth/auth.service';
+import { DatabaseService } from 'src/services/database/database.service';
+import { DataProviderService } from 'src/services/Data-Provider/data-provider.service';
+import { AlertsAndNotificationsService } from 'src/services/uiService/alerts-and-notifications.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -51,6 +55,10 @@ import { HttpClientModule } from '@angular/common/http';
     ScreenTrackingService,
     UserTrackingService,
     PaymentService,
+    AuthService,
+    DatabaseService,
+    DataProviderService,
+    AlertsAndNotificationsService,
   ],
   bootstrap: [AppComponent],
 })

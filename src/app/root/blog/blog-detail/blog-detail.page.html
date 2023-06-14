@@ -1,20 +1,22 @@
-<div class="ion-page" id="main-content">
-  <ion-header class="ion-padding">
-    <app-header currentPanel="Blog"></app-header>
-  </ion-header>
- 
-  <ion-content class="ion-padding">
-    <img [src]="blog.photoURL"
-      class="card-img-top rounded-top" alt="Themesberg office">
-    <div>
-      <div class="d-flex align-items-center mt-2 Lato400 fs-16 ">
-        <span class="small"><span class="far fa-calendar-alt mr-2"></span>By <span class="t-orange">{{blog?.author?.displayName}}</span> from
-          Rajputana Cabs</span>
-      </div>
-      <h3 class="h5 Lato600 fs-18">{{blog.title}}</h3>
-      <div class="t-grey pb-3 Lato500 fs-14">{{blog.created.toDate() | date}}</div>
-      <div class=" pb-3 Lato400 fs-14">{{blog.description}}</div>
+<ion-content>
+  <img
+    [src]="blog?.photoURL"
+  />
+  <div class="overlapping">
+    <div class="d-flex align-items-center justify-content-between mt-2 Lato400 fs-16">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+      <span class="small"
+        ><span class="far fa-calendar-alt mr-2"></span>By
+        <span class="t-orange">{{blog?.author?.displayName}}</span> from India Tours Cabs</span>
     </div>
-  </ion-content>
-  
-</div>
+    <h3 class="h5 Lato600 fs-18">{{blog?.title}}</h3>
+    <div class="t-grey pb-3 Lato500 fs-14">
+      {{blog?.created.toDate() | date}}
+    </div>
+    <div id="blogBody">
+      <app-body [blocks]="blog?.body.blocks"></app-body>
+    </div>
+  </div>
+</ion-content>

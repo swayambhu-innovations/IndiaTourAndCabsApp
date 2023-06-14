@@ -1,59 +1,64 @@
+<!-- <swiper [loop]="true" effect="fade" [slidesPerView]="2">
+  <ng-template swiperSlide *ngFor="let tour of Tours">
+    <ion-card class="tourCard" routerLink="../spot-detail/{{ tour.id }}">
+      <ion-img [src]="tour.image"></ion-img>
+      <ion-row class="ion-justify-content-between">
+        <ion-col size="6">
+          <div
+            style="
+              background-color: rgba(0, 0, 0, 0.392);
+              height: 1.5rem;
+              width: 3.7rem;
+              border-radius: 0.3rem;
+              color: white;
+              display: flex;
+              font-size: var(--ion-text);
+              align-items: center;
+              justify-content: center;
+              gap: 0.4rem;
+            "
+          >
+            <ion-text style="font-size: 0.8rem">{{ tour.type }}</ion-text>
+            <ion-icon style="font-size: 0.8rem" name="train-outline"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col size="5.5">
+          <div
+            style="
+              background-color: rgba(0, 0, 0, 0.392);
+              height: 1.5rem;
+              width: 3.7rem;
+              border-radius: 0.3rem;
+              color: white;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.4rem;
+              font-size: var(--ion-text);
+            "
+          >
+            <ion-text style="font-size: 0.8rem">{{ tour.ratings }}</ion-text>
+            <ion-icon
+              name="star"
+              style="color: yellow; font-size: 0.9rem"
+            ></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="padding: 0" class="ion-text-start">
+          <ion-text style="color: white">{{ tour.name }}</ion-text>
+        </ion-col>
+        <ion-col size="12" style="padding: 0" class="ion-text-start">
+          <ion-icon name="location-outline" color="light"></ion-icon>
+          <ion-text style="color: white">{{ tour.location }}</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-template>
+</swiper> -->
 
-  <swiper [loop]="true" effect="fade" >
-    <ng-template swiperSlide *ngFor="let tour of Tours">
-      <ion-card class="tourCard" routerLink="../spot-detail/{{tour.id}}">   
-        <ion-img [src]='tour.image'></ion-img>
-        <ion-row class="ion-justify-content-between">
-          <ion-col size="6">
-            <div
-              style="
-                background-color: rgba(0, 0, 0, 0.392);
-                height: 1.5rem;
-               width:3.7rem;
-                border-radius: 0.3rem;
-                color: white;
-                display: flex;
-                font-size: var(--ion-text);
-                align-items: center;
-                justify-content: center;
-                gap: 0.4rem;
-              "
-            >
-              <ion-text style="font-size: .8rem;" >{{tour.type}}</ion-text>
-              <ion-icon style="font-size: .8rem;" name="train-outline"></ion-icon>
-            </div>
-          </ion-col>
-          <ion-col size="5.5">
-            <div
-              style="
-                background-color: rgba(0, 0, 0, 0.392);
-                height: 1.5rem;
-               width:3.7rem;
-                border-radius: 0.3rem;
-                color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.4rem;
-                font-size: var(--ion-text);
-              "
-            >
-              <ion-text style="font-size: .8rem;" >{{tour.ratings}}</ion-text>
-              <ion-icon name="star" style="color: yellow;font-size:.9rem"></ion-icon>
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row style="margin-top: 60%;padding-left:5px;">
-          <ion-col size="12" style="padding: 0" class="ion-text-start">
-            <ion-text style="color: white">{{tour.name}}</ion-text>
-          </ion-col>
-          <ion-col size="12" style="padding: 0" class="ion-text-start">
-            <ion-icon name="location-outline" color="light"></ion-icon>
-            <ion-text style="color: white">{{tour.location}}</ion-text>
-          </ion-col>
-        </ion-row>
-        <!-- <div class="shadow"></div> -->
-      </ion-card>
-    </ng-template>
-   
-  </swiper>
+<!-- <h1>Test</h1>
+<h1>Test</h1>
+<h1>Test</h1>
+<h1>Test</h1> -->

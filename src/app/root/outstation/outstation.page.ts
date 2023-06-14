@@ -37,6 +37,9 @@ export class OutstationPage implements OnInit {
 
   
   constructor(private database: DatabaseService, private dataProvider: DataProviderService, private router: Router, private UI : AlertsAndNotificationsService) { }
+  ionViewDidEnter(){
+    // this.outstationForm.controls['dropLocation'].setValue(this.dataProvider?.routeData);
+  }
 
   ngOnInit() {
     this.locations();

@@ -11,7 +11,7 @@ import { booking } from 'src/structures/booking.structure';
   templateUrl: './billing.page.html',
   styleUrls: ['./billing.page.scss'],
 })
-export class BillingPage implements OnInit {
+export class BillingPage {
   constructor(
     public dataProvider: DataProviderService,
     private router: Router,
@@ -20,8 +20,8 @@ export class BillingPage implements OnInit {
     private database:DatabaseService
   ) {}
 
-  async ngOnInit() {
-    console.log(this.dataProvider.booking?.vehicle);
+  async ionViewDidEnter() {
+    console.log(this.dataProvider.booking);
     if (this.dataProvider.booking?.type == 'cab'){
       this.dataProvider.loading = true;
       console.log("Getting data",this.dataProvider.booking);
@@ -44,6 +44,12 @@ export class BillingPage implements OnInit {
                 element.maximumHour >= totalDistance
               );
             });
+            // if no rental packages available then selects the one with highest pricePerHour
+            if (!rentalPackage) {
+              rentalPackage = packages.reduce((a: any, b: any) => {
+                return a.pricePerHour > b.pricePerHour ? a : b;
+              });
+            }
             console.log("rentalPackage",rentalPackage);
             let totalCost = rentalPackage.pricePerHour * totalDistance;
             this.dataProvider.booking.costs = [
@@ -119,10 +125,6 @@ export class BillingPage implements OnInit {
                 this.dataProvider.loading = false;
               });
             }
-          } else {
-            this.dataProvider.loading = false;
-            this.alertify.presentToast('Error adding on Wallet', 'error');
-            this.router.navigateByUrl('/root/error-page');
           }
           // this._snackBar.open("Payment successful");
           // this.close.emit();
