@@ -8,36 +8,33 @@ import { DatabaseService } from 'src/services/database/database.service';
   styleUrls: ['./blog-detail.page.scss'],
 })
 export class BlogDetailPage implements OnInit {
-  
   public url: any = this.activatedRoute.snapshot.paramMap.get('id');
   public blog: any;
-  constructor(private activatedRoute:ActivatedRoute, private database:DatabaseService ) { }
-  ngOnInit() { 
-    this.database.blogDetails(this.url).then((blog:any)=>{
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private database: DatabaseService
+  ) {}
+  ngOnInit() {
+    this.database.blogDetails(this.url).then((blog: any) => {
       this.blog = blog.data();
       // this.blog = blog.data();
-      console.log(this.blog)
-
-    })
+      console.log(this.blog);
+    });
   }
 
-  back(){
+  back() {
     window.history.back();
   }
-
 }
 
 // create a filter pipe which removes extra <br> from the text
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'removeExtraBr'
+  name: 'removeExtraBr',
 })
 export class RemoveExtraBrPipe implements PipeTransform {
-  
-    transform(value: any, args?: any): any {
-      return value.replace(/<br>/g, '');
-    }
-  
+  transform(value: any, args?: any): any {
+    return value.replace(/<br>/g, '');
   }
-  
+}
